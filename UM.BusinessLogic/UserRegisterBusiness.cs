@@ -65,7 +65,7 @@ namespace UM.BusinessLogic
         public int UserLogin(string username, string password)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int i=userReg.UserLogin(username, password);
+            int i = userReg.UserLogin(username, password);
             return i;
         }
     }

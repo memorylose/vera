@@ -23,7 +23,7 @@ namespace UM.UI
             string validateResult = userReg.LoginValidation(txtUsername.Value, txtPassword.Value);
             if (string.IsNullOrEmpty(validateResult))
             {
-                int i=userReg.UserLogin(txtUsername.Value, txtPassword.Value);
+                int i = userReg.UserLogin(txtUsername.Value, txtPassword.Value);
                 if (i == 1)
                 {
                     Response.Redirect("Home.aspx");
