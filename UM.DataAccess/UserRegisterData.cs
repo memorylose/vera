@@ -44,7 +44,6 @@ namespace UM.DataAccess
             object result = SqlHelper.ExcuteScalar(CommandType.Text, sqlStr, sqlParam);
             i = Convert.ToInt32(result);
             return i;
-           
         }
     }
 }

@@ -24,7 +24,6 @@ namespace UM.UI
             if (string.IsNullOrEmpty(validateResult))
             {
                 int i=userReg.UserLogin(txtUsername.Value, txtPassword.Value);
-
                 if (i == 1)
                 {
                     Response.Redirect("Home.aspx");
