@@ -32,7 +32,7 @@ namespace UM.DataAccess
 
         public int UserLogin(string username, string password, out int i)
         {
-            string sqlStr = "select count(*) from Users where Username = @username and Password = @password)";
+            string sqlStr = "select count(*) from Users where Username = @username and Password = @password";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Username",SqlDbType.NVarChar,20),
                     new SqlParameter("@Password",SqlDbType.NVarChar,50)
