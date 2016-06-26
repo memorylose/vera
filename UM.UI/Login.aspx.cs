@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UM.BusinessLogic;
 
 namespace UM.UI
 {
@@ -17,6 +19,26 @@ namespace UM.UI
         public void Button1_Click(object sender, EventArgs e)
         {
             //Go to home.aspx when succeed
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            string validateResult = userReg.LoginValidation(txtUsername.Value, txtPassword.Value);
+            if (string.IsNullOrEmpty(validateResult))
+            {
+                int i=userReg.UserLogin(txtUsername.Value, txtPassword.Value);
+
+                if (i == 1)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    Response.Write("Username or Password is not correct, please check and login again");
+                }
+            }
+            else
+            {
+                Response.Write(validateResult);
+            }
         }
+
     }
 }

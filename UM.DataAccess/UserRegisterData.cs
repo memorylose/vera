@@ -29,5 +29,22 @@ namespace UM.DataAccess
 
             SqlHelper.ExcuteNonQuery(CommandType.Text, sqlStr, sqlParam);
         }
+
+        public int UserLogin(string username, string password, out int i)
+        {
+            string sqlStr = "select count(*) from Users where Username = @username and Password = @password)";
+            SqlParameter[] sqlParam = {
+                    new SqlParameter("@Username",SqlDbType.NVarChar,20),
+                    new SqlParameter("@Password",SqlDbType.NVarChar,50)
+                };
+            sqlParam[0].Value = username;
+            sqlParam[1].Value = password;
+
+            i = 0;
+            object result = SqlHelper.ExcuteScalar(CommandType.Text, sqlStr, sqlParam);
+            i = Convert.ToInt32(result);
+            return i;
+           
+        }
     }
 }

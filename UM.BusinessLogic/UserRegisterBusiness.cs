@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace UM.BusinessLogic
 {
     public class UserRegisterBusiness
     {
+        public object Response { get; private set; }
+
         /// <summary>
         /// NEED MORE VALIDATION HERE SUCH AS MAIL FORMAT AND PASSWORD FORMAT.
         /// </summary>
@@ -37,10 +40,35 @@ namespace UM.BusinessLogic
 
         }
 
+        public string LoginValidation(string username, string password)
+        {
+            string errMsg = string.Empty;
+
+            if (string.IsNullOrEmpty(username))
+            {
+                errMsg = "User name is empty.";
+            }
+            else if (string.IsNullOrEmpty(password))
+            {
+                errMsg = "Password is empty.";
+            }
+            return errMsg;
+
+        }
+
         public void CreateUser(string username, string password, string mail)
         {
             UserRegisterData userReg = new UserRegisterData();
             userReg.CreateUser(username, password, mail);
+        }
+
+        public int UserLogin(string username, string password)
+        {
+            int i;
+            UserRegisterData userReg = new UserRegisterData();
+            userReg.UserLogin(username, password,out i);
+            return i;
+            
         }
     }
 }
