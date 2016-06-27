@@ -45,7 +45,7 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int CheckDuplication(string username)
+        public int CheckUserExist(string username)
         {
             string sqlStr = "select count(*) from Users where Username=@username";
             SqlParameter[] sqlParam = {

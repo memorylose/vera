@@ -22,15 +22,15 @@ namespace UM.UI
 
             if (string.IsNullOrEmpty(validateResult))
             {
-                int i = userReg.CheckDuplication(txtUsername.Value);
-                if (i == 0)
+                int i = userReg.CheckUserExist(txtUsername.Value);
+                if (i > 0)
+                {
+                    Response.Write("Username already exists,please register again");
+                }
+                else 
                 {
                     userReg.CreateUser(txtUsername.Value, txtPassword.Value, txtMail.Value);
                     Response.Redirect("Login.aspx");
-                }
-                else if (i == 1)
-                {
-                    Response.Write("Username already exists,please register again");
                 }
             }
             else

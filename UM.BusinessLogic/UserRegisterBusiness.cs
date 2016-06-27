@@ -40,10 +40,10 @@ namespace UM.BusinessLogic
 
         }
 
-        public int CheckDuplication(string username)
+        public int CheckUserExist(string username)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int i = userReg.CheckDuplication(username);
+            int i = userReg.CheckUserExist(username);
             return i;
         }
 
