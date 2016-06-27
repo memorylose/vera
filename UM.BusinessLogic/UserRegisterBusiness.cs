@@ -40,6 +40,13 @@ namespace UM.BusinessLogic
 
         }
 
+        public int CheckDuplication(string username)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            int i = userReg.CheckDuplication(username);
+            return i;
+        }
+
         public string LoginValidation(string username, string password)
         {
             string errMsg = string.Empty;

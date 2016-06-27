@@ -19,10 +19,19 @@ namespace UM.UI
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             string validateResult = userReg.RegisterValidation(txtUsername.Value, txtPassword.Value, txtMail.Value);
+
             if (string.IsNullOrEmpty(validateResult))
             {
-                userReg.CreateUser(txtUsername.Value, txtPassword.Value, txtMail.Value);
-                Response.Redirect("Login.aspx");
+                int i = userReg.CheckDuplication(txtUsername.Value);
+                if (i == 0)
+                {
+                    userReg.CreateUser(txtUsername.Value, txtPassword.Value, txtMail.Value);
+                    Response.Redirect("Login.aspx");
+                }
+                else if (i == 1)
+                {
+                    Response.Write("Username already exists,please register again");
+                }
             }
             else
             {

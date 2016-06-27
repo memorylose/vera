@@ -44,5 +44,17 @@ namespace UM.DataAccess
             int i = Convert.ToInt32(result);
             return i;
         }
+
+        public int CheckDuplication(string username)
+        {
+            string sqlStr = "select count(*) from Users where Username=@username";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@username",SqlDbType.NVarChar,20)
+            };
+            sqlParam[0].Value = username;
+            object result = SqlHelper.ExcuteScalar(CommandType.Text, sqlStr, sqlParam);
+            int i = Convert.ToInt32(result);
+            return i;
+        }
     }
 }
