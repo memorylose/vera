@@ -19,7 +19,7 @@ namespace UM.UI
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             string validateResult = userReg.RegisterValidation(txtUsername.Value, txtPassword.Value, txtMail.Value);
-
+            
             if (string.IsNullOrEmpty(validateResult))
             {
                 int i = userReg.CheckUserExist(txtUsername.Value);
