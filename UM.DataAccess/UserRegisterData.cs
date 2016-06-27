@@ -13,7 +13,6 @@ namespace UM.DataAccess
     {
         public void CreateUser(string username, string password, string mail)
         {
-            string encryptPassword = EncryptUtil.CreateSHA256HashString(password);
             string sqlStr = "INSERT INTO Users(Username,Password,Email,CreateDate,UpdateDate) VALUES (@Username,@Password,@Email,@CreateDate,@UpdateDate)";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Username",SqlDbType.NVarChar,20),
@@ -23,7 +22,7 @@ namespace UM.DataAccess
                     new SqlParameter("@UpdateDate",SqlDbType.DateTime)
                 };
             sqlParam[0].Value = username;
-            sqlParam[1].Value = encryptPassword;
+            sqlParam[1].Value = EncryptUtil.CreateSHA256HashString(password);
             sqlParam[2].Value = mail;
             sqlParam[3].Value = DateTime.Now;
             sqlParam[4].Value = DateTime.Now;
