@@ -38,8 +38,8 @@ namespace UM.DataAccess
                     new SqlParameter("@Password",SqlDbType.NVarChar,50)
                 };
             sqlParam[0].Value = username;
-            sqlParam[1].Value = password;
-            
+            sqlParam[1].Value = EncryptUtil.CreateSHA256HashString(password);
+
             object result = SqlHelper.ExcuteScalar(CommandType.Text, sqlStr, sqlParam);
             int i = Convert.ToInt32(result);
             return i;
