@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UM.BusinessLogic;
+
 
 namespace UM.UI.Article
 {
@@ -22,6 +24,19 @@ namespace UM.UI.Article
             if (Session["user"] != null)
             {
                 username = Session["user"].ToString();
+            }
+
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            int userId = userReg.AddArticle(username);
+            int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId);
+            if (i != 0)
+            {
+                Response.Write("Add Article successfully");
+                Response.Redirect("ShowArticle.aspx");
+            }
+            else
+            {
+                Response.Write("Add Article Failed, Please Try again");
             }
         }
     }

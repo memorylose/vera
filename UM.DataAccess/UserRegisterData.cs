@@ -56,5 +56,34 @@ namespace UM.DataAccess
             int i = Convert.ToInt32(result);
             return i;
         }
+
+        public int AddArticle(string username)
+        {
+            string getIdSql = "select ID from Users where Username = @username";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@username",SqlDbType.NVarChar,20)
+            };
+            sqlParam[0].Value = username;
+            object result = SqlHelper.ExcuteScalar(CommandType.Text, getIdSql, sqlParam);
+            int i = Convert.ToInt32(result);
+            return i;
+        }
+
+        public int AddArticle(string title, string content, int userid)
+        {
+            string insertSql = "insert into Articles(Title, Contents,CreateDate,CreateUserId) values (@Title,@Contents,@CreateDate,@CreateUserId)";
+            SqlParameter[] sqlParam = {
+                    new SqlParameter("@Title",SqlDbType.NVarChar,100),
+                    new SqlParameter("@Contents",SqlDbType.NVarChar),
+                    new SqlParameter("@CreateDate",SqlDbType.DateTime),
+                    new SqlParameter("@CreateUserId",SqlDbType.Int)
+                };
+            sqlParam[0].Value = title;
+            sqlParam[1].Value = content;
+            sqlParam[2].Value = DateTime.Now;
+            sqlParam[3].Value = userid;
+            int i = SqlHelper.ExcuteNonQuery(CommandType.Text, insertSql, sqlParam);
+            return i;
+        }
     }
 }

@@ -75,5 +75,19 @@ namespace UM.BusinessLogic
             int i = userReg.UserLogin(username, password);
             return i;
         }
+
+        public int AddArticle(string username)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            int i = userReg.AddArticle(username);
+            return i;
+        }
+
+        public int AddArticle(string title, string content, int id)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            int i = userReg.AddArticle(title, content, id);
+            return i;
+        }
     }
 }

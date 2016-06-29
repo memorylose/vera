@@ -14,7 +14,7 @@
         <div style="height: 40px;">
             <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Title:</div>
             <div style="float: left; margin-left: 10px; height: 30px;">
-                <input type="text" style="height: 25px; width: 200px; border: 1px solid #DDDDDD; padding-left: 5px;" id="txtUsername" runat="server" />
+                <input type="text" style="height: 25px; width: 200px; border: 1px solid #DDDDDD; padding-left: 5px;" id="txtTitle" runat="server" />
             </div>
         </div>
         <div style="height: 320px;">
