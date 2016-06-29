@@ -30,7 +30,7 @@
             </div>
         </div>
         <div style="height: 40px;">
-            <asp:Button ID="Button1" runat="server" Text="注册" Width="70px" Height="25px" OnClick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" Text="Register" Width="70px" Height="25px" OnClick="Button1_Click" />
         </div>
     </form>
 </body>

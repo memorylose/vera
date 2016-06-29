@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div style="height: 40px; float:right; margin-right:43px;">
-                <asp:Button ID="Button1" runat="server" Text="登录" Width="70px" Height="25px" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Login" Width="70px" Height="25px" OnClick="Button1_Click" />
             </div>
         </div>
     </form>

@@ -26,6 +26,8 @@ namespace UM.UI
                 int i = userReg.UserLogin(txtUsername.Value, txtPassword.Value);
                 if (i > 0)
                 {
+                    //use session to save the user information
+                    Session["user"] = txtUsername.Value;
                     Response.Redirect("Home.aspx");
                 }
                 else

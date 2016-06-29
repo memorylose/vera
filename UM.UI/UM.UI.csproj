@@ -97,6 +97,7 @@
     <Content Include="ApplicationInsights.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Article\AddArticle.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -114,6 +115,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Article\AddArticle.aspx.cs">
+      <DependentUpon>AddArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article\AddArticle.aspx.designer.cs">
+      <DependentUpon>AddArticle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
