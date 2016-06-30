@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using UM.BusinessLogic;
 
 
+
 namespace UM.UI.Article
 {
     public partial class AddArticle : System.Web.UI.Page
@@ -25,18 +26,21 @@ namespace UM.UI.Article
             {
                 username = Session["user"].ToString();
             }
-
+            else
+            {
+                Response.Redirect("../Login.aspx");
+                
+            }
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.AddArticle(username);
             int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId);
             if (i != 0)
             {
-                Response.Write("Add Article successfully");
                 Response.Redirect("ShowArticle.aspx");
             }
             else
             {
-                Response.Write("Add Article Failed, Please Try again");
+                Response.Write("Add Article Failed, Please Try Again");
             }
         }
     }
