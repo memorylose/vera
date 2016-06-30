@@ -14,7 +14,10 @@ namespace UM.UI.Article
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] == null)
+            {
+                Response.Redirect("../Login.aspx");
+            }
         }
 
         public void Button1_Click(object sender, EventArgs e)
@@ -26,11 +29,7 @@ namespace UM.UI.Article
             {
                 username = Session["user"].ToString();
             }
-            else
-            {
-                Response.Redirect("../Login.aspx");
-                
-            }
+            
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.AddArticle(username);
             int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId);
