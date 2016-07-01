@@ -9,8 +9,21 @@
 <body>
     <form id="form1" runat="server">
         <div style="width: 350px; height: 200px; margin: 0 auto; padding-left: 20px; margin-top: 20px;">
-            <%--<div style="height: 30px; text-align: center; font-size: 20px; margin-bottom: 20px;">
-                This is articles title
+ <%--           <div style="height: 30px;">
+                <div style="height: 30px; text-align: center; font-size: 13px; margin-bottom: 20px; float: left;">
+                    This is articles title
+                </div>
+                <div style="height: 30px; text-align: center; font-size: 13px; margin-bottom: 20px; float: left; margin-left: 20px;">
+                    2016/07/01
+                </div>
+            </div>
+            <div style="height: 30px;">
+                <div style="height: 30px; text-align: center; font-size: 13px; margin-bottom: 20px; float: left;">
+                    This is articles title
+                </div>
+                <div style="height: 30px; text-align: center; font-size: 13px; margin-bottom: 20px; float: left; margin-left: 20px;">
+                    2016/07/01
+                </div>
             </div>--%>
 
             <%=Articlehtml%>
