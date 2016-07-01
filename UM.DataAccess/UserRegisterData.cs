@@ -85,5 +85,11 @@ namespace UM.DataAccess
             int i = SqlHelper.ExcuteNonQuery(CommandType.Text, insertSql, sqlParam);
             return i;
         }
+
+        public DataSet ShowArticle()
+        {
+            DataSet dshow = SqlHelper.ExcuteDataSet("select Title from Articles");
+            return dshow;
+        }
     }
 }

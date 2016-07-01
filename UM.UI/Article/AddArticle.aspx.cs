@@ -35,7 +35,7 @@ namespace UM.UI.Article
             int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId);
             if (i != 0)
             {
-                Response.Redirect("ShowArticle.aspx");
+                Response.Redirect("Article.aspx");
             }
             else
             {
