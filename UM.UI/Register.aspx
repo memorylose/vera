@@ -23,8 +23,8 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control login-field" value="" placeholder="Email" id="txtMail" runat="server" />
-                    </div>
-                    <a class="btn btn-primary btn-lg btn-block" href="#">Log in</a>
+                    </div>               
+                    <asp:Button ID="Button1" CssClass="btn btn-primary btn-lg btn-block" runat="server" Text="Log in" OnClick="Button1_Click1" />
                     <a class="login-link" href="#">Lost your password?</a>
                 </div>
                 <div class="col-md-4"></div>

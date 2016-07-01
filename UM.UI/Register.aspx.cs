@@ -15,11 +15,11 @@ namespace UM.UI
 
         }
 
-        public void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click1(object sender, EventArgs e)
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             string validateResult = userReg.RegisterValidation(txtUsername.Value, txtPassword.Value, txtMail.Value);
-            
+
             if (string.IsNullOrEmpty(validateResult))
             {
                 int i = userReg.CheckUserExist(txtUsername.Value);
@@ -27,7 +27,7 @@ namespace UM.UI
                 {
                     Response.Write("Username already exists,please register again");
                 }
-                else 
+                else
                 {
                     userReg.CreateUser(txtUsername.Value, txtPassword.Value, txtMail.Value);
                     Response.Redirect("Login.aspx");
