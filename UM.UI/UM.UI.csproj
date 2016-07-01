@@ -99,7 +99,6 @@
     </Content>
     <Content Include="Article\AddArticle.aspx" />
     <Content Include="Article\Article.aspx" />
-    <Content Include="Article\ArticleDetail.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -133,13 +132,6 @@
     </Compile>
     <Compile Include="Article\Article.aspx.designer.cs">
       <DependentUpon>Article.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Article\ArticleDetail.aspx.cs">
-      <DependentUpon>ArticleDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Article\ArticleDetail.aspx.designer.cs">
-      <DependentUpon>ArticleDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
