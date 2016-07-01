@@ -18,9 +18,21 @@ namespace UM.UI.Article
             DataSet articleDs = userReg.ShowArticle();
             for (int i = 0; i < articleDs.Tables[0].Rows.Count; i++)
             {
-                Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 20px; margin - bottom: 20px; \">";
-                Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString() + "<br/>";
-                Articlehtml += "</ div >";
+                //Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 20px; margin - bottom: 20px; \">";
+                //Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString() + "<br/>";
+                //Articlehtml += "</ div >";
+
+                Articlehtml += "<div style=\"height: 30px; \">";
+                Articlehtml += "<div style=\"height: 30px; width: 220px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
+                Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString();
+                Articlehtml += "</div>" + "<br/>";
+
+                Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
+                Articlehtml += articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "<br/>";
+                Articlehtml += "</div>" + "<br/>";
+                Articlehtml += "</div>";
+
+
             }
         }
     }

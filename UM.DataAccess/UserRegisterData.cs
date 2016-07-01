@@ -88,7 +88,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticle()
         {
-            DataSet dshow = SqlHelper.ExcuteDataSet("select Title from Articles order by CreateDate");
+            DataSet dshow = SqlHelper.ExcuteDataSet("select Title,CreateDate from Articles order by CreateDate");
             return dshow;
         }
     }
