@@ -98,6 +98,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Article\AddArticle.aspx" />
+    <Content Include="Article\Article.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="Article\AddArticle.aspx.designer.cs">
       <DependentUpon>AddArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Article\Article.aspx.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article\Article.aspx.designer.cs">
+      <DependentUpon>Article.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
