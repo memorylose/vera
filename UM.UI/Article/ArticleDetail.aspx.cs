@@ -16,6 +16,9 @@ namespace UM.UI.Article
         public string Timehtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            //就当现在你访问的是1的文章
+            int articleId = 1;
+
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet contentDs = userReg.ArticleDetails();
             string title= contentDs.Tables[0].Rows[0]["Title"].ToString();
