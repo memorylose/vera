@@ -22,7 +22,7 @@ namespace UM.UI.Article
                 articleId = Convert.ToInt32(articleDs.Tables[0].Rows[i]["Id"]);
                 Articlehtml += "<div style=\"height: 30px; \">";
                 Articlehtml += "<div style=\"height: 30px; width: 500px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
-                Articlehtml += "<a href=\"ArticleDetail.aspx?id=articleId\">";
+                Articlehtml += "<a href=\"ArticleDetail.aspx?id="+articleId+"\">";
                 Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString();
                 Articlehtml += "</a>" + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
