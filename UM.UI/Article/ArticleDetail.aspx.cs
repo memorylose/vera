@@ -16,10 +16,12 @@ namespace UM.UI.Article
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet contentDs = userReg.ArticleDetails();
+            string title= contentDs.Tables[0].Rows[0]["Title"].ToString();
             string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
-            Contenthtml += "<div style=\"height: 30px; width: 2200px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">";
-            Contenthtml += content;
-            Contenthtml += "</div>";
+            string crDate = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
+            Contenthtml += title + "<br/>";
+            Contenthtml += content+"<br/>";
+            Contenthtml += crDate;
         }
     }
 }

@@ -94,7 +94,7 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails()
         {
-            DataSet ds= SqlHelper.ExcuteDataSet("select Contents from Articles where Id=1");
+            DataSet ds= SqlHelper.ExcuteDataSet("select Title,Contents,CreateDate from Articles where Id=1");
             return ds;
         }
     }
