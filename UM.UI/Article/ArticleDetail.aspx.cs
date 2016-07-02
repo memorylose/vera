@@ -17,15 +17,15 @@ namespace UM.UI.Article
         protected void Page_Load(object sender, EventArgs e)
         {
             //就当现在你访问的是1的文章
-            int articleId = 1;
+            int articleId = Convert.ToInt32(Request.QueryString["id"]);
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet contentDs = userReg.ArticleDetails(articleId);
-            string title= contentDs.Tables[0].Rows[0]["Title"].ToString();
+            string title = contentDs.Tables[0].Rows[0]["Title"].ToString();
             string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
             string crDate = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
             Titlehtml += title + "<br/>";
-            Contenthtml += content+"<br/>";
+            Contenthtml += content + "<br/>";
             Timehtml += crDate;
         }
     }
