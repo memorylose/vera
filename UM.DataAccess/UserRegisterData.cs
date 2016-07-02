@@ -91,5 +91,11 @@ namespace UM.DataAccess
             DataSet dshow = SqlHelper.ExcuteDataSet("select Title,CreateDate from Articles order by CreateDate");
             return dshow;
         }
+
+        public DataSet ArticleDetails()
+        {
+            DataSet ds= SqlHelper.ExcuteDataSet("select Id,Contents from Articles");
+            return ds;
+        }
     }
 }

@@ -96,5 +96,12 @@ namespace UM.BusinessLogic
             DataSet titles = userReg.ShowArticle();
             return titles;
         }
+
+        public DataSet ArticleDetails()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.ArticleDetails();
+            return ds;
+        }
     }
 }

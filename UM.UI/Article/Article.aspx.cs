@@ -20,7 +20,7 @@ namespace UM.UI.Article
             {
                 Articlehtml += "<div style=\"height: 30px; \">";
                 Articlehtml += "<div style=\"height: 30px; width: 220px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
-                Articlehtml+= "<a href=\"ArticleDetail.aspx?Id=1\">";
+                Articlehtml+= "<a href=\"ArticleDetail.aspx?id=1\">";
                 Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString();
                 Articlehtml += "</a>" + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
