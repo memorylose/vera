@@ -12,15 +12,17 @@ namespace UM.UI.Article
     public partial class Article : System.Web.UI.Page
     {
         public string Articlehtml = "";
+        public int articleId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet articleDs = userReg.ShowArticle();
             for (int i = 0; i < articleDs.Tables[0].Rows.Count; i++)
             {
+                articleId = Convert.ToInt32(articleDs.Tables[0].Rows[i]["Id"]);
                 Articlehtml += "<div style=\"height: 30px; \">";
                 Articlehtml += "<div style=\"height: 30px; width: 500px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
-                Articlehtml+= "<a href=\"ArticleDetail.aspx?id=1\">";
+                Articlehtml += "<a href=\"ArticleDetail.aspx?id=articleId\">";
                 Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString();
                 Articlehtml += "</a>" + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
