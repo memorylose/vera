@@ -97,10 +97,10 @@ namespace UM.BusinessLogic
             return titles;
         }
 
-        public DataSet ArticleDetails()
+        public DataSet ArticleDetails(int articleId)
         {
             UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.ArticleDetails();
+            DataSet ds = userReg.ArticleDetails(articleId);
             return ds;
         }
     }

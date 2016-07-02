@@ -92,13 +92,13 @@ namespace UM.DataAccess
             return dshow;
         }
 
-        public DataSet ArticleDetails()
+        public DataSet ArticleDetails(int articleId)
         {
             string sql = "select Title,Contents,CreateDate from Articles where Id=@id";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@id",SqlDbType.Int)
             };
-            sqlParam[0].Value = 1;
+            sqlParam[0].Value = articleId;
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }

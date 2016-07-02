@@ -20,7 +20,7 @@ namespace UM.UI.Article
             int articleId = 1;
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet contentDs = userReg.ArticleDetails();
+            DataSet contentDs = userReg.ArticleDetails(articleId);
             string title= contentDs.Tables[0].Rows[0]["Title"].ToString();
             string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
             string crDate = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
