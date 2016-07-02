@@ -15,14 +15,8 @@ namespace UM.UI.Article
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet contentDs = userReg.ArticleDetails();
-            string content = string.Empty;
-            string id = string.Empty;
-            for (int i = 0; i < contentDs.Tables[0].Rows.Count; i++)
-            {
-                id += contentDs.Tables[0].Rows[i]["Id"].ToString();
-                content += contentDs.Tables[0].Rows[i]["Contents"].ToString() + "<br/>";
-            }
-            id = Request.QueryString["id"];
+            string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
+            Response.Write(content);
         }
     }
 }
