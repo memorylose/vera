@@ -11,7 +11,9 @@ namespace UM.UI.Article
 {
     public partial class ArticleDetail : System.Web.UI.Page
     {
+        public string Titlehtml = "";
         public string Contenthtml = "";
+        public string Timehtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
@@ -19,9 +21,9 @@ namespace UM.UI.Article
             string title= contentDs.Tables[0].Rows[0]["Title"].ToString();
             string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
             string crDate = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
-            Contenthtml += title + "<br/>";
+            Titlehtml += title + "<br/>";
             Contenthtml += content+"<br/>";
-            Contenthtml += crDate;
+            Timehtml += crDate;
         }
     }
 }

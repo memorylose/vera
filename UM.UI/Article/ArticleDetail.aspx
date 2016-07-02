@@ -8,9 +8,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <%=Contenthtml%>
-    </div>
+        <div>
+            <%=Titlehtml%>
+            <%=Contenthtml%>
+            <%=Timehtml%>
+        </div>
     </form>
 </body>
 </html>
