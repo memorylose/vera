@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,10 @@ namespace UM.UI.Article
             {
                 Response.Redirect("../Login.aspx");
             }
+            else
+            {
+                BindDropdownList();
+            }
         }
 
         public void Button1_Click(object sender, EventArgs e)
@@ -29,7 +34,7 @@ namespace UM.UI.Article
             {
                 username = Session["user"].ToString();
             }
-            
+
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.AddArticle(username);
             int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId);
@@ -41,6 +46,15 @@ namespace UM.UI.Article
             {
                 Response.Write("Add Article Failed, Please Try Again");
             }
+        }
+
+        private void BindDropdownList()
+        {
+            //TODO: get dataset for article type
+            DataSet articleTypeDs = null;
+            DropDownList1.DataSource = articleTypeDs;
+            DropDownList1.DataTextField = "Name";
+            DropDownList1.DataBind();
         }
     }
 }

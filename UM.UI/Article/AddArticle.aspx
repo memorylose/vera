@@ -20,7 +20,13 @@
         <div style="height: 320px;">
             <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Contents:</div>
             <div style="float: left; margin-left: 10px; height: 30px;">
-                <textarea cols="60" rows="20" style="border:1px solid #DDDDDD" id="txtContent" runat="server"></textarea>
+                <textarea cols="60" rows="20" style="border: 1px solid #DDDDDD" id="txtContent" runat="server"></textarea>
+            </div>
+        </div>
+        <div style="height: 320px;">
+            <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Type:</div>
+            <div style="float: left; margin-left: 10px; height: 30px;">
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
             </div>
         </div>
         <div style="height: 40px;">
