@@ -11,6 +11,7 @@ namespace UM.UI.Article
 {
     public partial class ArticleDetail : System.Web.UI.Page
     {
+
         public string Titlehtml = "";
         public string Contenthtml = "";
         public string Timehtml = "";
