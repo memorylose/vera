@@ -100,6 +100,7 @@
     <Content Include="Article\AddArticle.aspx" />
     <Content Include="Article\Article.aspx" />
     <Content Include="Article\ArticleDetail.aspx" />
+    <Content Include="Article\ArticleModify.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="Article\ArticleDetail.aspx.designer.cs">
       <DependentUpon>ArticleDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Article\ArticleModify.aspx.cs">
+      <DependentUpon>ArticleModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article\ArticleModify.aspx.designer.cs">
+      <DependentUpon>ArticleModify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

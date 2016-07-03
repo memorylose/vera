@@ -29,6 +29,10 @@ namespace UM.UI.Article
                 Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
                 Articlehtml += articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
+                //TODO: modify part
+                Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
+                Articlehtml += "Mofify(Click modify then go to modify page.)";
+                Articlehtml += "</div>" + "<br/>";
                 Articlehtml += "</div>";
             }
         }
