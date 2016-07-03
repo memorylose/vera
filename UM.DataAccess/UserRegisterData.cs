@@ -88,9 +88,33 @@ namespace UM.DataAccess
             return i;
         }
 
-        public DataSet ShowArticle()
+        public int ArticleModify(string title, string content, int typeId, int articleId)
         {
-            DataSet dshow = SqlHelper.ExcuteDataSet("select Id,Title,CreateDate from Articles order by CreateDate");
+            string updateSql = "update Articles set Title=@Title, Contents=@Contents, CreateDate=@CreateDate,TypeId=@TypeId where Id=@id";
+            SqlParameter[] sqlParam = {
+                    new SqlParameter("@Title",SqlDbType.NVarChar,100),
+                    new SqlParameter("@Contents",SqlDbType.NVarChar),
+                    new SqlParameter("@CreateDate",SqlDbType.DateTime),
+                    new SqlParameter("@TypeId",SqlDbType.Int),
+                    new SqlParameter("@id",SqlDbType.Int)
+                };
+            sqlParam[0].Value = title;
+            sqlParam[1].Value = content;
+            sqlParam[2].Value = DateTime.Now;
+            sqlParam[3].Value = typeId;
+            sqlParam[4].Value = articleId;
+            int i = SqlHelper.ExcuteNonQuery(CommandType.Text, updateSql, sqlParam);
+            return i;
+        }
+
+        public DataSet ShowArticle(int userid)
+        {
+            string sql = "select Id,Title,CreateDate from Articles where CreateUserId = @CreateUserId order by CreateDate" ;
+            SqlParameter[] sqlParam = {
+                    new SqlParameter("@CreateUserId",SqlDbType.Int)
+                };
+            sqlParam[0].Value = userid;
+            DataSet dshow = SqlHelper.ExcuteDataSet(sql, CommandType.Text,sqlParam);
             return dshow;
         }
 

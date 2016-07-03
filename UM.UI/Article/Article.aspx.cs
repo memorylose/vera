@@ -15,26 +15,43 @@ namespace UM.UI.Article
         public int articleId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string username = string.Empty;
+
+            //get user information
+            if (Session["user"] != null)
+            {
+                username = Session["user"].ToString();
+            }
+
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet articleDs = userReg.ShowArticle();
+            int userId = userReg.GetUserId(username);
+
+            
+            DataSet articleDs = userReg.ShowArticle(userId);
             for (int i = 0; i < articleDs.Tables[0].Rows.Count; i++)
             {
                 articleId = Convert.ToInt32(articleDs.Tables[0].Rows[i]["Id"]);
                 Articlehtml += "<div style=\"height: 30px; \">";
                 Articlehtml += "<div style=\"height: 30px; width: 500px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
-                Articlehtml += "<a href=\"ArticleDetail.aspx?id="+articleId+"\">";
+                Articlehtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";
                 Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString();
                 Articlehtml += "</a>" + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
                 Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
                 Articlehtml += articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
+
                 //TODO: modify part
+            
                 Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
-                Articlehtml += "Mofify(Click modify then go to modify page.)";
+                Articlehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">";
+                Articlehtml += "Mofify" + "<br/>";
+                Articlehtml += "</a>" + "<br/>";
                 Articlehtml += "</div>" + "<br/>";
-                Articlehtml += "</div>";
+                Articlehtml += "</div>" + "<br/>";
             }
         }
+
+
     }
 }
