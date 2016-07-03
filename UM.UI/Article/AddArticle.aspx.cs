@@ -53,9 +53,15 @@ namespace UM.UI.Article
             //TODO: Create new table(ArticleType), id,name(nvarchar10)
             //TODO: get dataset for article type
 
-            DataSet articleTypeDs = null;
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            DataSet articleTypeDs = userReg.GetArticleType();
             DropDownList1.DataSource = articleTypeDs;
-            DropDownList1.DataTextField = "Name";
+            string Name = string.Empty;
+            for (int i = 0; i < articleTypeDs.Tables[0].Rows.Count; i++)
+            {
+                Name += articleTypeDs.Tables[0].Rows[i]["TypeName"].ToString() + "<br/>";
+            }
+            DropDownList1.DataTextField = Name;
             DropDownList1.DataBind();
         }
     }

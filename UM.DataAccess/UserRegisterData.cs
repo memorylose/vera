@@ -102,5 +102,12 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
+
+        public DataSet GetArticleType()
+        {
+            string sql = "select TypeName from ArticleType";
+            DataSet ds = SqlHelper.ExcuteDataSet(sql);
+            return ds;
+        }
     }
 }
