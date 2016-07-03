@@ -30,9 +30,6 @@ namespace UM.UI.Article
 
         private void BindDropdownList()
         {
-            //TODO: Create new table(ArticleType), id,name(nvarchar10)
-            //TODO: get dataset for article type
-
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet articleTypeDs = userReg.GetArticleType();
             DropDownList1.DataSource = articleTypeDs;
@@ -50,7 +47,7 @@ namespace UM.UI.Article
             }
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            int userId = userReg.AddArticle(username);
+            int userId = userReg.GetUserId(username);
             string dpValue = DropDownList1.SelectedItem.Value;
             DataSet ds=userReg.GetArticleId(dpValue);
             int typeId = 0;

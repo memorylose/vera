@@ -76,10 +76,10 @@ namespace UM.BusinessLogic
             return i;
         }
 
-        public int AddArticle(string username)
+        public int GetUserId(string username)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int i = userReg.AddArticle(username);
+            int i = userReg.GetUserId(username);
             return i;
         }
 

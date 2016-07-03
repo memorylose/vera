@@ -57,7 +57,7 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int AddArticle(string username)
+        public int GetUserId(string username)
         {
             string getIdSql = "select ID from Users where Username = @username";
             SqlParameter[] sqlParam = {
