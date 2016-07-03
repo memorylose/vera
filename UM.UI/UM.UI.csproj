@@ -101,6 +101,7 @@
     <Content Include="Article\Article.aspx" />
     <Content Include="Article\ArticleDetail.aspx" />
     <Content Include="Article\ArticleModify.aspx" />
+    <Content Include="images\1.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -118,6 +119,7 @@
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\demo.css" />
     <Content Include="styles\flat-ui.css" />
+    <Content Include="styles\index.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
