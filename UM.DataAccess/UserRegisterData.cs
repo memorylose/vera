@@ -69,21 +69,21 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int AddArticle(string title, string content, int userid, string type)
+        public int AddArticle(string title, string content, int userid, int typeId)
         {
-            string insertSql = "insert into Articles(Title, Contents,CreateDate,CreateUserId,Type) values (@Title,@Contents,@CreateDate,@CreateUserId,@Type)";
+            string insertSql = "insert into Articles(Title, Contents,CreateDate,CreateUserId,TypeId) values (@Title,@Contents,@CreateDate,@CreateUserId,@TypeId)";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Title",SqlDbType.NVarChar,100),
                     new SqlParameter("@Contents",SqlDbType.NVarChar),
                     new SqlParameter("@CreateDate",SqlDbType.DateTime),
                     new SqlParameter("@CreateUserId",SqlDbType.Int),
-                    new SqlParameter("@Type",SqlDbType.NVarChar,10)
+                    new SqlParameter("@TypeId",SqlDbType.Int)
                 };
             sqlParam[0].Value = title;
             sqlParam[1].Value = content;
             sqlParam[2].Value = DateTime.Now;
             sqlParam[3].Value = userid;
-            sqlParam[4].Value = type;
+            sqlParam[4].Value = typeId;
             int i = SqlHelper.ExcuteNonQuery(CommandType.Text, insertSql, sqlParam);
             return i;
         }
@@ -109,6 +109,17 @@ namespace UM.DataAccess
         {
             string sql = "select TypeName from ArticleType";
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
+            return ds;
+        }
+
+        public DataSet GetArticleId(string type)
+        {
+            string sql = "select Id from ArticleType where TypeName = @type";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@type",SqlDbType.NVarChar,10)
+            };
+            sqlParam[0].Value = type;
+            DataSet ds = SqlHelper.ExcuteDataSet(sql,CommandType.Text,sqlParam);
             return ds;
         }
     }
