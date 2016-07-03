@@ -69,19 +69,21 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int AddArticle(string title, string content, int userid)
+        public int AddArticle(string title, string content, int userid, string type)
         {
-            string insertSql = "insert into Articles(Title, Contents,CreateDate,CreateUserId) values (@Title,@Contents,@CreateDate,@CreateUserId)";
+            string insertSql = "insert into Articles(Title, Contents,CreateDate,CreateUserId,Type) values (@Title,@Contents,@CreateDate,@CreateUserId,@Type)";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Title",SqlDbType.NVarChar,100),
                     new SqlParameter("@Contents",SqlDbType.NVarChar),
                     new SqlParameter("@CreateDate",SqlDbType.DateTime),
-                    new SqlParameter("@CreateUserId",SqlDbType.Int)
+                    new SqlParameter("@CreateUserId",SqlDbType.Int),
+                    new SqlParameter("@Type",SqlDbType.NVarChar,10)
                 };
             sqlParam[0].Value = title;
             sqlParam[1].Value = content;
             sqlParam[2].Value = DateTime.Now;
             sqlParam[3].Value = userid;
+            sqlParam[4].Value = type;
             int i = SqlHelper.ExcuteNonQuery(CommandType.Text, insertSql, sqlParam);
             return i;
         }

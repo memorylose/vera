@@ -15,13 +15,16 @@ namespace UM.UI.Article
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("../Login.aspx");
-            }
-            else
-            {
-                BindDropdownList();
+                if (Session["user"] == null)
+                {
+                    Response.Redirect("../Login.aspx");
+                }
+                else
+                {
+                    BindDropdownList();
+                }
             }
         }
 
@@ -37,7 +40,8 @@ namespace UM.UI.Article
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.AddArticle(username);
-            int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId);
+            string dpValue = DropDownList1.SelectedItem.Value;
+            int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId, dpValue);
             if (i != 0)
             {
                 Response.Redirect("Article.aspx");
