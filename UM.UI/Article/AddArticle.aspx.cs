@@ -56,12 +56,7 @@ namespace UM.UI.Article
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet articleTypeDs = userReg.GetArticleType();
             DropDownList1.DataSource = articleTypeDs;
-            string Name = string.Empty;
-            for (int i = 0; i < articleTypeDs.Tables[0].Rows.Count; i++)
-            {
-                Name += articleTypeDs.Tables[0].Rows[i]["TypeName"].ToString() + "<br/>";
-            }
-            DropDownList1.DataTextField = Name;
+            DropDownList1.DataTextField = "TypeName";
             DropDownList1.DataBind();
         }
     }
