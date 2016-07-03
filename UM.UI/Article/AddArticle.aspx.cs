@@ -50,7 +50,9 @@ namespace UM.UI.Article
 
         private void BindDropdownList()
         {
+            //TODO: Create new table(ArticleType), id,name(nvarchar10)
             //TODO: get dataset for article type
+
             DataSet articleTypeDs = null;
             DropDownList1.DataSource = articleTypeDs;
             DropDownList1.DataTextField = "Name";
