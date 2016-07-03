@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserRegisterData.cs" />
+    <Compile Include="UserRegisterDataWithNoParams.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UM.Utility\UM.Utility.csproj">
