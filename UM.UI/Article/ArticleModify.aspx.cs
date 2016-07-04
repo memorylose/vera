@@ -46,8 +46,8 @@ namespace UM.UI.Article
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.GetUserId(username);
             string dpValue = DropDownList1.SelectedItem.Value;
-
-
+            //需要改
+            
             //TODO: 这块没有必须再取一遍ID，既然能把dropdownlist的value取出来，那么你觉得能不能直接把ID取出来？
             DataSet ds = userReg.GetArticleId(dpValue);
             int typeId = 0;
