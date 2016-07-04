@@ -29,7 +29,7 @@ namespace UM.UI.Article
         }
 
         private void BindDropdownList()
-        {
+        { 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet articleTypeDs = userReg.GetArticleType();
             DropDownList1.DataSource = articleTypeDs;
