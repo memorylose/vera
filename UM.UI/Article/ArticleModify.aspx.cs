@@ -16,7 +16,14 @@ namespace UM.UI.Article
             if (!IsPostBack)
             {
                 //TODO 这个页面也是需要登录访问的，没有判断
-                BindDropdownList();
+                if (Session["user"] == null)
+                {
+                    Response.Redirect("../Login.aspx");
+                }
+                else
+                {
+                    //
+                }
                 int articleId = Convert.ToInt32(Request.QueryString["id"]);
                 UserRegisterBusiness userReg = new UserRegisterBusiness();
                 DataSet contentDs = userReg.ArticleDetails(articleId);
@@ -24,43 +31,49 @@ namespace UM.UI.Article
                 txtContent.Value = contentDs.Tables[0].Rows[0]["Contents"].ToString();
 
                 //TODO dropdown的赋值没有，没有直接显示出来这篇文章是什么类别的
+                DataSet articleType = userReg.GetArticleType(articleId);
+                DropDownList1.DataSource = articleType;
+                DropDownList1.DataTextField = "TypeName";
+                DropDownList1.DataBind();
+                
             }
         }
 
-        private void BindDropdownList()
-        {
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet articleTypeDs = userReg.GetArticleType();
-            DropDownList1.DataSource = articleTypeDs;
-            DropDownList1.DataTextField = "TypeName";
-            DropDownList1.DataBind();
-        }
+        //private void BindDropdownList()
+        //{
+        //    UserRegisterBusiness userReg = new UserRegisterBusiness();
+        //    DataSet articleTypeDs = userReg.GetArticleType();
+        //    DropDownList1.DataSource = articleTypeDs;
+        //    DropDownList1.DataTextField = "TypeName";
+        //    DropDownList1.DataBind();
+        //}
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string username = string.Empty;
-            if (Session["user"] != null)
-            {
-                username = Session["user"].ToString();
-            }
+            string username = Session["user"].ToString();
+            
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.GetUserId(username);
             string dpValue = DropDownList1.SelectedItem.Value;
-            //需要改
-            
+            int dpId = DropDownList1.SelectedIndex;
+
+
             //TODO: 这块没有必须再取一遍ID，既然能把dropdownlist的value取出来，那么你觉得能不能直接把ID取出来？
-            DataSet ds = userReg.GetArticleId(dpValue);
-            int typeId = 0;
-            for (int n = 0; n < ds.Tables[0].Rows.Count; n++)
-            {
-                typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["Id"].ToString());
-            }
+            //DataSet ds = userReg.GetArticleId(dpValue);
+            //int typeId = 0;
+            //for (int n = 0; n < ds.Tables[0].Rows.Count; n++)
+            //{
+            //    typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["Id"].ToString());
+            //}
+
+
+
             int articleId = Convert.ToInt32(Request.QueryString["id"]);
             string title = txtTitle.Value;
             string content = txtContent.Value;
 
             //TODO: 方法的命名永远都是动宾
-            int i = userReg.ArticleModify(title, content, typeId, articleId);
+            int i = userReg.ModifyArticle(title, content, dpId, articleId);
             if (i != 0)
             {
                 Response.Redirect("Article.aspx");
@@ -68,7 +81,7 @@ namespace UM.UI.Article
             else
             {
                 //TODO: 又成add了？
-                Response.Write("Add Article Failed, Please Try Again");
+                Response.Write("Modify Article Failed, Please Try Again");
             }
         }
     }
