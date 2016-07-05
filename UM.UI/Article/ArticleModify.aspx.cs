@@ -26,19 +26,12 @@ namespace UM.UI.Article
                     DataSet contentDs = userReg.ArticleDetails(articleId);
                     txtTitle.Value = contentDs.Tables[0].Rows[0]["Title"].ToString();
                     txtContent.Value = contentDs.Tables[0].Rows[0]["Contents"].ToString();
+                    DropDownList1.SelectedValue = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
 
                     DataSet articleTypeDs = userReg.GetArticleType();
                     DropDownList1.DataSource = articleTypeDs;
                     DropDownList1.DataTextField = "TypeName";
                     DropDownList1.DataBind();
-
-                    DataSet articleType = userReg.GetArticleType(articleId);
-                    string typeName = string.Empty;
-                    for (int n = 0; n < articleType.Tables[0].Rows.Count; n++)
-                    {
-                        typeName = articleType.Tables[0].Rows[n]["TypeName"].ToString();
-                    }
-                    DropDownList1.SelectedValue = typeName;
                 }
             }
         }
