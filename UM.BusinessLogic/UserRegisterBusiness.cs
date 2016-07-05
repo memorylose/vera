@@ -93,10 +93,10 @@ namespace UM.BusinessLogic
             return i;
         }
 
-        public int ModifyArticle(string title, string content, string typeName, int articleId)
+        public int ModifyArticle(string title, string content, int typeId, int articleId)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int i = userReg.ModifyArticle(title, content, typeName, articleId);
+            int i = userReg.ModifyArticle(title, content, typeId, articleId);
             return i;
         }
 

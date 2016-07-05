@@ -88,20 +88,20 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int ModifyArticle(string title, string content, string typeName, int articleId)
+        public int ModifyArticle(string title, string content, int typeId, int articleId)
         {
-            string updateSql = "update Articles set Title = @Title, Contents = @Contents, CreateDate = @CreateDate, TypeId = (select TypeId from ArticleType where TypeName = @TypeName) where ArticleId = @id";
+            string updateSql = "update Articles set Title = @Title, Contents = @Contents, CreateDate = @CreateDate, TypeId = @TypeId where ArticleId = @ArticleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Title",SqlDbType.NVarChar,100),
                     new SqlParameter("@Contents",SqlDbType.NVarChar),
                     new SqlParameter("@CreateDate",SqlDbType.DateTime),
-                    new SqlParameter("@typeName",SqlDbType.NVarChar,10),
-                    new SqlParameter("@id",SqlDbType.Int)
+                    new SqlParameter("@TypeId",SqlDbType.Int),
+                    new SqlParameter("@ArticleId",SqlDbType.Int)
                 };
             sqlParam[0].Value = title;
             sqlParam[1].Value = content;
             sqlParam[2].Value = DateTime.Now;
-            sqlParam[3].Value = typeName;
+            sqlParam[3].Value = typeId;
             sqlParam[4].Value = articleId;
             int i = SqlHelper.ExcuteNonQuery(CommandType.Text, updateSql, sqlParam);
             return i;

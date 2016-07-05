@@ -42,13 +42,13 @@ namespace UM.UI.Article
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.GetUserId(username);
-            string dpValue = DropDownList1.SelectedItem.Value;
+            int typeId = DropDownList1.SelectedIndex + 1;
 
             int articleId = Convert.ToInt32(Request.QueryString["id"]);
             string title = txtTitle.Value;
             string content = txtContent.Value;
 
-            int i = userReg.ModifyArticle(title, content, dpValue, articleId);
+            int i = userReg.ModifyArticle(title, content, typeId, articleId);
             if (i != 0)
             {
                 Response.Redirect("Article.aspx");
