@@ -26,14 +26,17 @@ namespace UM.BusinessLogic
 
             if (string.IsNullOrEmpty(username))
             {
+                //TODO: must more than 6
                 errMsg = "User name is empty.";
             }
             else if (string.IsNullOrEmpty(password))
             {
+                //TODO: need to use regex to check password format
                 errMsg = "Password is empty.";
             }
             else if (string.IsNullOrEmpty(mail))
             {
+                //TODO: need to use regex to check mail format
                 errMsg = "Email is empty.";
             }
             return errMsg;

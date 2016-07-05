@@ -1,4 +1,11 @@
 ﻿body {
     background-size: cover;
-    background-image:url(/images/1.jpg);
+    background-image: url(/images/1.jpg);
+}
+
+.reg_err {
+    color: white;
+    margin-top:20px;
+    text-align:center;
+    font-weight:bold;
 }
