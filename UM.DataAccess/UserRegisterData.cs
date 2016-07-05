@@ -120,7 +120,7 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(int articleId)
         {
-            string sql = "select Title,Contents,CreateDate from Articles where ArticleId=@articleId";
+            string sql = "select TypeName,Title,Contents,CreateDate from ArticleType, Articles where ArticleType.TypeId = Articles.TypeId and ArticleId=@articleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@articleId",SqlDbType.Int)
             };
@@ -143,17 +143,6 @@ namespace UM.DataAccess
                 new SqlParameter("@type",SqlDbType.NVarChar,10)
             };
             sqlParam[0].Value = type;
-            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
-            return ds;
-        }
-
-        public DataSet GetArticleType(int id)
-        {
-            string sql = "select TypeName from ArticleType where TypeId=(select TypeId from Articles where ArticleId = @articleId)";
-            SqlParameter[] sqlParam = {
-                new SqlParameter("@articleId",SqlDbType.Int)
-            };
-            sqlParam[0].Value = id;
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }

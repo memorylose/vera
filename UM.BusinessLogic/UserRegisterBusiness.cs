@@ -124,12 +124,5 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.GetArticleId(type);
             return ds;
         }
-
-        public DataSet GetArticleType(int id)
-        {
-            UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.GetArticleType(id);
-            return ds;
-        }
     }
 }
