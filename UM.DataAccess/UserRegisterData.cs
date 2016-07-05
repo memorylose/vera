@@ -120,9 +120,9 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(int articleId)
         {
-            string sql = "select Title,Contents,CreateDate from Articles where ArticleId=@id";
+            string sql = "select Title,Contents,CreateDate from Articles where ArticleId=@articleId";
             SqlParameter[] sqlParam = {
-                    new SqlParameter("@id",SqlDbType.Int)
+                    new SqlParameter("@articleId",SqlDbType.Int)
             };
             sqlParam[0].Value = articleId;
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
