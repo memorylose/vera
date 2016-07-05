@@ -53,7 +53,7 @@ namespace UM.UI.Article
             int typeId = 0;
             for (int n = 0; n < ds.Tables[0].Rows.Count; n++)
             {
-                typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["Id"].ToString());
+                typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["TypeId"].ToString());
             }
             int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId, typeId);
             if (i != 0)

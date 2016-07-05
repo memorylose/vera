@@ -33,7 +33,7 @@ namespace UM.UI.Article
             DataSet articleDs = userReg.ShowArticle(userId);
             for (int i = 0; i < articleDs.Tables[0].Rows.Count; i++)
             {
-                articleId = Convert.ToInt32(articleDs.Tables[0].Rows[i]["Id"]);
+                articleId = Convert.ToInt32(articleDs.Tables[0].Rows[i]["ArticleId"]);
                 Articlehtml += "<div style=\"height: 30px; \">";
                 Articlehtml += "<div style=\"height: 30px; width: 500px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
                 Articlehtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";

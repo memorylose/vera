@@ -31,32 +31,29 @@ namespace UM.UI.Article
                 txtContent.Value = contentDs.Tables[0].Rows[0]["Contents"].ToString();
 
                 //TODO dropdown的赋值没有，没有直接显示出来这篇文章是什么类别的
-                DataSet articleType = userReg.GetArticleType(articleId);
-                DropDownList1.DataSource = articleType;
+                
+                DataSet articleTypeDs = userReg.GetArticleType();
+                DropDownList1.DataSource = articleTypeDs;
                 DropDownList1.DataTextField = "TypeName";
                 DropDownList1.DataBind();
-                
+
+                DataSet articleType = userReg.GetArticleType(articleId);
+                string typeName = string.Empty;
+                for (int n = 0; n < articleType.Tables[0].Rows.Count; n++)
+                {
+                   typeName = articleType.Tables[0].Rows[n]["TypeName"].ToString();
+                }
+                DropDownList1.SelectedValue = typeName;
             }
         }
-
-        //private void BindDropdownList()
-        //{
-        //    UserRegisterBusiness userReg = new UserRegisterBusiness();
-        //    DataSet articleTypeDs = userReg.GetArticleType();
-        //    DropDownList1.DataSource = articleTypeDs;
-        //    DropDownList1.DataTextField = "TypeName";
-        //    DropDownList1.DataBind();
-        //}
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             string username = Session["user"].ToString();
-            
+
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.GetUserId(username);
             string dpValue = DropDownList1.SelectedItem.Value;
-            int dpId = DropDownList1.SelectedIndex;
-
 
             //TODO: 这块没有必须再取一遍ID，既然能把dropdownlist的value取出来，那么你觉得能不能直接把ID取出来？
             //DataSet ds = userReg.GetArticleId(dpValue);
@@ -66,14 +63,12 @@ namespace UM.UI.Article
             //    typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["Id"].ToString());
             //}
 
-
-
             int articleId = Convert.ToInt32(Request.QueryString["id"]);
             string title = txtTitle.Value;
             string content = txtContent.Value;
 
             //TODO: 方法的命名永远都是动宾
-            int i = userReg.ModifyArticle(title, content, dpId, articleId);
+            int i = userReg.ModifyArticle(title, content, dpValue, articleId);
             if (i != 0)
             {
                 Response.Redirect("Article.aspx");

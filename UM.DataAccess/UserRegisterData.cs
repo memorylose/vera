@@ -88,20 +88,20 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int ModifyArticle(string title, string content, int typeId, int articleId)
+        public int ModifyArticle(string title, string content, string typeName, int articleId)
         {
-            string updateSql = "update Articles set Title=@Title, Contents=@Contents, CreateDate=@CreateDate,TypeId=@TypeId where ArticleId=@id";
+            string updateSql = "update Articles set Title = @Title, Contents = @Contents, CreateDate = @CreateDate, TypeId = (select TypeId from ArticleType where TypeName = @TypeName) where ArticleId = @id";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Title",SqlDbType.NVarChar,100),
                     new SqlParameter("@Contents",SqlDbType.NVarChar),
                     new SqlParameter("@CreateDate",SqlDbType.DateTime),
-                    new SqlParameter("@TypeId",SqlDbType.Int),
+                    new SqlParameter("@typeName",SqlDbType.NVarChar,10),
                     new SqlParameter("@id",SqlDbType.Int)
                 };
             sqlParam[0].Value = title;
             sqlParam[1].Value = content;
             sqlParam[2].Value = DateTime.Now;
-            sqlParam[3].Value = typeId;
+            sqlParam[3].Value = typeName;
             sqlParam[4].Value = articleId;
             int i = SqlHelper.ExcuteNonQuery(CommandType.Text, updateSql, sqlParam);
             return i;
@@ -109,7 +109,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticle(int userid)
         {
-            string sql = "select ArticleId,Title,CreateDate from Articles where CreateUserId = @CreateUserId order by CreateDate" ;
+            string sql = "select ArticleId,Title,CreateDate from Articles where CreateUserId = @CreateUserId order by CreateDate desc" ;
             SqlParameter[] sqlParam = {
                     new SqlParameter("@CreateUserId",SqlDbType.Int)
                 };
@@ -143,7 +143,7 @@ namespace UM.DataAccess
                 new SqlParameter("@type",SqlDbType.NVarChar,10)
             };
             sqlParam[0].Value = type;
-            DataSet ds = SqlHelper.ExcuteDataSet(sql,CommandType.Text,sqlParam);
+            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
 

@@ -90,10 +90,10 @@ namespace UM.BusinessLogic
             return i;
         }
 
-        public int ModifyArticle(string title, string content, int typeId, int articleId)
+        public int ModifyArticle(string title, string content, string typeName, int articleId)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int i = userReg.ModifyArticle(title, content, typeId, articleId);
+            int i = userReg.ModifyArticle(title, content, typeName, articleId);
             return i;
         }
 
@@ -124,6 +124,7 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.GetArticleId(type);
             return ds;
         }
+
         public DataSet GetArticleType(int id)
         {
             UserRegisterData userReg = new UserRegisterData();
