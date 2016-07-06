@@ -28,7 +28,7 @@ namespace UM.UI
                 {
                     //use session to save the user information
                     Session["user"] = txtUsername.Value;
-                    Response.Redirect("Article/AddArticle.aspx");
+                    Response.Redirect("Article/Article.aspx");
                 }
                 else
                 {

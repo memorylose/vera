@@ -21,20 +21,12 @@ namespace UM.UI.Article
                 }
                 else
                 {
-                    int articleId = Convert.ToInt32(Request.QueryString["id"]);
                     UserRegisterBusiness userReg = new UserRegisterBusiness();
-                    DataSet contentDs = userReg.ArticleDetails(articleId);
+                    BindTypeDp();
+                    DataSet contentDs = userReg.ArticleDetails(Convert.ToInt32(Request.QueryString["id"]));
                     txtTitle.Value = contentDs.Tables[0].Rows[0]["Title"].ToString();
                     txtContent.Value = contentDs.Tables[0].Rows[0]["Contents"].ToString();
-                    DropDownList1.SelectedValue = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
-
-                    DataSet articleTypeDs = userReg.GetArticleType();
-                    DropDownList1.DataSource = articleTypeDs;
-                    DropDownList1.DataTextField = "TypeName";
-                    DropDownList1.DataValueField = "Id";
-                    DropDownList1.DataBind();
-
-                    // int clothTypeId = Convert.ToInt32(dpF.SelectedItem.Value);
+                    DropDownList1.SelectedValue = contentDs.Tables[0].Rows[0]["TypeId"].ToString();
                 }
             }
         }
@@ -45,7 +37,7 @@ namespace UM.UI.Article
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.GetUserId(username);
-            int typeId = DropDownList1.SelectedIndex + 1;
+            int typeId = Convert.ToInt32(DropDownList1.SelectedItem.Value);
 
             int articleId = Convert.ToInt32(Request.QueryString["id"]);
             string title = txtTitle.Value;
@@ -60,6 +52,16 @@ namespace UM.UI.Article
             {
                 Response.Write("Modify Article Failed, Please Try Again");
             }
+        }
+
+        private void BindTypeDp()
+        {
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            DataSet articleTypeDs = userReg.GetArticleType();
+            DropDownList1.DataSource = articleTypeDs;
+            DropDownList1.DataTextField = "TypeName";
+            DropDownList1.DataValueField = "TypeId";
+            DropDownList1.DataBind();
         }
     }
 }
