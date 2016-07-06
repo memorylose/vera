@@ -31,7 +31,10 @@ namespace UM.UI.Article
                     DataSet articleTypeDs = userReg.GetArticleType();
                     DropDownList1.DataSource = articleTypeDs;
                     DropDownList1.DataTextField = "TypeName";
+                    DropDownList1.DataValueField = "Id";
                     DropDownList1.DataBind();
+
+                    // int clothTypeId = Convert.ToInt32(dpF.SelectedItem.Value);
                 }
             }
         }

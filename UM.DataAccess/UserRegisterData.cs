@@ -131,7 +131,7 @@ namespace UM.DataAccess
 
         public DataSet GetArticleType()
         {
-            string sql = "select TypeName from ArticleType";
+            string sql = "select Id,TypeName from ArticleType";
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
