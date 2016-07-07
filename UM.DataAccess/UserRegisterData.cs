@@ -120,7 +120,6 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(int articleId)
         {
-            //string sql = "select ArticleType.TypeName,Articles.Title,Articles.Contents,Articles.CreateDate from ArticleType inner join Articles on ArticleType.TypeId = Articles.TypeId where ArticleId=@articleId";
             string sql = "select Title,Contents,CreateDate,TypeId from Articles where ArticleId=@articleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@articleId",SqlDbType.Int)
