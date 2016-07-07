@@ -33,7 +33,9 @@
 
             <%--New add part start--%>
             <div class="row">
-                <div class="reg_err">Some error message</div>
+                <div class="reg_err">
+                    <%=RegisterErrorMessageshtml%>
+                </div>
             </div>
             <%--New add part end--%>
         </div>

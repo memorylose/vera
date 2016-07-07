@@ -11,6 +11,7 @@ namespace UM.UI
 {
     public partial class Login : System.Web.UI.Page
     {
+        public string LoginErrorMessageshtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -32,14 +33,17 @@ namespace UM.UI
                 }
                 else
                 {
-                    Response.Write("Username or Password is not correct, please check and login again");
+                    LoginErrorMessageshtml += "<div class=\"row\">" + "<br/>";
+                    LoginErrorMessageshtml += "<div class=\"login_err\">Username or Password is not correct, please check and login again</div>" + "<br/>";
+                    LoginErrorMessageshtml += "</div> ";
                 }
             }
             else
             {
-                Response.Write(validateResult);
+                LoginErrorMessageshtml += "<div class=\"row\">" + "<br/>";
+                LoginErrorMessageshtml += "<div class=\"login_err\">" + validateResult + "</div>" + "<br/>";
+                LoginErrorMessageshtml += "</div> ";
             }
         }
-
     }
 }

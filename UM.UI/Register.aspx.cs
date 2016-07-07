@@ -10,6 +10,7 @@ namespace UM.UI
 {
     public partial class Register : System.Web.UI.Page
     {
+        public string RegisterErrorMessageshtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,7 +26,9 @@ namespace UM.UI
                 int i = userReg.CheckUserExist(txtUsername.Value);
                 if (i > 0)
                 {
-                    Response.Write("Username already exists,please register again");
+                    RegisterErrorMessageshtml += "<div class=\"row\">" + "<br/>";
+                    RegisterErrorMessageshtml += "<div class=\"reg_err\">Username already exists,please register again</div>" + "<br/>";
+                    RegisterErrorMessageshtml += "</div> ";
                 }
                 else
                 {
@@ -35,7 +38,9 @@ namespace UM.UI
             }
             else
             {
-                Response.Write(validateResult);
+                RegisterErrorMessageshtml += "<div class=\"row\">" + "<br/>";
+                RegisterErrorMessageshtml += "<div class=\"reg_err\">" + validateResult + "</div>" + "<br/>";
+                RegisterErrorMessageshtml += "</div> ";
             }
         }
     }
