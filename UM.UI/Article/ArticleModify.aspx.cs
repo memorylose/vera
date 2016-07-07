@@ -22,11 +22,23 @@ namespace UM.UI.Article
                 else
                 {
                     UserRegisterBusiness userReg = new UserRegisterBusiness();
+                    BindTypeDp();
                     DataSet contentDs = userReg.ArticleDetails(Convert.ToInt32(Request.QueryString["id"]));
                     txtTitle.Value = contentDs.Tables[0].Rows[0]["Title"].ToString();
                     txtContent.Value = contentDs.Tables[0].Rows[0]["Contents"].ToString();
+                    DropDownList1.SelectedValue = contentDs.Tables[0].Rows[0]["TypeId"].ToString();
                 }
             }
+        }
+
+        private void BindTypeDp()
+        {
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            DataSet articleTypeDs = userReg.GetArticleType();
+            DropDownList1.DataSource = articleTypeDs;
+            DropDownList1.DataTextField = "TypeName";
+            DropDownList1.DataValueField = "TypeId";
+            DropDownList1.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)

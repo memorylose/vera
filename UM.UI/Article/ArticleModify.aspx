@@ -35,6 +35,18 @@
         <div>
             <%--<%=Timehtml%>--%>
         </div>
+        <%--<asp:DropDownList ID="DropDownList2" runat="server"  >
+
+<asp:ListItem Value="1">a</asp:ListItem>
+
+<asp:ListItem Value="2">b</asp:ListItem>
+
+<asp:ListItem Value="3">c</asp:ListItem>
+
+<asp:ListItem Value="4">d</asp:ListItem>
+
+</asp:DropDownList>--%>
+
     </form>
 </body>
 </html>
