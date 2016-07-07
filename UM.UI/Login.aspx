@@ -5,28 +5,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>User Login</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/flat-ui.css" rel="stylesheet" />
+    <link href="styles/demo.css" rel="stylesheet" />
+    <link href="styles/index.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="width: 350px; height: 200px; margin: 0 auto; padding-left: 20px; margin-top:20px;">
-            <div style="height: 30px; font-weight: bold; text-align:center; font-size: 20px; margin-bottom: 20px;">
-                User Login
-            </div>
-            <div style="height: 40px;">
-                <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">User Name:</div>
-                <div style="float: left; margin-left: 10px; height: 30px;">
-                    <input type="text" style="height: 25px; width: 200px; border: 1px solid #DDDDDD; padding-left: 5px;" id="txtUsername" runat="server" />
+        <div class="container-fluid" style="margin-top: 100px;">
+            <div class="row">
+                <div class="col-lg-5"></div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        <input type="text" class="form-control login-field" value="" placeholder="Enter your name" id="txtUsername" runat="server" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control login-field" value="" placeholder="Password" id="txtPassword" runat="server" />
+                    </div>
+
+                    <asp:Button ID="Button1" CssClass="btn btn-primary btn-lg btn-block" runat="server" Text="Log in" OnClick="Button1_Click" />
+                    <a class="login-link" href="#">Lost your password?</a>
                 </div>
+                <div class="col-lg-5"></div>
             </div>
-            <div style="height: 40px;">
-                <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Password:</div>
-                <div style="float: left; margin-left: 10px; height: 30px;">
-                    <input type="password" style="height: 25px; width: 200px; border: 1px solid #DDDDDD; padding-left: 5px;" id="txtPassword" runat="server" />
-                </div>
+            <%--New add part start--%>
+            <div class="row">
+                <div class="reg_err">Please input correct password</div>
             </div>
-            <div style="height: 40px; float:right; margin-right:43px;">
-                <asp:Button ID="Button1" runat="server" Text="Login" Width="70px" Height="25px" OnClick="Button1_Click" />
-            </div>
+            <%--New add part end--%>
         </div>
     </form>
 </body>
