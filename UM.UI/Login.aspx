@@ -30,7 +30,7 @@
             </div>
             <%--New add part start--%>
             <div class="row">
-                <div class="login_err">
+                <div class="reg_err">
                     <%=LoginErrorMessageshtml%>
                 </div>
             </div>

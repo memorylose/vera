@@ -26,9 +26,7 @@ namespace UM.UI
                 int i = userReg.CheckUserExist(txtUsername.Value);
                 if (i > 0)
                 {
-                    RegisterErrorMessageshtml += "<div class=\"row\">" + "<br/>";
-                    RegisterErrorMessageshtml += "<div class=\"reg_err\">Username already exists,please register again</div>" + "<br/>";
-                    RegisterErrorMessageshtml += "</div> ";
+                    RegisterErrorMessageshtml += "Username already exists,please register again";
                 }
                 else
                 {
@@ -38,9 +36,7 @@ namespace UM.UI
             }
             else
             {
-                RegisterErrorMessageshtml += "<div class=\"row\">" + "<br/>";
-                RegisterErrorMessageshtml += "<div class=\"reg_err\">" + validateResult + "</div>" + "<br/>";
-                RegisterErrorMessageshtml += "</div> ";
+                RegisterErrorMessageshtml += validateResult;
             }
         }
     }

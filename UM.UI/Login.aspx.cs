@@ -33,16 +33,12 @@ namespace UM.UI
                 }
                 else
                 {
-                    LoginErrorMessageshtml += "<div class=\"row\">" + "<br/>";
-                    LoginErrorMessageshtml += "<div class=\"login_err\">Username or Password is not correct, please check and login again</div>" + "<br/>";
-                    LoginErrorMessageshtml += "</div> ";
+                    LoginErrorMessageshtml += "Username or Password is not correct, please check and login again";
                 }
             }
             else
             {
-                LoginErrorMessageshtml += "<div class=\"row\">" + "<br/>";
-                LoginErrorMessageshtml += "<div class=\"login_err\">" + validateResult + "</div>" + "<br/>";
-                LoginErrorMessageshtml += "</div> ";
+                LoginErrorMessageshtml += validateResult;
             }
         }
     }

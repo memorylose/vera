@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UM.DataAccess;
 
@@ -22,26 +23,57 @@ namespace UM.BusinessLogic
         /// <returns></returns>
         public string RegisterValidation(string username, string password, string mail)
         {
+
             string errMsg = string.Empty;
+            bool vu = ValidateUsername(username);
+            bool vp = ValidatePassword(password);
+            bool ve = ValidateEmail(mail);
 
             if (string.IsNullOrEmpty(username))
             {
-                //TODO: must more than 6
                 errMsg = "User name is empty.";
             }
             else if (string.IsNullOrEmpty(password))
             {
-                //TODO: need to use regex to check password format
                 errMsg = "Password is empty.";
             }
             else if (string.IsNullOrEmpty(mail))
             {
-                //TODO: need to use regex to check mail format
                 errMsg = "Email is empty.";
             }
+            else if (vu == false)
+            {
+                errMsg = "Username format is not correct";
+            }
+            else if (vp == false)
+            {
+                errMsg = "Password format is not correct";
+            }
+            else if (ve == false)
+            {
+                errMsg = "Email format is not correct";
+            }
             return errMsg;
-
         }
+
+        public bool ValidateUsername(string username)
+        {
+            Regex regex = new Regex(@"^\w{6,20}$");
+            return regex.IsMatch(username);
+        }
+
+        public bool ValidatePassword(string password)
+        {
+            Regex regex = new Regex(@"^[A-Za-z]\w{5,49}$");
+            return regex.IsMatch(password);
+        }
+
+        public bool ValidateEmail(string email)
+        {
+            Regex regex = new Regex(@"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            return regex.IsMatch(email);
+        }
+
 
         public int CheckUserExist(string username)
         {
