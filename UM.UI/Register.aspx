@@ -26,6 +26,8 @@
                             title="6-20位字母或数字">
                             <input type="text" class="form-control" value="" placeholder="用户名" id="txtUsername" runat="server" />
                             <label class="login-field-icon fui-user" for="login-name"></label>
+                            <input type="text" class="form-control" value="" placeholder="用户名" id="txtConfirmUsername" runat="server" />
+                            <label class="login-field-icon fui-user" for="login-name"></label>
                         </div>
 
                         <div class="form-group" data-toggle="tooltip" data-placement="left"

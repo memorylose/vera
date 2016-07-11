@@ -21,7 +21,7 @@ namespace UM.BusinessLogic
         /// <param name="password"></param>
         /// <param name="mail"></param>
         /// <returns></returns>
-        public string RegisterValidation(string username, string password, string mail)
+        public string RegisterValidation(string username, string confirmusername, string password, string mail)
         {
 
             string errMsg = string.Empty;
@@ -31,7 +31,15 @@ namespace UM.BusinessLogic
 
             if (string.IsNullOrEmpty(username))
             {
-                errMsg = "User name is empty.";
+                errMsg = "Username is empty.";
+            }
+            else if (string.IsNullOrEmpty(confirmusername))
+            {
+                errMsg = "Username confirmation is empty.";
+            }
+            else if (username != confirmusername)
+            {
+                errMsg = "Username confirmation is not correct";
             }
             else if (string.IsNullOrEmpty(password))
             {
@@ -58,13 +66,13 @@ namespace UM.BusinessLogic
 
         public bool ValidateUsername(string username)
         {
-            Regex regex = new Regex(@"^\w{6,20}$");
+            Regex regex = new Regex(@"^[A-Za-z0-9]{6,20}$");
             return regex.IsMatch(username);
         }
 
         public bool ValidatePassword(string password)
         {
-            Regex regex = new Regex(@"^[A-Za-z]\w{5,49}$");
+            Regex regex = new Regex(@"(?![a-z]+$|[0-9]+$)^[a-zA-Z0-9]{6,16}$");
             return regex.IsMatch(password);
         }
 
