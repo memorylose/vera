@@ -116,6 +116,8 @@
     <Content Include="Register.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-3.0.0.min.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\demo.css" />
     <Content Include="styles\flat-ui.css" />
@@ -172,6 +174,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="fonts\glyphicons\" />
+    <Folder Include="fonts\lato\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

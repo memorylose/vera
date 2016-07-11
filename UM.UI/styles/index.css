@@ -1,6 +1,7 @@
 ﻿body {
-    background-size: cover;
-    background-image: url(/images/1.jpg);
+    font-family:微软雅黑;
+    font-size:14px;
+    background-color:#EDEDEF;
 }
 
 .reg_err {
