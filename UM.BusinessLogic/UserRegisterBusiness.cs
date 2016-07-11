@@ -21,7 +21,7 @@ namespace UM.BusinessLogic
         /// <param name="password"></param>
         /// <param name="mail"></param>
         /// <returns></returns>
-        public string RegisterValidation(string username, string confirmusername, string password, string mail)
+        public string RegisterValidation(string username, string password, string confirmpassword, string mail)
         {
 
             string errMsg = string.Empty;
@@ -33,17 +33,17 @@ namespace UM.BusinessLogic
             {
                 errMsg = "Username is empty.";
             }
-            else if (string.IsNullOrEmpty(confirmusername))
-            {
-                errMsg = "Username confirmation is empty.";
-            }
-            else if (username != confirmusername)
-            {
-                errMsg = "Username confirmation is not correct";
-            }
             else if (string.IsNullOrEmpty(password))
             {
                 errMsg = "Password is empty.";
+            }
+            else if (string.IsNullOrEmpty(confirmpassword))
+            {
+                errMsg = "Password confirmation is empty.";
+            }
+            else if (password != confirmpassword)
+            {
+                errMsg = "Passwords you entered two times are not match.";
             }
             else if (string.IsNullOrEmpty(mail))
             {
