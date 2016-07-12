@@ -1,12 +1,55 @@
 ﻿body {
-    font-family:微软雅黑;
-    font-size:14px;
-    background-color:#EDEDEF;
+    font-family: 微软雅黑;
+    font-size: 14px;
+    background-color: #EDEDEF;
 }
 
 .reg_err {
-    color: white;
-    margin-top:20px;
-    text-align:center;
-    font-weight:bold;
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.top-left {
+    height: 50px;
+    font-size: 26px;
+    line-height: 50px;
+    text-align: center;
+    color: #525252;
+}
+
+.top-right {
+    float: left;
+    width: 79%;
+    height: 50px;
+}
+
+.top-menu {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    width: 100%;
+}
+
+    .top-menu a {
+        font-size: 14px;
+        font-family: 微软雅黑;
+        color: black;
+    }
+
+        .top-menu a:hover {
+            color: #D6623D;
+            text-decoration: none;
+        }
+
+.content-main {
+    height:500px;
+    background-color:white;
+    border:1px solid #ECECEC;
+}
+
+.test {
+    border: 1px solid red;
 }

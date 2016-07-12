@@ -146,6 +146,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\flat-ui.min.js" />
     <Content Include="scripts\jquery-3.0.0.min.js" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\demo.css" />
