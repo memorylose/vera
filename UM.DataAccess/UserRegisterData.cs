@@ -109,7 +109,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticle(int userid)
         {
-            string sql = "select ArticleId,Title,CreateDate from Articles where CreateUserId = @CreateUserId order by CreateDate desc" ;
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where CreateUserId = @CreateUserId order by CreateDate desc";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@CreateUserId",SqlDbType.Int)
                 };
