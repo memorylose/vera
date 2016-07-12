@@ -45,10 +45,51 @@
         }
 
 .content-main {
-    height:500px;
-    background-color:white;
-    border:1px solid #ECECEC;
+    background-color: white;
+    border: 1px solid #ECECEC;
+    padding-bottom: 15px;
 }
+
+.content-title {
+    line-height: 30px;
+    height: 30px;
+    padding-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+    .content-title a {
+        font-weight: bold;
+        font-size: 20px;
+        color: black;
+    }
+
+        .content-title a:hover {
+            color: #D6623D;
+            text-decoration: none;
+        }
+
+.content-date {
+    height: 20px;
+    color: #A2A2A2;
+    padding-left: 40px;
+    line-height: 20px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+    .content-date span {
+        margin-right: 10px;
+    }
+
+.content-t {
+    font-size: 14px;
+    color: #656565;
+    line-height: 25px;
+    padding-left: 40px;
+    margin-bottom:15px;
+}
+
 
 .test {
     border: 1px solid red;
