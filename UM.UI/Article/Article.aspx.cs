@@ -48,11 +48,11 @@ namespace UM.UI.Article
 
 
                 Articleshtml += "<div class=\"row\">" + "<br/>";
-                Articleshtml += "<div class=\"col - md - 12 content - title\">";
+                Articleshtml += "<div class=\"col-md-12 content-title\">";
                 Articleshtml += "<a href=\"\">" + articleDs.Tables[0].Rows[i]["Title"].ToString() + "</a></div>" + "<br/>";
-                Articleshtml += "<div class=\"col - md - 12 content - date\"><span>" + articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "</span><span>-</span><span>" + articleDs.Tables[0].Rows[i]["TypeName"].ToString() + "</span></div>" + "<br/>";
-                Articleshtml += "<div class=\"col - md - 12 content - t\">" + "<br/>";
-                Articleshtml += articleDs.Tables[0].Rows[i]["Contents"].ToString() + "<br/>";
+                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "</span><span>-</span><span>" + articleDs.Tables[0].Rows[i]["TypeName"].ToString() + "</span></div>" + "<br/>";
+                Articleshtml += "<div class=\"col-md-12 content-t\">";
+                Articleshtml += articleDs.Tables[0].Rows[i]["Contents"].ToString();
                 Articleshtml += "</div>" + "<br/>";
                 Articleshtml += "</div>" + "<br/>";
 
