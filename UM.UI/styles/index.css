@@ -87,9 +87,54 @@
     color: #656565;
     line-height: 25px;
     padding-left: 40px;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
+.content-detail-top {
+    height: 50px;
+    padding-left: 50px;
+    padding-top: 30px;
+}
+
+    .content-detail-top span {
+        margin-right: 10px;
+        font-size: 13px;
+        color: black;
+    }
+
+        .content-detail-top span a {
+            color: black;
+        }
+
+            .content-detail-top span a:hover {
+                text-decoration: none;
+            }
+
+.content-detail-title {
+    height: 30px;
+    font-size: 20px;
+    color: black;
+    padding-left: 50px;
+    margin-top: 40px;
+}
+
+.content-detail-time {
+    height: 20px;
+    font-size: 12px;
+    color: black;
+    padding-left: 50px;
+    margin-bottom:10px;
+    margin-top:5px;
+}
+
+.content-detail-c {
+    font-size: 14px;
+    color: black;
+    padding-left: 50px;
+    margin-top: 10px;
+    line-height: 25px;
+    padding-bottom: 10px;
+}
 
 .test {
     border: 1px solid red;
