@@ -55,7 +55,7 @@ namespace UM.UI.Article
             {
                 typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["TypeId"].ToString());
             }
-            int i = userReg.AddArticle(txtTitle.Value, txtContent.Value, userId, typeId);
+            int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value,txtContent.Value, userId, typeId);
             if (i != 0)
             {
                 Response.Redirect("Article.aspx");

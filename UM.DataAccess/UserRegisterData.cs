@@ -69,17 +69,19 @@ namespace UM.DataAccess
             return i;
         }
 
-        public int AddArticle(string title, string content, int userid, int typeId)
+        public int AddArticle(string title, string summary, string content, int userid, int typeId)
         {
-            string insertSql = "insert into Articles(Title, Contents,CreateDate,CreateUserId,TypeId) values (@Title,@Contents,@CreateDate,@CreateUserId,@TypeId)";
+            string insertSql = "insert into Articles(Title, Summary, Contents,CreateDate,CreateUserId,TypeId) values (@Title,@Summary,@Contents,@CreateDate,@CreateUserId,@TypeId)";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Title",SqlDbType.NVarChar,100),
+                    new SqlParameter("@Summary",SqlDbType.NVarChar),
                     new SqlParameter("@Contents",SqlDbType.NVarChar),
                     new SqlParameter("@CreateDate",SqlDbType.DateTime),
                     new SqlParameter("@CreateUserId",SqlDbType.Int),
                     new SqlParameter("@TypeId",SqlDbType.Int)
                 };
             sqlParam[0].Value = title;
+            sqlParam[0].Value = summary;
             sqlParam[1].Value = content;
             sqlParam[2].Value = DateTime.Now;
             sqlParam[3].Value = userid;
@@ -109,7 +111,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticle(int userid)
         {
-            string sql = "select Articles.ArticleId,Articles.Title,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where CreateUserId = @CreateUserId order by CreateDate desc";
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where CreateUserId = @CreateUserId order by CreateDate desc";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@CreateUserId",SqlDbType.Int)
                 };
@@ -120,7 +122,7 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(int articleId)
         {
-            string sql = "select Title,Contents,CreateDate,TypeId from Articles where ArticleId=@articleId";
+            string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Articles.ArticleId=@articleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@articleId",SqlDbType.Int)
             };

@@ -33,9 +33,32 @@ namespace UM.UI.Article
 
 
             DataSet articleDs = userReg.ShowArticle(userId);
+            
             for (int i = 0; i < articleDs.Tables[0].Rows.Count; i++)
             {
                 articleId = Convert.ToInt32(articleDs.Tables[0].Rows[i]["ArticleId"]);
+                string title = articleDs.Tables[0].Rows[i]["Title"].ToString();
+                string crDate = articleDs.Tables[0].Rows[i]["CreateDate"].ToString();
+                string typeName = articleDs.Tables[0].Rows[i]["TypeName"].ToString();
+                string summary = articleDs.Tables[0].Rows[i]["Summary"].ToString();
+                if (summary == "")
+                {
+                    summary = articleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 2);
+                }
+
+
+                Articleshtml += "<div class=\"row\">" + "<br/>";
+                Articleshtml += "<div class=\"col-md-12 content-title\">";
+                Articleshtml += "<a href=\"ArticleDetail.aspx?id="+ articleId + "\">";
+                Articleshtml += title;
+                 Articleshtml += "</a></div>" + "<br/>";
+                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>" + "<br/>";
+                Articleshtml += "<div class=\"col-md-12 content-t\">";
+                Articleshtml += summary;
+                Articleshtml += "</div>" + "<br/>";
+                Articleshtml += "</div>" + "<br/>";
+
+
                 //Articlehtml += "<div style=\"height: 30px; \">";
                 //Articlehtml += "<div style=\"height: 30px; width: 500px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
                 //Articlehtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";
@@ -45,19 +68,6 @@ namespace UM.UI.Article
                 //Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
                 //Articlehtml += articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "<br/>";
                 //Articlehtml += "</div>" + "<br/>";
-
-
-                Articleshtml += "<div class=\"row\">" + "<br/>";
-                Articleshtml += "<div class=\"col-md-12 content-title\">";
-                Articleshtml += "<a href=\"\">" + articleDs.Tables[0].Rows[i]["Title"].ToString() + "</a></div>" + "<br/>";
-                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "</span><span>-</span><span>" + articleDs.Tables[0].Rows[i]["TypeName"].ToString() + "</span></div>" + "<br/>";
-                Articleshtml += "<div class=\"col-md-12 content-t\">";
-                Articleshtml += articleDs.Tables[0].Rows[i]["Contents"].ToString();
-                Articleshtml += "</div>" + "<br/>";
-                Articleshtml += "</div>" + "<br/>";
-
-
-
 
                 //Modify part
                 //Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";

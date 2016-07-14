@@ -17,7 +17,7 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="top-left">Cass Fan `s Blog</div>
+                            <div class="top-left">Cass Fan's Blog</div>
                         </div>
                         <div class="col-md-9">
                             <div class="row">
@@ -48,7 +48,8 @@
                     <div class="content-main">
                         <div class="row">
                             <div class="col-md-8">
-                                <div class="row">
+                                <%=ArticleDetailhtml%>
+                                <%--<div class="row">
                                     <div class="col-md-12 content-detail-top">
                                         <span>当前位置：</span><span><a href="">首页</a></span><span>></span><span><a href="">随笔散文</a></span><span>></span><span>正文</span>
                                     </div>
@@ -87,11 +88,11 @@
 重点来了【如何摆脱重复劳动】<br />
                                         要摆脱重复劳动，首先要分清出最重要的环节。对目标最有帮助的因素，就是最重要的环节。比如写文案来说，最重要的目的是老板满意，那么就要围绕老板满意去投入精力。最常见的情况就是：
                                     </div>
-                                </div>
+                                </div>--%>
 
 
                             </div>
-                            <div class="col-md-4">TODO</div>
+                            <%--<div class="col-md-4">TODO</div>--%>
                         </div>
                     </div>
                 </div>

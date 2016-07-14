@@ -126,10 +126,10 @@ namespace UM.BusinessLogic
             return i;
         }
 
-        public int AddArticle(string title, string content, int id, int typeId)
+        public int AddArticle(string title, string summary, string content, int id, int typeId)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int i = userReg.AddArticle(title, content, id, typeId);
+            int i = userReg.AddArticle(title, summary, content, id, typeId);
             return i;
         }
 
