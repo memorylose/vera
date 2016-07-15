@@ -17,15 +17,15 @@ namespace UM.UI.Article
         {
             if (!IsPostBack)
             {
-                //if (Session["user"] == null)
-                //{
-                //    Response.Redirect("../Login.aspx");
-                //}
-                //else
-                //{
-                //    BindDropdownList();
-                //}
-                BindDropdownList();
+                if (Session["user"] == null)
+                {
+                    Response.Redirect("../Login.aspx");
+                }
+                else
+                {
+                    BindDropdownList();
+                }
+                //BindDropdownList();
             }
         }
 
@@ -50,12 +50,8 @@ namespace UM.UI.Article
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             int userId = userReg.GetUserId(username);
             string dpValue = DropDownList1.SelectedItem.Value;
-            DataSet ds = userReg.GetArticleId(dpValue);
-            int typeId = 0;
-            for (int n = 0; n < ds.Tables[0].Rows.Count; n++)
-            {
-                typeId = Convert.ToInt32(ds.Tables[0].Rows[n]["TypeId"].ToString());
-            }
+            DataSet ds = userReg.GetArticleTypeId(dpValue);
+            int typeId = Convert.ToInt32(ds.Tables[0].Rows[0]["TypeId"].ToString());
             int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, txtContent.Value, userId, typeId);
             if (i != 0)
             {
@@ -66,7 +62,5 @@ namespace UM.UI.Article
                 Response.Write("Add Article Failed, Please Try Again");
             }
         }
-
-
     }
 }

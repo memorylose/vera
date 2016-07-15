@@ -11,21 +11,23 @@ namespace UM.DataAccess
 {
     public class UserRegisterData
     {
-        public void CreateUser(string username, string password, string mail)
+        public void CreateUser(string username, string nickname, string password, string mail)
         {
-            string sqlStr = "INSERT INTO Users(UserName,Password,Email,CreateDate,UpdateDate) VALUES (@Username,@Password,@Email,@CreateDate,@UpdateDate)";
+            string sqlStr = "INSERT INTO Users(UserName,NickName,Password,Email,CreateDate,UpdateDate) VALUES (@Username,@Nickname,@Password,@Email,@CreateDate,@UpdateDate)";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@Username",SqlDbType.NVarChar,20),
+                    new SqlParameter("@Nickname",SqlDbType.NVarChar,20),
                     new SqlParameter("@Password",SqlDbType.NVarChar,50),
                     new SqlParameter("@Email",SqlDbType.NVarChar,20),
                     new SqlParameter("@CreateDate",SqlDbType.DateTime),
                     new SqlParameter("@UpdateDate",SqlDbType.DateTime)
                 };
             sqlParam[0].Value = username;
-            sqlParam[1].Value = EncryptUtil.CreateSHA256HashString(password);
-            sqlParam[2].Value = mail;
-            sqlParam[3].Value = DateTime.Now;
+            sqlParam[1].Value = nickname;
+            sqlParam[2].Value = EncryptUtil.CreateSHA256HashString(password);
+            sqlParam[3].Value = mail;
             sqlParam[4].Value = DateTime.Now;
+            sqlParam[5].Value = DateTime.Now;
 
             SqlHelper.ExcuteNonQuery(CommandType.Text, sqlStr, sqlParam);
         }
@@ -57,6 +59,17 @@ namespace UM.DataAccess
             return i;
         }
 
+        public DataSet GetUserNickname(string username)
+        {
+            string sqlStr = "select Nickname from Users where UserName=@username";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@username",SqlDbType.NVarChar,20)
+            };
+            sqlParam[0].Value = username;
+            DataSet ds = SqlHelper.ExcuteDataSet(sqlStr, CommandType.Text, sqlParam);
+            return ds;
+        }
+
         public int GetUserId(string username)
         {
             string getIdSql = "select UserId from Users where UserName = @username";
@@ -81,11 +94,11 @@ namespace UM.DataAccess
                     new SqlParameter("@TypeId",SqlDbType.Int)
                 };
             sqlParam[0].Value = title;
-            sqlParam[0].Value = summary;
-            sqlParam[1].Value = content;
-            sqlParam[2].Value = DateTime.Now;
-            sqlParam[3].Value = userid;
-            sqlParam[4].Value = typeId;
+            sqlParam[1].Value = summary;
+            sqlParam[2].Value = content;
+            sqlParam[3].Value = DateTime.Now;
+            sqlParam[4].Value = userid;
+            sqlParam[5].Value = typeId;
             int i = SqlHelper.ExcuteNonQuery(CommandType.Text, insertSql, sqlParam);
             return i;
         }
@@ -109,6 +122,13 @@ namespace UM.DataAccess
             return i;
         }
 
+        public DataSet ShowArticle()
+        {
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId order by CreateDate desc";
+            DataSet dshow = SqlHelper.ExcuteDataSet(sql);
+            return dshow;
+        }
+
         public DataSet ShowArticle(int userid)
         {
             string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where CreateUserId = @CreateUserId order by CreateDate desc";
@@ -122,7 +142,7 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(int articleId)
         {
-            string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Articles.ArticleId=@articleId";
+            string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,ArticleType.TypeName,Users.UserName from Articles, ArticleType, Users where Articles.TypeId = ArticleType.TypeId and Articles.CreateUserId = Users.UserId and Articles.ArticleId=@articleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@articleId",SqlDbType.Int)
             };
@@ -138,7 +158,7 @@ namespace UM.DataAccess
             return ds;
         }
 
-        public DataSet GetArticleId(string type)
+        public DataSet GetArticleTypeId(string type)
         {
             string sql = "select TypeId from ArticleType where TypeName = @type";
             SqlParameter[] sqlParam = {

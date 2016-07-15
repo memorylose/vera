@@ -27,7 +27,11 @@
                             <input type="text" class="form-control" value="" placeholder="用户名" id="txtUsername" runat="server" />
                             <label class="login-field-icon fui-user" for="login-name"></label>
                         </div>
-
+                        <div class="form-group" data-toggle="tooltip" data-placement="left"
+                            title="昵称">
+                            <input type="text" class="form-control" value="" placeholder="昵称" id="txtNickname" runat="server" />
+                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                        </div>
                         <div class="form-group" data-toggle="tooltip" data-placement="left"
                             title="6-16位字母加数字">
                             <input type="password" class="form-control" value="" placeholder="密码" id="txtPassword" runat="server" />
@@ -35,7 +39,7 @@
                         </div>
                         <div class="form-group" data-toggle="tooltip" data-placement="left"
                             title="再次输入密码">
-                            <input type="password" class="form-control" value="" placeholder="密码" id="txtConfirmPassword" runat="server" />
+                            <input type="password" class="form-control" value="" placeholder="再次输入密码" id="txtConfirmPassword" runat="server" />
                             <label class="login-field-icon fui-lock" for="login-pass"></label>
                         </div>
                         <div class="form-group" data-toggle="tooltip" data-placement="left"

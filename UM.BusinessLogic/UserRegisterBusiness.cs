@@ -21,7 +21,7 @@ namespace UM.BusinessLogic
         /// <param name="password"></param>
         /// <param name="mail"></param>
         /// <returns></returns>
-        public string RegisterValidation(string username, string password, string confirmpassword, string mail)
+        public string RegisterValidation(string username, string nickname, string password, string confirmpassword, string mail)
         {
 
             string errMsg = string.Empty;
@@ -32,6 +32,10 @@ namespace UM.BusinessLogic
             if (string.IsNullOrEmpty(username))
             {
                 errMsg = "Username is empty.";
+            }
+            else if (string.IsNullOrEmpty(nickname))
+            {
+                errMsg = "Nickname is empty.";
             }
             else if (string.IsNullOrEmpty(password))
             {
@@ -106,10 +110,10 @@ namespace UM.BusinessLogic
 
         }
 
-        public void CreateUser(string username, string password, string mail)
+        public void CreateUser(string username, string nickname, string password, string mail)
         {
             UserRegisterData userReg = new UserRegisterData();
-            userReg.CreateUser(username, password, mail);
+            userReg.CreateUser(username, nickname, password, mail);
         }
 
         public int UserLogin(string username, string password)
@@ -117,6 +121,13 @@ namespace UM.BusinessLogic
             UserRegisterData userReg = new UserRegisterData();
             int i = userReg.UserLogin(username, password);
             return i;
+        }
+
+        public DataSet GetUserNickname(string username)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.GetUserNickname(username);
+            return ds;
         }
 
         public int GetUserId(string username)
@@ -140,6 +151,13 @@ namespace UM.BusinessLogic
             return i;
         }
 
+        public DataSet ShowArticle()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet titles = userReg.ShowArticle();
+            return titles;
+        }
+
         public DataSet ShowArticle(int userid)
         {
             UserRegisterData userReg = new UserRegisterData();
@@ -161,10 +179,10 @@ namespace UM.BusinessLogic
             return ds;
         }
 
-        public DataSet GetArticleId(string type)
+        public DataSet GetArticleTypeId(string type)
         {
             UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.GetArticleId(type);
+            DataSet ds = userReg.GetArticleTypeId(type);
             return ds;
         }
     }
