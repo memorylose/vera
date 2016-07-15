@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Add Article</title>
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+        //]]>
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,7 +32,7 @@
         <div style="height: 320px;">
             <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Contents:</div>
             <div style="float: left; margin-left: 10px; height: 30px;">
-                <textarea cols="60" rows="20" style="border: 1px solid #DDDDDD" id="txtContent" runat="server"></textarea>
+                <textarea name="area1" id="txtContent" runat="server" cols="40" style="width:500px; height:200px;"></textarea>
             </div>
         </div>
         <div style="height: 320px;">

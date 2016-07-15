@@ -148,6 +148,8 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\flat-ui.min.js" />
     <Content Include="scripts\jquery-3.0.0.min.js" />
+    <Content Include="scripts\nicEdit.js" />
+    <Content Include="scripts\nicEditorIcons.gif" />
     <Content Include="styles\bootstrap.min.css" />
     <Content Include="styles\demo.css" />
     <Content Include="styles\flat-ui.css" />
