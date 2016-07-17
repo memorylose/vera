@@ -11,7 +11,12 @@ namespace UM.UI.Article
 {
     public partial class ArticleDetail : System.Web.UI.Page
     {
-        public string ArticleDetailhtml = "";
+        public string ArticleTypehtml = "";
+        public string Titlehtml = "";
+        public string CreateDatehtml = "";
+        public string Authorhtml = "";
+        public string Updatehtml = "";
+        public string Contenthtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             //string username = string.Empty;
@@ -29,35 +34,13 @@ namespace UM.UI.Article
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet contentDs = userReg.ArticleDetails(articleId);
-            string title = contentDs.Tables[0].Rows[0]["Title"].ToString();
-            string crDate = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
-            string articleType = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
-            string author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
-            string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
-
-
-            ArticleDetailhtml += "<div class=\"row\">";
-            ArticleDetailhtml += "<div class=\"col-md-12 content-detail-top\">";
-            ArticleDetailhtml += "<span>当前位置：</span><span>";
-            ArticleDetailhtml += "<a href=\"Article.aspx\">";
-            ArticleDetailhtml += "首页" + "</a></span><span>></span><span>";
-            ArticleDetailhtml += "<a href=\"Article.aspx\">" + articleType + "</a></span><span>></span><span>正文</span>";
-            ArticleDetailhtml += "</div>" + "<br/>";
-            ArticleDetailhtml += "<div class=\"col-md-12 content-detail-title\">";
-            ArticleDetailhtml += title;
-            ArticleDetailhtml += "</div>" + "<br/>";
-            ArticleDetailhtml += "<div class=\"col-md-12 content-detail-time\">";
-            ArticleDetailhtml += "<span>" + crDate + "</span><span> - </span><span>" + author + "</span>";
-            ArticleDetailhtml += "</div>";
-            ArticleDetailhtml += "<div class=\"col-md-2 content-detail-time\">";
-            ArticleDetailhtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">"+ "编辑" + "</a>";
-            ArticleDetailhtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">"+ "删除" + "</a>";
-            ArticleDetailhtml += "</div>" + "<br/>";
-            ArticleDetailhtml += "<div class=\"col-md-12 content-line\"></div>" + "<br/>";
-            ArticleDetailhtml += "<div class=\"col-md-12 content-detail-c\">";
-            ArticleDetailhtml += content;
-            ArticleDetailhtml += "</div>" + "<br/>";
-            ArticleDetailhtml += "</div>" + "<br/>";
+            ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
+            Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
+            CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();     
+            Authorhtml = contentDs.Tables[0].Rows[0]["UserName"].ToString();
+            Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
+            Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
+            Contenthtml = contentDs.Tables[0].Rows[0]["Contents"].ToString();
         }
     }
 }
