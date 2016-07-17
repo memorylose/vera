@@ -142,7 +142,7 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(int articleId)
         {
-            string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,ArticleType.TypeName,Users.UserName from Articles, ArticleType, Users where Articles.TypeId = ArticleType.TypeId and Articles.CreateUserId = Users.UserId and Articles.ArticleId=@articleId";
+            string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,Articles.TypeId,ArticleType.TypeName,Users.UserName from Articles, ArticleType, Users where Articles.TypeId = ArticleType.TypeId and Articles.CreateUserId = Users.UserId and Articles.ArticleId=@articleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@articleId",SqlDbType.Int)
             };

@@ -38,8 +38,15 @@ namespace UM.UI.Article
             Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
             CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();     
             Authorhtml = contentDs.Tables[0].Rows[0]["UserName"].ToString();
-            Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
-            Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
+            if (Session["user"] != null)
+            {
+                Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
+                Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
+            }
+            else
+            {
+                Updatehtml = "";
+            }
             Contenthtml = contentDs.Tables[0].Rows[0]["Contents"].ToString();
         }
     }
