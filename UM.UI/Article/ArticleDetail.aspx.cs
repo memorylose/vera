@@ -36,12 +36,22 @@ namespace UM.UI.Article
             DataSet contentDs = userReg.ArticleDetails(articleId);
             ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
             Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
-            CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();     
-            Authorhtml = contentDs.Tables[0].Rows[0]["UserName"].ToString();
+            CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
+            string author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
+            Authorhtml = author;
+            string username = string.Empty;
             if (Session["user"] != null)
             {
-                Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
-                Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
+                username = Session["user"].ToString();
+                if (username == author)
+                {
+                    Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
+                    Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
+                }
+                else
+                {
+                    Updatehtml = "";
+                }
             }
             else
             {
