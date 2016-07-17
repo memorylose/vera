@@ -78,7 +78,7 @@ namespace UM.BusinessLogic
         {
             //Regex regex = new Regex(@"(?![a-z]+$|[0-9]+$)^[a-zA-Z0-9]{6,16}$");
             //Regex regex = new Regex(@"(?![^a-zA-Z]+$)(?!\D+$)(?![^_]+$).{6,16}$");
-            Regex regex = new Regex(@"^(?=.{6,16})(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$");
+            Regex regex = new Regex(@"^(?=.{6,16})(?=.*[a-z])(?=.*\d).*$");
             return regex.IsMatch(password);
         }
 
