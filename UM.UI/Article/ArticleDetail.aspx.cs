@@ -34,8 +34,7 @@ namespace UM.UI.Article
             string articleType = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
             string author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
             string content = contentDs.Tables[0].Rows[0]["Contents"].ToString();
-            
-            
+
 
             ArticleDetailhtml += "<div class=\"row\">";
             ArticleDetailhtml += "<div class=\"col-md-12 content-detail-top\">";
@@ -49,7 +48,12 @@ namespace UM.UI.Article
             ArticleDetailhtml += "</div>" + "<br/>";
             ArticleDetailhtml += "<div class=\"col-md-12 content-detail-time\">";
             ArticleDetailhtml += "<span>" + crDate + "</span><span> - </span><span>" + author + "</span>";
+            ArticleDetailhtml += "</div>";
+            ArticleDetailhtml += "<div class=\"col-md-2 content-detail-time\">";
+            ArticleDetailhtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">"+ "编辑" + "</a>";
+            ArticleDetailhtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">"+ "删除" + "</a>";
             ArticleDetailhtml += "</div>" + "<br/>";
+            ArticleDetailhtml += "<div class=\"col-md-12 content-line\"></div>" + "<br/>";
             ArticleDetailhtml += "<div class=\"col-md-12 content-detail-c\">";
             ArticleDetailhtml += content;
             ArticleDetailhtml += "</div>" + "<br/>";
