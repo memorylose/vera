@@ -19,27 +19,20 @@ namespace UM.UI.Article
         public string Contenthtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string username = string.Empty;
-            //if (Session["user"] == null)
-            //{
-            //    Response.Redirect("../Login.aspx");
-            //}
-            //else
-            //{
-            //    //get user information
-            //    username = Session["user"].ToString();
-            //}
-            //就当现在你访问的是1的文章
-            int articleId = Convert.ToInt32(Request.QueryString["id"]);
-
             UserRegisterBusiness userReg = new UserRegisterBusiness();
+
+            int articleId = Convert.ToInt32(Request.QueryString["id"]);
+            string username = string.Empty;
+            string author = string.Empty;
             DataSet contentDs = userReg.ArticleDetails(articleId);
+
             ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
             Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
             CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
-            string author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
+            author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
+            Contenthtml = contentDs.Tables[0].Rows[0]["Contents"].ToString();
             Authorhtml = author;
-            string username = string.Empty;
+
             if (Session["user"] != null)
             {
                 username = Session["user"].ToString();
@@ -57,7 +50,6 @@ namespace UM.UI.Article
             {
                 Updatehtml = "";
             }
-            Contenthtml = contentDs.Tables[0].Rows[0]["Contents"].ToString();
         }
     }
 }
