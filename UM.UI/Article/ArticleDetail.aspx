@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleDetail.aspx.cs" Inherits="UM.UI.Article.ArticleDetail" %>
 
+<%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,36 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid" style="margin-top: 20px;">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="top-left">Cass Fan's Blog</div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><a href="/Article/Article.aspx">首页</a></div>
-                                </div>
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><a href="/Article/Article.aspx">我的</a></div>
-                                </div>
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><a href="/Article/Article.aspx">热文</a></div>
-                                </div>
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><a href="/Article/Article.aspx">关于</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-        </div>
-
+        <uc1:Top runat="server" ID="Top" />
         <div class="container-fluid" style="margin-top: 20px;">
             <div class="row">
                 <div class="col-md-2"></div>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Article.aspx.cs" Inherits="UM.UI.Article.Article" %>
+<%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
 
 <!DOCTYPE html>
 
@@ -11,40 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <%--      <div style="width: 350px; height: 200px; margin: 0 auto; padding-left: 20px; margin-top: 20px;">
-            <%=Articlehtml%>
-        </div>--%>
-        <div class="container-fluid" style="margin-top: 20px;">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="top-left"><%=Pageheadhtml%></div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><%--<%=HomePagehtml%>--%><a href="/Article/Article.aspx">首页</a></div>
-                                </div>
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><%--<%=MyArticlehtml%>--%><a href="/Article/Article.aspx">我的</a></div>
-                                </div>
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><%--<%=Popularhtml%>--%><a href="/Article/Article.aspx">热文</a></div>
-                                </div>
-                                <div class="col-md-1" style="padding: 0;">
-                                    <div class="top-menu"><%--<%=Abouttml%>--%><a href="/Article/Article.aspx">关于</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-        </div>
-
-        
+        <uc1:Top runat="server" id="Top" />    
         <div class="container-fluid" style="margin-top: 20px;">
             <div class="row">
                 <div class="col-md-2"></div>
