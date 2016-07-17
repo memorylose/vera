@@ -123,8 +123,27 @@
     font-size: 12px;
     color: black;
     padding-left: 50px;
-    margin-bottom:10px;
-    margin-top:5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+    .content-detail-time a {
+        font-size: 12px;
+        color: black;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+        .content-detail-time a:hover {
+            text-decoration: none;
+        }
+
+.content-line {
+    width: 93%;
+    border-bottom:1px solid #DDDDDD;
+    margin-left:50px;
+    margin-top:10px;
+    margin-bottom:20px;
 }
 
 .content-detail-c {

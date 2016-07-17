@@ -48,17 +48,21 @@
                     <div class="content-main">
                         <div class="row">
                             <div class="col-md-8">
-                                <%=ArticleDetailhtml%>
-                                <%--<div class="row">
+                                <%--  <%=ArticleDetailhtml%>--%>
+                                <div class="row">
                                     <div class="col-md-12 content-detail-top">
                                         <span>当前位置：</span><span><a href="">首页</a></span><span>></span><span><a href="">随笔散文</a></span><span>></span><span>正文</span>
                                     </div>
                                     <div class="col-md-12 content-detail-title">
                                         同学，你的努力不叫努力，叫重复劳动，明白吗！
                                     </div>
-                                    <div class="col-md-12 content-detail-time">
+                                    <div class="col-md-10 content-detail-time">
                                         <span>2016.7.14 22:00</span><span> - </span><span>Vera</span>
                                     </div>
+                                    <div class="col-md-2 content-detail-time">
+                                        <a href="">编辑</a><a href="">删除</a>
+                                    </div>
+                                    <div class="col-md-12 content-line"></div>
                                     <div class="col-md-12 content-detail-c">
                                         你身边有没有这样的人，日日早起夜夜晚睡，经常加班加点，你约他出去，他总说没时间，似乎永远有做不完的事。但是从老板到同事，提起这人就是摇摇头摆摆手，一副一言难尽的样子。他们很忙，做的事却不漂亮。
 那么他们在忙什么？这似乎很奇怪，他们如此努力，为什么事情总是做不好呢，问题究竟是在什么地方？
@@ -88,7 +92,7 @@
 重点来了【如何摆脱重复劳动】<br />
                                         要摆脱重复劳动，首先要分清出最重要的环节。对目标最有帮助的因素，就是最重要的环节。比如写文案来说，最重要的目的是老板满意，那么就要围绕老板满意去投入精力。最常见的情况就是：
                                     </div>
-                                </div>--%>
+                                </div>
 
 
                             </div>
