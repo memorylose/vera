@@ -21,10 +21,10 @@ namespace UM.UI
         {
             //Go to home.aspx when succeed
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            string validateResult = userReg.LoginValidation(txtUsername.Value, txtPassword.Value);
+            string validateResult = userReg.LoginValidation(txtUsername.Value.Trim(), txtPassword.Value.Trim());
             if (string.IsNullOrEmpty(validateResult))
             {
-                int i = userReg.UserLogin(txtUsername.Value, txtPassword.Value);
+                int i = userReg.UserLogin(txtUsername.Value.Trim(), txtPassword.Value.Trim());
                 if (i > 0)
                 {
                     //use session to save the user information
