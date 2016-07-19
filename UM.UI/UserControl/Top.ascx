@@ -21,6 +21,13 @@
                         <div class="col-md-1" style="padding: 0;">
                             <div class="top-menu"><%--<%=Abouttml%>--%><a href="/Article/Article.aspx">关于</a></div>
                         </div>
+
+                        <div class="col-md-7" style="padding: 0;">
+                        </div>    
+                        <div class="col-md-1" style="padding: 0;">
+                            <div class="top-login"><a href="/Article/Article.aspx">登录</a></div>
+                            <div class="top-login"><a href="/Article/Article.aspx">注册</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
