@@ -76,27 +76,6 @@ namespace UM.UI.Article
             //        summary = articleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 2);
             //    }
 
-            //    Articleshtml += "<div class=\"row\">" + "<br/>";
-            //    Articleshtml += "<div class=\"col-md-12 content-title\">";
-            //    Articleshtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";
-            //    Articleshtml += title;
-            //    Articleshtml += "</a></div>" + "<br/>";
-            //    Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>" + "<br/>";
-            //    Articleshtml += "<div class=\"col-md-12 content-t\">";
-            //    Articleshtml += summary;
-            //    Articleshtml += "</div>" + "<br/>";
-            //    Articleshtml += "</div>" + "<br/>";
-
-
-            //    Articlehtml += "<div style=\"height: 30px; \">";
-            //    Articlehtml += "<div style=\"height: 30px; width: 500px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; \">" + "<br/>";
-            //    Articlehtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";
-            //    Articlehtml += articleDs.Tables[0].Rows[i]["Title"].ToString();
-            //    Articlehtml += "</a>" + "<br/>";
-            //    Articlehtml += "</div>" + "<br/>";
-            //    Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";
-            //    Articlehtml += articleDs.Tables[0].Rows[i]["CreateDate"].ToString() + "<br/>";
-            //    Articlehtml += "</div>" + "<br/>";
 
             //    Modify part
             //    Articlehtml += "<div style=\"height: 30px; text - align: center; font - size: 13px; margin - bottom: 20px; float: left; margin - left: 20px; \">" + "<br/>";

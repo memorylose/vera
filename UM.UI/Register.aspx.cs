@@ -19,7 +19,7 @@ namespace UM.UI
         protected void Button1_Click1(object sender, EventArgs e)
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            string validateResult = userReg.RegisterValidation(txtUsername.Value.Trim(), txtNickname.Value, txtPassword.Value.Trim(), txtConfirmPassword.Value.Trim(), txtMail.Value.Trim());
+            string validateResult = userReg.RegisterValidation(txtUsername.Value.Trim(), txtNickname.Value, txtPassword.Value, txtConfirmPassword.Value, txtMail.Value.Trim());
 
             if (string.IsNullOrEmpty(validateResult))
             {
@@ -30,7 +30,7 @@ namespace UM.UI
                 }
                 else
                 {
-                    userReg.CreateUser(txtUsername.Value.Trim(), txtNickname.Value, txtPassword.Value.Trim(), txtMail.Value.Trim());
+                    userReg.CreateUser(txtUsername.Value.Trim(), txtNickname.Value, txtPassword.Value, txtMail.Value.Trim());
                     Response.Redirect("Login.aspx");
                 }
             }
