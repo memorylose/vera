@@ -110,6 +110,7 @@
     <Content Include="fonts\lato\lato-regular.svg" />
     <Content Include="images\1.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="LogOut.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons\flat-ui-icons-regular.eot" />
     <Content Include="fonts\glyphicons\flat-ui-icons-regular.ttf" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

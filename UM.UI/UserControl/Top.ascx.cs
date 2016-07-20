@@ -21,7 +21,7 @@ namespace UM.UI.UserControl
             }
             else
             {
-                Pagehtml += "<div class=\"top-login\"><a href=\"../Login.aspx\">退出</a></div>";
+                Pagehtml += "<div class=\"top-login\"><a href=\"../LogOut.aspx\">退出</a></div>";
             }
         }
     }
