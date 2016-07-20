@@ -1,5 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddArticle.aspx.cs" Inherits="UM.UI.Article.AddArticle" ValidateRequest="false" %>
+
 <%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
+
+
 
 <!DOCTYPE html>
 
@@ -15,8 +18,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <uc1:Top runat="server" ID="Top" />
         <div style="height: 30px; font-weight: bold; font-size: 20px; margin-bottom: 20px;">
-            Add Article
+            <%--Add Article--%>
         </div>
         <div style="height: 40px;">
             <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Title:</div>
