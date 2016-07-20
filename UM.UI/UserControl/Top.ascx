@@ -25,8 +25,9 @@
                         <div class="col-md-7" style="padding: 0;">
                         </div>    
                         <div class="col-md-1" style="padding: 0;">
-                            <div class="top-login"><a href="/Article/Article.aspx">登录</a></div>
-                            <div class="top-login"><a href="/Article/Article.aspx">注册</a></div>
+                            <%=Pagehtml%>
+                            <%--<div class="top-login"><a href="../Login.aspx">登录</a></div>
+                            <div class="top-login"><a href="../Register.aspx">注册</a></div>--%>
                         </div>
                     </div>
                 </div>

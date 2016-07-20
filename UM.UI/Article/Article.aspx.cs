@@ -12,7 +12,7 @@ namespace UM.UI.Article
     public partial class Article : System.Web.UI.Page
     {
         public string Articleshtml = "";
-        public string Pageheadhtml = "";
+        //public string Pageheadhtml = "";
         public int articleId = 0;
         //public string HomePagehtml = "";
         //public string MyArticlehtml = "";
@@ -33,7 +33,7 @@ namespace UM.UI.Article
             //    string nickname = ds.Tables[0].Rows[0]["NickName"].ToString();
             //    Pageheadhtml += nickname + "'s Blog";
             //}
-            Pageheadhtml += "Welcome to Blog";
+            //Pageheadhtml += "Welcome to Blog";
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet allarticleDs = userReg.ShowArticle();

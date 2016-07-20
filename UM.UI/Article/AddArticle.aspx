@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddArticle.aspx.cs" Inherits="UM.UI.Article.AddArticle" ValidateRequest="false" %>
+<%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
 
 <!DOCTYPE html>
 
@@ -32,7 +33,7 @@
         <div style="height: 320px;">
             <div style="float: left; font-size: 13px; height: 30px; line-height: 30px; font-weight: bold; width: 90px;">Contents:</div>
             <div style="float: left; margin-left: 10px; height: 30px;">
-                <textarea name="area1" id="txtContent" runat="server" cols="40" style="width:500px; height:200px;"></textarea>
+                <textarea name="area1" id="txtContent" runat="server" cols="40" style="width: 500px; height: 200px;"></textarea>
             </div>
         </div>
         <div style="height: 320px;">
