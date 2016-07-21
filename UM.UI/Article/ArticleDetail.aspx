@@ -69,7 +69,7 @@
 
 
                             </div>
-                            <%--<div class="col-md-4">TODO</div>--%>
+                            <div class="col-md-4">TODO</div>
                         </div>
                     </div>
                 </div>
