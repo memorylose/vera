@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleDetail.aspx.cs" Inherits="UM.UI.Article.ArticleDetail" %>
-
 <%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
 
 <!DOCTYPE html>
