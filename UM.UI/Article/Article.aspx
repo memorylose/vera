@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Article.aspx.cs" Inherits="UM.UI.Article.Article" %>
 <%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
+<%@ Register Src="~/UserControl/Todo.ascx" TagPrefix="uc1" TagName="Todo" %>
+
 
 <!DOCTYPE html>
 
@@ -69,7 +71,7 @@
                                 </div>--%>
 
                             </div>
-                            <div class="col-md-4">TODO</div>
+                            <uc1:Todo runat="server" ID="Todo" />
                         </div>
                     </div>
                 </div>

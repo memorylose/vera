@@ -155,6 +155,7 @@
     <Content Include="styles\demo.css" />
     <Content Include="styles\flat-ui.css" />
     <Content Include="styles\index.css" />
+    <Content Include="UserControl\Todo.ascx" />
     <Content Include="UserControl\Top.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Todo.ascx.cs">
+      <DependentUpon>Todo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Todo.ascx.designer.cs">
+      <DependentUpon>Todo.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Top.ascx.cs">
       <DependentUpon>Top.ascx</DependentUpon>
