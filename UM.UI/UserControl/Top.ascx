@@ -24,11 +24,6 @@
 
                         <div class="col-md-8" style="padding: 0;">
                             <%=Pagehtml%>
-
-                            <%--      <div class="top-login"><a href="../Login.aspx">登录</a></div>
-                            <div class="top-login"><a href="../Register.aspx">注册</a></div>--%>
-                           <%-- <div class="top-login"><a href="../Register.aspx">登出</a></div>
-                            <div class="top-login"><span>你好，Cassfan</span></div>--%>
                         </div>
                     </div>
                 </div>
