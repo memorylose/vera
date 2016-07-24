@@ -14,7 +14,7 @@ namespace UM.UI.UserControl
         protected void Page_Load(object sender, EventArgs e)
         {
             string username = string.Empty;
-            Pageheadhtml += "Welcome to Blog";
+            Pageheadhtml += "Vera Blog";
             if (Session["user"] == null)
             {
                 Pagehtml += "<div class=\"top-login\"><a href=\"../Login.aspx\">登录</a></div>";

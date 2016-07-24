@@ -23,14 +23,14 @@
                         </div>
 
                         <div class="col-md-6" style="padding: 0;">
-                        </div>    
+                        </div>
                         <div class="col-md-2" style="padding: 0;">
-                          <%--  <%=Pagehtml%>--%>
+                            <%=Pagehtml%>
 
-                          <%--  <div class="top-login"><a href="../Login.aspx">登录</a></div>
+                            <%--      <div class="top-login"><a href="../Login.aspx">登录</a></div>
                             <div class="top-login"><a href="../Register.aspx">注册</a></div>--%>
 
-                             <%--   <div class="top-login"><a href="../Login.aspx">你好，Cassfan</a></div>
+                            <%--   <div class="top-login"><a href="../Login.aspx">你好，Cassfan</a></div>
                             <div class="top-login"><a href="../Register.aspx">登出</a></div>--%>
                         </div>
                     </div>
