@@ -46,7 +46,7 @@ namespace UM.UI.Article
                 string summary = allarticleDs.Tables[0].Rows[i]["Summary"].ToString();
                 if (summary == "")
                 {
-                    summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 2);
+                    summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 200);
                 }
 
                 Articleshtml += "<div class=\"row\">" + "<br/>";
