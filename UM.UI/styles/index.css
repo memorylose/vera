@@ -49,9 +49,14 @@
     line-height: 50px;
     text-align: center;
     float: right;
-    float:left;
-    margin-left:5px;
+    margin-left: 20px;
 }
+
+    .top-login span {
+        font-size: 12px;
+        font-family: 微软雅黑;
+        color: black;
+    }
 
     .top-login a {
         font-size: 12px;

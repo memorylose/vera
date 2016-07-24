@@ -23,8 +23,8 @@ namespace UM.UI.UserControl
             else
             {
                 username = Session["user"].ToString();
-                Pagehtml += "你好，" + username;
-                Pagehtml += "<div class=\"top-login\"><a href=\"../LogOut.aspx\">退出</a></div>";
+                Pagehtml += "<div class=\"top-login\"><a href = \"../LogOut.aspx\">登出</a></div>";
+                Pagehtml += "<div class=\"top-login\"><span>你好，" + username + "</span></div>";
             }
         }
     }
