@@ -23,13 +23,13 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <%=Articleshtml%>
-                                <%--<div class="row">
+                                <div class="row">
                                     <div class="col-md-12 content-title"><a href="">Home Page</a></div>
                                     <div class="col-md-12 content-date"><span>2016/7/5 20:23:39</span><span>-</span><span>杂文</span></div>
                                     <div class="col-md-12 content-t">
                                         This is Add Article page
                                     </div>
-                                </div>--%>
+                                </div>
                                 <%--<div class="row">
                                     <div class="col-md-12 content-title"><a href="">你的不叫努力,叫重复劳动,明白么!</a></div>
                                     <div class="col-md-12 content-date"><span>2016/07/12 21:00</span><span>-</span><span>心情散文</span></div>

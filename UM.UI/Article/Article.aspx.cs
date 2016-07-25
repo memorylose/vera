@@ -49,16 +49,25 @@ namespace UM.UI.Article
                     summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 200);
                 }
 
-                Articleshtml += "<div class=\"row\">" + "<br/>";
-                Articleshtml += "<div class=\"col-md-12 content-title\">";
-                Articleshtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";
-                Articleshtml += title;
-                Articleshtml += "</a></div>" + "<br/>";
-                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>" + "<br/>";
-                Articleshtml += "<div class=\"col-md-12 content-t\">";
-                Articleshtml += summary;
-                Articleshtml += "</div>" + "<br/>";
-                Articleshtml += "</div>" + "<br/>";
+                Articleshtml += "<div class=\"row\">";
+                Articleshtml += "<div class=\"col-md-12 content-title\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>" + "<br/>";//+"<br/>"
+                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>" + "<br/>";//+"<br/>"
+                Articleshtml += "<div class=\"col-md-12 content-t\">" + summary + "<br/>";//+"<br/>"
+                Articleshtml += "</div>";
+                Articleshtml += "</div>";
+
+
+
+                //Articleshtml += "<div class=\"row\">" + "<br/>";
+                //Articleshtml += "<div class=\"col-md-12 content-title\">";
+                //Articleshtml += "<a href=\"ArticleDetail.aspx?id=" + articleId + "\">";
+                //Articleshtml += title;
+                //Articleshtml += "</a></div>" + "<br/>";
+                //Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>" + "<br/>";
+                //Articleshtml += "<div class=\"col-md-12 content-t\">";
+                //Articleshtml += summary;
+                //Articleshtml += "</div>" + "<br/>";
+                //Articleshtml += "</div>" + "<br/>";
             }
 
             //int userId = userReg.GetUserId(username);
