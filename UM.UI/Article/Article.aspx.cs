@@ -50,9 +50,9 @@ namespace UM.UI.Article
                 }
 
                 Articleshtml += "<div class=\"row\">";
-                Articleshtml += "<div class=\"col-md-12 content-title\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>" + "<br/>";//+"<br/>"
-                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>" + "<br/>";//+"<br/>"
-                Articleshtml += "<div class=\"col-md-12 content-t\">" + summary + "<br/>";//+"<br/>"
+                Articleshtml += "<div class=\"col-md-12 content-title\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
+                Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>";
+                Articleshtml += "<div class=\"col-md-12 content-t\">" + summary;
                 Articleshtml += "</div>";
                 Articleshtml += "</div>";
 
