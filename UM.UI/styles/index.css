@@ -180,6 +180,20 @@
     padding-bottom: 10px;
 }
 
+.footer {
+    background-color: #232323;
+    height: 60px;
+    margin-top:20px;
+}
+
+.footer-div {
+    color: #666666;
+    font-size: 13px;
+    text-align:center;
+    height:60px;
+    line-height:60px;
+}
+
 .test {
     border: 1px solid red;
 }

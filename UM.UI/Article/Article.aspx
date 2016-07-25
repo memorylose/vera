@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Article.aspx.cs" Inherits="UM.UI.Article.Article" %>
+
 <%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
 <%@ Register Src="~/UserControl/Todo.ascx" TagPrefix="uc1" TagName="Todo" %>
 
@@ -14,7 +15,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <uc1:Top runat="server" id="Top" />    
+        <uc1:Top runat="server" ID="Top" />
         <div class="container-fluid" style="margin-top: 20px;">
             <div class="row">
                 <div class="col-md-2"></div>
@@ -22,14 +23,7 @@
                     <div class="content-main">
                         <div class="row">
                             <div class="col-md-8">
-                                <%=Articleshtml%>
-                                <div class="row">
-                                    <div class="col-md-12 content-title"><a href="">Home Page</a></div>
-                                    <div class="col-md-12 content-date"><span>2016/7/5 20:23:39</span><span>-</span><span>杂文</span></div>
-                                    <div class="col-md-12 content-t">
-                                        This is Add Article page
-                                    </div>
-                                </div>
+                                <%=Articleshtml %>
                                 <%--<div class="row">
                                     <div class="col-md-12 content-title"><a href="">你的不叫努力,叫重复劳动,明白么!</a></div>
                                     <div class="col-md-12 content-date"><span>2016/07/12 21:00</span><span>-</span><span>心情散文</span></div>
@@ -69,11 +63,18 @@
                                         记得原来上学的时候，有一个同桌，别人学习的时间他也在学
                                     </div>
                                 </div>--%>
-
                             </div>
                             <uc1:Todo runat="server" ID="Todo" />
                         </div>
                     </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <%--Begin footer--%>
+            <div class="row footer">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="footer-div">营业执照注册号：210204000071792 备案号：辽ICP备14012672号-1 ©2014 jiangyingrui.com,All Rights Reserved.</div>
                 </div>
                 <div class="col-md-2"></div>
             </div>
