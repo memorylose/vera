@@ -2,6 +2,8 @@
 
 <%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
 <%@ Register Src="~/UserControl/Todo.ascx" TagPrefix="uc1" TagName="Todo" %>
+<%@ Register Src="~/UserControl/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+
 
 
 <!DOCTYPE html>
@@ -71,13 +73,7 @@
                 <div class="col-md-2"></div>
             </div>
             <%--Begin footer--%>
-            <div class="row footer">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <div class="footer-div">营业执照注册号：210204000071792 备案号：辽ICP备14012672号-1 ©2014 jiangyingrui.com,All Rights Reserved.</div>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
+            <uc1:Footer runat="server" id="Footer" />
         </div>
     </form>
 </body>

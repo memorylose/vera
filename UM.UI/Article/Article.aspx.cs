@@ -12,9 +12,9 @@ namespace UM.UI.Article
     public partial class Article : System.Web.UI.Page
     {
         public string Articleshtml = "";
-        public int articleId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int articleId = 0;
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet allarticleDs = userReg.ShowArticle();
             for (int i = 0; i < allarticleDs.Tables[0].Rows.Count; i++)

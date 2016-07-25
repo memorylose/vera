@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticleDetail.aspx.cs" Inherits="UM.UI.Article.ArticleDetail" %>
 <%@ Register Src="~/UserControl/Top.ascx" TagPrefix="uc1" TagName="Top" %>
 <%@ Register Src="~/UserControl/Todo.ascx" TagPrefix="uc1" TagName="Todo" %>
+<%@ Register Src="~/UserControl/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+
 
 
 <!DOCTYPE html>
@@ -77,6 +79,7 @@
                 </div>
                 <div class="col-md-2"></div>
             </div>
+            <uc1:Footer runat="server" id="Footer" />
         </div>
     </form>
 </body>
