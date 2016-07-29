@@ -24,9 +24,12 @@ namespace UM.UI.Article
                 string crDate = allarticleDs.Tables[0].Rows[i]["CreateDate"].ToString();
                 string typeName = allarticleDs.Tables[0].Rows[i]["TypeName"].ToString();
                 string summary = allarticleDs.Tables[0].Rows[i]["Summary"].ToString();
-                if (summary == "")
+                 if (summary == "")
                 {
-                    summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 200);
+                    //summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 100);
+                    string contents = allarticleDs.Tables[0].Rows[i]["Contents"].ToString();
+                    contents = System.Text.RegularExpressions.Regex.Replace(contents, "<[^>]*>", "");
+                    summary = contents.Substring(0, 100);
                 }
 
                 Articleshtml += "<div class=\"row\">";
