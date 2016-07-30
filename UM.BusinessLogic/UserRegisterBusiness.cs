@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UM.DataAccess;
+using UM.Utility;
 
 namespace UM.BusinessLogic
 {
@@ -70,19 +71,19 @@ namespace UM.BusinessLogic
 
         public bool ValidateUsername(string username)
         {
-            Regex regex = new Regex(@"^[A-Za-z0-9]{6,20}$");
+            Regex regex = new Regex(RegexConstant.UserName);
             return regex.IsMatch(username);
         }
 
         public bool ValidatePassword(string password)
         {
-            Regex regex = new Regex(@"^(?=.{6,16})(?=.*[a-z])(?=.*\d).*$");
+            Regex regex = new Regex(RegexConstant.Password);
             return regex.IsMatch(password);
         }
 
         public bool ValidateEmail(string email)
         {
-            Regex regex = new Regex(@"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            Regex regex = new Regex(RegexConstant.Email);
             return regex.IsMatch(email);
         }
 

@@ -48,6 +48,10 @@
       <Project>{e3d22e06-0a56-4592-b3d2-db9864dae428}</Project>
       <Name>UM.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UM.Utility\UM.Utility.csproj">
+      <Project>{D44E9182-666D-407F-8850-9253B58A2FCB}</Project>
+      <Name>UM.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

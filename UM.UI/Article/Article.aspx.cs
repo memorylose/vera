@@ -29,7 +29,7 @@ namespace UM.UI.Article
                 {
                     //summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 100);
                     string contents = allarticleDs.Tables[0].Rows[i]["Contents"].ToString();
-                    contents = System.Text.RegularExpressions.Regex.Replace(contents, "<[^>]*>", "");
+                    contents = System.Text.RegularExpressions.Regex.Replace(contents, RegexConstant.Htmlmark, "");
                     if (contents.Length < 100)
                     {
                         summary = contents;
