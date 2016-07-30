@@ -245,6 +245,10 @@
       <Project>{9e14704e-a28a-4147-ba2c-8e43970c299a}</Project>
       <Name>UM.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UM.Utility\UM.Utility.csproj">
+      <Project>{d44e9182-666d-407f-8850-9253b58a2fcb}</Project>
+      <Name>UM.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

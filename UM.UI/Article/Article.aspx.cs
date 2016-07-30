@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using UM.BusinessLogic;
+using UM.Utility;
 
 namespace UM.UI.Article
 {
@@ -36,7 +37,7 @@ namespace UM.UI.Article
                     else
                     {
                         summary = contents.Substring(0, 100);
-                        summary = summary.Substring(0, 99) + System.Text.RegularExpressions.Regex.Replace(summary.Substring(99, 1), "[^A-Za-z0-9_\u4e00-\u9fa5]", "");
+                        summary = summary.Substring(0, 99) + System.Text.RegularExpressions.Regex.Replace(summary.Substring(99, 1), RegexConstant.AlphaNumber, "");
                         summary += "......";
                     }
                 }
