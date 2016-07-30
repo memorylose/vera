@@ -22,9 +22,23 @@ namespace UM.UI.Article
             UserRegisterBusiness userReg = new UserRegisterBusiness();
 
             int articleId = Convert.ToInt32(Request.QueryString["id"]);
+            
             string username = string.Empty;
             string author = string.Empty;
             DataSet contentDs = userReg.ArticleDetails(articleId);
+            int articleNumber = userReg.CountArticleNumber();
+            if (articleId / 1 != articleId)//id为非数值型
+            {
+                Response.Redirect("Article.aspx");
+            }
+            else if (articleId == 0 || articleId % 2 != 0 && articleId % 2 != 1)//id为非整数
+            {
+                Response.Redirect("Article.aspx");
+            }
+            else if (articleId > articleNumber)
+            {
+                Response.Redirect("Article.aspx");
+            }
 
             ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
             Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();

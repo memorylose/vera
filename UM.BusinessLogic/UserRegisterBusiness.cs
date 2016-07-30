@@ -186,5 +186,12 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.GetArticleTypeId(type);
             return ds;
         }
+
+        public int CountArticleNumber()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            int articleNumber = userReg.CountArticleNumber();
+            return articleNumber;
+        }
     }
 }

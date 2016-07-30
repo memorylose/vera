@@ -168,5 +168,13 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
+
+        public int CountArticleNumber()
+        {
+            string sql = "select count(ArticleId) from Articles";
+            object number = SqlHelper.ExcuteScalar(CommandType.Text,sql,null);
+            int articleNumber = Convert.ToInt32(number);
+            return articleNumber;
+        }
     }
 }
