@@ -142,7 +142,7 @@ namespace UM.DataAccess
 
         public DataSet ArticleDetails(object articleId)
         {
-            string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,Articles.TypeId,ArticleType.TypeName,Users.UserName from Articles, ArticleType, Users where Articles.TypeId = ArticleType.TypeId and Articles.CreateUserId = Users.UserId and Articles.ArticleId=@articleId";
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Contents,Articles.CreateDate,Articles.TypeId,ArticleType.TypeName,Users.UserName from Articles, ArticleType, Users where Articles.TypeId = ArticleType.TypeId and Articles.CreateUserId = Users.UserId and Articles.ArticleId=@articleId";
             SqlParameter[] sqlParam = {
                     new SqlParameter("@articleId",SqlDbType.Int)
             };
@@ -167,17 +167,6 @@ namespace UM.DataAccess
             sqlParam[0].Value = type;
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
-        }
-
-        public object CheckArticleIdExist(object articleId)
-        {
-            string sql = "select ArticleId from Articles where ArticleId = @articleId";
-            SqlParameter[] sqlParam ={
-                new SqlParameter("@articleId",SqlDbType.Int)
-            };
-            sqlParam[0].Value = articleId;
-            object exist = SqlHelper.ExcuteScalar(CommandType.Text, sql, sqlParam);
-            return exist;
         }
     }
 }

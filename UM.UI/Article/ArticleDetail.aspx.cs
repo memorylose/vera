@@ -31,17 +31,16 @@ namespace UM.UI.Article
             }
             else
             {
-                object articleIdExist = userReg.CheckArticleIdExist(articleId);
-                if (articleIdExist == null)
+                articleId = Convert.ToInt32(Request.QueryString["id"]);
+                string username = string.Empty;
+                string author = string.Empty;
+                DataSet contentDs = userReg.ArticleDetails(articleId);
+                if (contentDs.Tables[0].Rows.Count == 0)
                 {
                     Response.Redirect("Article.aspx");
                 }
                 else
                 {
-                    articleId = Convert.ToInt32(Request.QueryString["id"]);
-                    string username = string.Empty;
-                    string author = string.Empty;
-                    DataSet contentDs = userReg.ArticleDetails(articleId);
                     ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
                     Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
                     CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();

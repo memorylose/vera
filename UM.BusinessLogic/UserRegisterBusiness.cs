@@ -192,12 +192,5 @@ namespace UM.BusinessLogic
             Regex regex = new Regex(RegexConstant.ArticleId);
             return regex.IsMatch(articleId.ToString());
         }
-
-        public object CheckArticleIdExist(object articleId)
-        {
-            UserRegisterData userReg = new UserRegisterData();
-            object exist = userReg.CheckArticleIdExist(articleId);
-            return exist;
-        }
     }
 }
