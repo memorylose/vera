@@ -21,25 +21,17 @@ namespace UM.UI.Article
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
 
-            //object articleId = Convert.ToInt32(Request.QueryString["id"]);
-            object articleId = Request.QueryString["id"];
-
-            bool va = userReg.ValidateArticleId(articleId);
-            if (va == false)
+            if (!userReg.ValidateArticleId(Request.QueryString["id"]))
             {
                 Response.Redirect("Article.aspx");
             }
             else
             {
-                articleId = Convert.ToInt32(Request.QueryString["id"]);
+                int articleId = Convert.ToInt32(Request.QueryString["id"]);
                 string username = string.Empty;
                 string author = string.Empty;
                 DataSet contentDs = userReg.ArticleDetails(articleId);
-                if (contentDs.Tables[0].Rows.Count == 0)
-                {
-                    Response.Redirect("Article.aspx");
-                }
-                else
+                if (contentDs.Tables[0].Rows.Count > 0)
                 {
                     ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
                     Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
@@ -65,6 +57,10 @@ namespace UM.UI.Article
                     {
                         Updatehtml = "";
                     }
+                }
+                else
+                {
+                    Response.Redirect("Article.aspx");
                 }
             }
 
