@@ -166,7 +166,7 @@ namespace UM.BusinessLogic
             return titles;
         }
 
-        public DataSet ArticleDetails(int articleId)
+        public DataSet ArticleDetails(object articleId)
         {
             UserRegisterData userReg = new UserRegisterData();
             DataSet ds = userReg.ArticleDetails(articleId);
@@ -187,11 +187,17 @@ namespace UM.BusinessLogic
             return ds;
         }
 
-        public int CountArticleNumber()
+        public bool ValidateArticleId(object articleId)
+        {
+            Regex regex = new Regex(RegexConstant.ArticleId);
+            return regex.IsMatch(articleId.ToString());
+        }
+
+        public object CheckArticleIdExist(object articleId)
         {
             UserRegisterData userReg = new UserRegisterData();
-            int articleNumber = userReg.CountArticleNumber();
-            return articleNumber;
+            object exist = userReg.CheckArticleIdExist(articleId);
+            return exist;
         }
     }
 }

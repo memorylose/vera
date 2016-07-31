@@ -21,49 +21,54 @@ namespace UM.UI.Article
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
 
-            int articleId = Convert.ToInt32(Request.QueryString["id"]);
-            
-            string username = string.Empty;
-            string author = string.Empty;
-            DataSet contentDs = userReg.ArticleDetails(articleId);
-            int articleNumber = userReg.CountArticleNumber();
-            if (articleId / 1 != articleId)//id为非数值型
-            {
-                Response.Redirect("Article.aspx");
-            }
-            else if (articleId == 0 || articleId % 2 != 0 && articleId % 2 != 1)//id为非整数
-            {
-                Response.Redirect("Article.aspx");
-            }
-            else if (articleId > articleNumber)
-            {
-                Response.Redirect("Article.aspx");
-            }
+            //object articleId = Convert.ToInt32(Request.QueryString["id"]);
+            object articleId = Request.QueryString["id"];
 
-            ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
-            Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
-            CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
-            author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
-            Contenthtml = contentDs.Tables[0].Rows[0]["Contents"].ToString();
-            Authorhtml = author;
-
-            if (Session["user"] != null)
+            bool va = userReg.ValidateArticleId(articleId);
+            if (va == false)
             {
-                username = Session["user"].ToString();
-                if (username == author)
-                {
-                    Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
-                    Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
-                }
-                else
-                {
-                    Updatehtml = "";
-                }
+                Response.Redirect("Article.aspx");
             }
             else
             {
-                Updatehtml = "";
+                object articleIdExist = userReg.CheckArticleIdExist(articleId);
+                if (articleIdExist == null)
+                {
+                    Response.Redirect("Article.aspx");
+                }
+                else
+                {
+                    articleId = Convert.ToInt32(Request.QueryString["id"]);
+                    string username = string.Empty;
+                    string author = string.Empty;
+                    DataSet contentDs = userReg.ArticleDetails(articleId);
+                    ArticleTypehtml = contentDs.Tables[0].Rows[0]["TypeName"].ToString();
+                    Titlehtml = contentDs.Tables[0].Rows[0]["Title"].ToString();
+                    CreateDatehtml = contentDs.Tables[0].Rows[0]["CreateDate"].ToString();
+                    author = contentDs.Tables[0].Rows[0]["UserName"].ToString();
+                    Contenthtml = contentDs.Tables[0].Rows[0]["Contents"].ToString();
+                    Authorhtml = author;
+
+                    if (Session["user"] != null)
+                    {
+                        username = Session["user"].ToString();
+                        if (username == author)
+                        {
+                            Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a>";
+                            Updatehtml += "<a href=\"ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a>";
+                        }
+                        else
+                        {
+                            Updatehtml = "";
+                        }
+                    }
+                    else
+                    {
+                        Updatehtml = "";
+                    }
+                }
             }
+
         }
     }
 }

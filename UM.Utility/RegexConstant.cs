@@ -14,5 +14,6 @@ namespace UM.Utility
         public const string UserName = "^[A-Za-z0-9]{6,20}$";
         public const string Password = "^(?=.{6,16})(?=.*[a-z])(?=.*\\d).*$";
         public const string Email = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+        public const string ArticleId = "^[0-9]*$";
     }
 }

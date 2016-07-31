@@ -140,7 +140,7 @@ namespace UM.DataAccess
             return dshow;
         }
 
-        public DataSet ArticleDetails(int articleId)
+        public DataSet ArticleDetails(object articleId)
         {
             string sql = "select Articles.Title,Articles.Contents,Articles.CreateDate,Articles.TypeId,ArticleType.TypeName,Users.UserName from Articles, ArticleType, Users where Articles.TypeId = ArticleType.TypeId and Articles.CreateUserId = Users.UserId and Articles.ArticleId=@articleId";
             SqlParameter[] sqlParam = {
@@ -169,12 +169,15 @@ namespace UM.DataAccess
             return ds;
         }
 
-        public int CountArticleNumber()
+        public object CheckArticleIdExist(object articleId)
         {
-            string sql = "select count(ArticleId) from Articles";
-            object number = SqlHelper.ExcuteScalar(CommandType.Text,sql,null);
-            int articleNumber = Convert.ToInt32(number);
-            return articleNumber;
+            string sql = "select ArticleId from Articles where ArticleId = @articleId";
+            SqlParameter[] sqlParam ={
+                new SqlParameter("@articleId",SqlDbType.Int)
+            };
+            sqlParam[0].Value = articleId;
+            object exist = SqlHelper.ExcuteScalar(CommandType.Text, sql, sqlParam);
+            return exist;
         }
     }
 }
