@@ -9,10 +9,13 @@ namespace UM.UI.UserControl
 {
     public partial class Todo : System.Web.UI.UserControl
     {
-        public string Todohtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            Todohtml += "Todo";
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

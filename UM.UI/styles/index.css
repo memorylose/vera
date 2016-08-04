@@ -183,15 +183,31 @@
 .footer {
     background-color: #232323;
     height: 60px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .footer-div {
     color: #666666;
     font-size: 13px;
-    text-align:center;
-    height:60px;
-    line-height:60px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+
+.search-input {
+    height: 40px;
+    width: 250px;
+    border: 1px solid #DDDDDD;
+    padding-left: 10px;
+    float:right;
+    outline:none;
+}
+
+.search-btn {
+    width: 40px;
+    height: 40px;
+    border:0;
+    background: #d6623d url(/images/search.png) no-repeat 3px 3px;
 }
 
 .test {
