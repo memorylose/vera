@@ -159,6 +159,7 @@
     <Content Include="UserControl\Footer.ascx" />
     <Content Include="UserControl\Todo.ascx" />
     <Content Include="UserControl\Top.ascx" />
+    <Content Include="Verification\VerifyCode.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="UserControl\Top.ascx.designer.cs">
       <DependentUpon>Top.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Verification\VerifyCode.aspx.cs">
+      <DependentUpon>VerifyCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Verification\VerifyCode.aspx.designer.cs">
+      <DependentUpon>VerifyCode.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
