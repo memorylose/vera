@@ -171,11 +171,11 @@ namespace UM.DataAccess
 
         public DataSet SearchArticle(string schcontent)
         {
-            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Title like '% @schconent% 'or Contents like '%@schconent%' order by CreateDate desc";
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Title like  @schconent or Contents like @schconent order by CreateDate desc";
             SqlParameter[] sqlParam = {
                 new SqlParameter("@schconent",SqlDbType.NVarChar)
             };
-            sqlParam[0].Value = schcontent;
+            sqlParam[0].Value = "%" + schcontent + "%";
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
