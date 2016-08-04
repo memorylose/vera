@@ -192,5 +192,12 @@ namespace UM.BusinessLogic
             Regex regex = new Regex(RegexConstant.ArticleId);
             return regex.IsMatch(articleId.ToString());
         }
+
+        public DataSet SearchArticle(string schcontent)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.SearchArticle(schcontent);
+            return ds;
+        }
     }
 }

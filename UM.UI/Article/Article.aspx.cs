@@ -27,7 +27,6 @@ namespace UM.UI.Article
                 string summary = allarticleDs.Tables[0].Rows[i]["Summary"].ToString();
                 if (summary == "")
                 {
-                    //summary = allarticleDs.Tables[0].Rows[i]["Contents"].ToString().Substring(0, 100);
                     string contents = allarticleDs.Tables[0].Rows[i]["Contents"].ToString();
                     contents = System.Text.RegularExpressions.Regex.Replace(contents, RegexConstant.Htmlmark, "");
                     if (contents.Length < 100)

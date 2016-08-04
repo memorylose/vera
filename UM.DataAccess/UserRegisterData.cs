@@ -136,7 +136,7 @@ namespace UM.DataAccess
                     new SqlParameter("@CreateUserId",SqlDbType.Int)
                 };
             sqlParam[0].Value = userid;
-            DataSet dshow = SqlHelper.ExcuteDataSet(sql, CommandType.Text,sqlParam);
+            DataSet dshow = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return dshow;
         }
 
@@ -165,6 +165,17 @@ namespace UM.DataAccess
                 new SqlParameter("@type",SqlDbType.NVarChar,10)
             };
             sqlParam[0].Value = type;
+            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
+            return ds;
+        }
+
+        public DataSet SearchArticle(string schcontent)
+        {
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Title like '% @schconent% 'or Contents like '%@schconent%' order by CreateDate desc";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@schconent",SqlDbType.NVarChar)
+            };
+            sqlParam[0].Value = schcontent;
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
