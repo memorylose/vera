@@ -32,24 +32,19 @@ namespace UM.UI.Article
                     {
                         string contents = allarticleDs.Tables[0].Rows[i]["Contents"].ToString();
                         contents = System.Text.RegularExpressions.Regex.Replace(contents, RegexConstant.Htmlmark, "");
-                        if (contents.Length < 100)
-                        {
-                            summary = contents;
-                        }
-                        else
-                        {
-                            summary = contents.Substring(0, 100);
-                            summary = summary.Substring(0, 99) + System.Text.RegularExpressions.Regex.Replace(summary.Substring(99, 1), RegexConstant.AlphaNumber, "");
-                            summary += "......";
-                        }
+                        //if (contents.Length < 100)
+                        //{
+                        //    summary = contents;
+                        //}
+                        //else
+                        //{
+                        //    summary = contents.Substring(0, 100);
+                        //    summary = summary.Substring(0, 99) + System.Text.RegularExpressions.Regex.Replace(summary.Substring(99, 1), RegexConstant.AlphaNumber, "");
+                        //    summary += "......";
+                        //}
+                        ShowSummary(contents, out summary);
                     }
-
-                    Articleshtml += "<div class=\"row\">";
-                    Articleshtml += "<div class=\"col-md-12 content-title\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                    Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>";
-                    Articleshtml += "<div class=\"col-md-12 content-t\">" + summary;
-                    Articleshtml += "</div>";
-                    Articleshtml += "</div>";
+                    ArticleHtml(articleId, title, crDate, typeName, summary);
                 }
             }
             else
@@ -65,28 +60,36 @@ namespace UM.UI.Article
                     {
                         string contents = searcharticleDs.Tables[0].Rows[i]["Contents"].ToString();
                         contents = System.Text.RegularExpressions.Regex.Replace(contents, RegexConstant.Htmlmark, "");
-                        if (contents.Length < 100)
-                        {
-                            summary = contents;
-                        }
-                        else
-                        {
-                            summary = contents.Substring(0, 100);
-                            summary = summary.Substring(0, 99) + System.Text.RegularExpressions.Regex.Replace(summary.Substring(99, 1), RegexConstant.AlphaNumber, "");
-                            summary += "......";
-                        }
+                        ShowSummary(contents, out summary);
                     }
-
-                    Articleshtml += "<div class=\"row\">";
-                    Articleshtml += "<div class=\"col-md-12 content-title\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                    Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>";
-                    Articleshtml += "<div class=\"col-md-12 content-t\">" + summary;
-                    Articleshtml += "</div>";
-                    Articleshtml += "</div>";
+                    ArticleHtml(articleId, title, crDate, typeName, summary);
                 }
             }
-
-
         }
+
+        public void ShowSummary(string contents,out string summary)
+        {
+            if (contents.Length < 100)
+            {
+                summary = contents;
+            }
+            else
+            {
+                summary = contents.Substring(0, 100);
+                summary = summary.Substring(0, 99) + System.Text.RegularExpressions.Regex.Replace(summary.Substring(99, 1), RegexConstant.AlphaNumber, "");
+                summary += "......";
+            }
+        }
+
+        public void ArticleHtml(int articleId, string title, string crDate, string typeName, string summary)
+        {
+            Articleshtml += "<div class=\"row\">";
+            Articleshtml += "<div class=\"col-md-12 content-title\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
+            Articleshtml += "<div class=\"col-md-12 content-date\"><span>" + crDate + "</span><span>-</span><span>" + typeName + "</span></div>";
+            Articleshtml += "<div class=\"col-md-12 content-t\">" + summary;
+            Articleshtml += "</div>";
+            Articleshtml += "</div>";
+        }
+
     }
 }
