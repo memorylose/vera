@@ -18,20 +18,12 @@ namespace UM.UI.Article
         {
             string keyword = Request.QueryString["keyword"];
             UserRegisterBusiness userReg = new UserRegisterBusiness();
+            DataSet ds = null;
             if (keyword == null)
-            {
-                DataSet allarticleDs = userReg.ShowArticle();
-                ShowSummary(allarticleDs);
-            }
+                ds = userReg.ShowArticle();
             else
-            {
-                DataSet searcharticleDs = userReg.SearchArticle(keyword);
-                ShowSummary(searcharticleDs);
-            }
-        }
+                ds = userReg.SearchArticle(keyword);
 
-        public void ShowSummary(DataSet ds)
-        {
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 string title = ds.Tables[0].Rows[i]["Title"].ToString();
@@ -61,8 +53,5 @@ namespace UM.UI.Article
                 Articleshtml += "</div>";
             }
         }
-
-        
-
     }
 }
