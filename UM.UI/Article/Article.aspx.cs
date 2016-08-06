@@ -13,9 +13,9 @@ namespace UM.UI.Article
     public partial class Article : System.Web.UI.Page
     {
         public string Articleshtml = "";
-        int articleId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int articleId = 0;
             string keyword = Request.QueryString["keyword"];
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet ds = null;
@@ -26,6 +26,7 @@ namespace UM.UI.Article
 
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
+                articleId = Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]);
                 string title = ds.Tables[0].Rows[i]["Title"].ToString();
                 string crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 string typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
