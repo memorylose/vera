@@ -46,16 +46,7 @@ namespace UM.UI.Article {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSummary;
-        
-        /// <summary>
-        /// txtContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtContent;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtSummary;
         
         /// <summary>
         /// DropDownList1 control.
@@ -74,5 +65,23 @@ namespace UM.UI.Article {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Todo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.Todo Todo;
+        
+        /// <summary>
+        /// Footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.Footer Footer;
     }
 }

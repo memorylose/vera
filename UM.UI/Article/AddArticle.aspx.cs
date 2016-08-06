@@ -52,7 +52,7 @@ namespace UM.UI.Article
             string dpValue = DropDownList1.SelectedItem.Value;
             DataSet ds = userReg.GetArticleTypeId(dpValue);
             int typeId = Convert.ToInt32(ds.Tables[0].Rows[0]["TypeId"].ToString());
-            int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, txtContent.Value, userId, typeId);
+            int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, Request["content"].ToString(), userId, typeId);
             if (i != 0)
             {
                 Response.Redirect("Article.aspx");

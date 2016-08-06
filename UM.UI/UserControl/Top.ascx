@@ -16,10 +16,7 @@
                             <div class="top-menu"><%--<%=MyArticlehtml%>--%><a href="/Article/Article.aspx">我的</a></div>
                         </div>
                         <div class="col-md-1" style="padding: 0;">
-                            <div class="top-menu"><%--<%=Popularhtml%>--%><a href="/Article/Article.aspx">热文</a></div>
-                        </div>
-                        <div class="col-md-1" style="padding: 0;">
-                            <div class="top-menu"><%--<%=Abouttml%>--%><a href="/Article/Article.aspx">关于</a></div>
+                            <div class="top-menu"><%--<%=Abouttml%>--%><a href="/Article/AddArticle.aspx">写博客</a></div>
                         </div>
 
                         <div class="col-md-8" style="padding: 0;">
