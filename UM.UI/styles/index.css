@@ -221,6 +221,36 @@
     float: right;
 }
 
+.right-num {
+    height: 30px;
+    width: 30px;
+    float: left;
+    line-height: 30px;
+    font-size: 13px;
+}
+
+.right-t {
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.right-con {
+    height: 30px;
+    float: left;
+    line-height: 30px;
+}
+
+    .right-con a {
+        font-size: 13px;
+        color: #656565;
+    }
+
+        .right-con a:hover {
+            text-decoration: none;
+            color: #D6623D;
+        }
+
 .test {
     border: 1px solid red;
 }
