@@ -19,16 +19,15 @@ namespace UM.UI.UserControl
             DataSet ds = userReg.HotArticle();
             string title = "";
             int articleId = 0;
-            int s = 0;
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            for (int i = 1; i <= ds.Tables[0].Rows.Count; i++)
             {
-                title = ds.Tables[0].Rows[i]["Title"].ToString();
-                articleId = Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]);
-                if (i < ds.Tables[0].Rows.Count - 1)
+                title = ds.Tables[0].Rows[i-1]["Title"].ToString();
+                articleId = Convert.ToInt32(ds.Tables[0].Rows[i-1]["ArticleId"]);
+                
+                if (i < ds.Tables[0].Rows.Count)
                 {
-                    s++;
                     HotArticlehtml += "<div class=\"right-t\">";
-                    HotArticlehtml += "<div class=\"right-num\">0" + s + ".</div>";
+                    HotArticlehtml += "<div class=\"right-num\">0" + i + ".</div>";
                     HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
                     HotArticlehtml += "</div>";
                 }
