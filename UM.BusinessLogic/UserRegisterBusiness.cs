@@ -199,5 +199,12 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.SearchArticle(schcontent);
             return ds;
         }
+
+        public DataSet HotArticle()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.HotArticle();
+            return ds;
+        }
     }
 }

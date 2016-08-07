@@ -179,5 +179,12 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
+
+        public DataSet HotArticle()
+        {
+            string sql = "select top 10 Title, ArticleId from Articles order by CreateDate desc";
+            DataSet ds = SqlHelper.ExcuteDataSet(sql);
+            return ds;
+        }
     }
 }

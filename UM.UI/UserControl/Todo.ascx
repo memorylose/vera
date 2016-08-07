@@ -19,12 +19,12 @@
         <div class="col-md-1"></div>
 
         <div class="col-md-10" style="padding-left: 40px;">
-
-            <div class="right-t">
+            <%=HotArticlehtml%>
+            <%--<div class="right-t">
                 <div class="right-num">01.</div>
                 <div class="right-con"><a href="">你的碌碌无为，恰恰是因为做得太多!</a></div>
-            </div>
-            <div class="right-t">
+            </div>--%>
+            <%--<div class="right-t">
                 <div class="right-num">02.</div>
                 <div class="right-con"><a href="">你的碌碌无为，恰恰是因为做得太多!</a></div>
             </div>
@@ -60,7 +60,7 @@
             <div class="right-t">
                 <div class="right-num">10.</div>
                 <div class="right-con"><a href="">你的碌碌无为，恰恰是因为做得太多!</a></div>
-            </div>
+            </div>--%>
 
         </div>
         <div class="col-md-1"></div>
