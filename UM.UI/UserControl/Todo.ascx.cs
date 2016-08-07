@@ -19,22 +19,25 @@ namespace UM.UI.UserControl
             DataSet ds = userReg.HotArticle();
             string title = "";
             int articleId = 0;
+            string a = "";
             for (int i = 1; i <= ds.Tables[0].Rows.Count; i++)
             {
                 title = ds.Tables[0].Rows[i-1]["Title"].ToString();
                 articleId = Convert.ToInt32(ds.Tables[0].Rows[i-1]["ArticleId"]);
+                
                 HotArticlehtml += "<div class=\"right-t\">";
-                if (i < ds.Tables[0].Rows.Count)
-                {
-                    HotArticlehtml += "<div class=\"right-num\">0" + i + ".</div>";
-                }
-                else
-                {
-                    HotArticlehtml += "<div class=\"right-num\">10.</div>";
-                }
+                HotArticlehtml += a;
                 HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
                 HotArticlehtml += "</div>";
 
+                if (i < ds.Tables[0].Rows.Count)
+                {
+                    a = "<div class=\"right-num\">0" + i + ".</div>";
+                }
+                else
+                {
+                    a += "<div class=\"right-num\">10.</div>";
+                }
             }
         }
 
