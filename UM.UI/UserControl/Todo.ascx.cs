@@ -17,26 +17,11 @@ namespace UM.UI.UserControl
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet ds = userReg.HotArticle();
-            string title = "";
-            int articleId = 0;
-            string a = "";
-            for (int i = 1; i <= ds.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                title = ds.Tables[0].Rows[i - 1]["Title"].ToString();
-                articleId = Convert.ToInt32(ds.Tables[0].Rows[i - 1]["ArticleId"]);
-
-                if (i < ds.Tables[0].Rows.Count)
-                {
-                    a = "0" + i + ".";
-                }
-                else
-                {
-                    a = "10.";
-                }
-
                 HotArticlehtml += "<div class=\"right-t\">";
-                HotArticlehtml += "<div class=\"right-num\">" + a + "</div>";
-                HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
+                HotArticlehtml += "<div class=\"right-num\">" + (i + 1).ToString().PadLeft(2, '0') + "</div>";
+                HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]) + "\">" + ds.Tables[0].Rows[i]["Title"].ToString() + "</a></div>";
                 HotArticlehtml += "</div>";
             }
         }
