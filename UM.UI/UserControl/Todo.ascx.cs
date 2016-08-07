@@ -23,22 +23,17 @@ namespace UM.UI.UserControl
             {
                 title = ds.Tables[0].Rows[i-1]["Title"].ToString();
                 articleId = Convert.ToInt32(ds.Tables[0].Rows[i-1]["ArticleId"]);
-                
+                HotArticlehtml += "<div class=\"right-t\">";
                 if (i < ds.Tables[0].Rows.Count)
                 {
-                    HotArticlehtml += "<div class=\"right-t\">";
                     HotArticlehtml += "<div class=\"right-num\">0" + i + ".</div>";
-                    HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                    HotArticlehtml += "</div>";
                 }
                 else
                 {
-                    HotArticlehtml += "<div class=\"right-t\">";
                     HotArticlehtml += "<div class=\"right-num\">10.</div>";
-                    HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                    HotArticlehtml += "</div>";
                 }
-
+                HotArticlehtml += "<div class=\"right-con\"><a href=\"ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
+                HotArticlehtml += "</div>";
 
             }
         }
