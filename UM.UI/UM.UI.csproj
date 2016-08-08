@@ -151,6 +151,7 @@
     <Content Include="scripts\flat-ui.min.js" />
     <Content Include="scripts\jquery-3.0.0.min.js" />
     <Content Include="scripts\kindeditor-min.js" />
+    <Content Include="scripts\prettify.js" />
     <Content Include="scripts\zh_CN.js" />
     <Content Include="styles\background.png" />
     <Content Include="styles\bootstrap.min.css" />
@@ -161,6 +162,7 @@
     <Content Include="styles\index.css" />
     <Content Include="styles\prettify.css" />
     <Content Include="styles\prettify.js" />
+    <Content Include="styles\simple.css" />
     <Content Include="UserControl\Footer.ascx" />
     <Content Include="UserControl\Todo.ascx" />
     <Content Include="UserControl\Top.ascx" />
@@ -253,6 +255,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="styles\plugins\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UM.BusinessLogic\UM.BusinessLogic.csproj">

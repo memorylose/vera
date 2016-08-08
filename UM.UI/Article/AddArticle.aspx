@@ -16,14 +16,25 @@
 
     <%--KindEditor--%>
     <link href="/styles/kindeditor.css" rel="stylesheet" />
+    <link href="/styles/simple.css" rel="stylesheet" />
+
     <script type="text/javascript" src="/scripts/kindeditor-min.js"></script>
     <script type="text/javascript" src="/scripts/zh_CN.js"></script>
+    <script type="text/javascript" src="/scripts/prettify.js"></script>
+
 
     <script>
-        var editor;
         KindEditor.ready(function (K) {
-            editor = K.create('textarea[name="content"]', {
-                allowFileManager: true
+            K.create('#content2', {
+                themeType: 'simple',
+                items: [
+                        'source', '|', 'code', 'paste',
+                        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                        'justifyfull',
+                        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'emoticons'
+                ],
+                pluginsPath: "/styles/plugins/"
             });
         });
     </script>
@@ -46,7 +57,7 @@
                                     <textarea class="title-input" runat="server" id="txtSummary" style="height: 100px;" placeholder="摘要（可不填）"></textarea>
                                 </div>
                                 <div style="height: 400px;" class="title-div">
-                                    <textarea name="content" style="width: 100%; height: 400px;">KindEditor</textarea>
+                                    <textarea name="content" id="content2" style="width: 100%; height: 400px;"></textarea>
                                 </div>
                                 <div style="height: 40px;" class="title-div">
 
