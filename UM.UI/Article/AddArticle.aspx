@@ -39,20 +39,21 @@
                         <div class="row">
                             <div class="col-md-8">
 
-                                <div style="height: 40px; margin-bottom:20px;" class="">
+                                <div style="height: 40px; margin-top: 30px;" class="title-div">
                                     <input type="text" class="title-input" value="" placeholder="标题" id="txtTitle" runat="server" />
                                 </div>
-                                <div style="height: 100px; margin-bottom:20px;" class="">
+                                <div style="height: 100px;" class="title-div">
                                     <textarea class="title-input" runat="server" id="txtSummary" style="height: 100px;" placeholder="摘要（可不填）"></textarea>
                                 </div>
-                                <div style="height: 400px;" class="">
-                                    <textarea name="content" style="width: 90%; height: 400px;">KindEditor</textarea>
+                                <div style="height: 400px;" class="title-div">
+                                    <textarea name="content" style="width: 100%; height: 400px;">KindEditor</textarea>
                                 </div>
-                                <div style="height: 40px; margin-top: 10px;" class="">
-                                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                <div style="height: 40px;" class="title-div">
+
+                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="dp"></asp:DropDownList>
                                 </div>
-                                <div style="height: 40px;">
-                                    <asp:Button ID="Button1" runat="server" Text="Create" Width="70px" Height="25px" OnClick="Button1_Click" />
+                                <div style="height: 40px;" class="title-div">
+                                    <asp:Button ID="Button1" runat="server" Text="提交" CssClass="btn btn-danger create-btn" OnClick="Button1_Click" />
                                 </div>
                             </div>
                             <uc1:Todo runat="server" ID="Todo" />

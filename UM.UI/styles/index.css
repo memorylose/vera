@@ -203,14 +203,32 @@
     outline: none;
 }
 
+.title-div {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.dp {
+    border: 1px solid #DDDDDD;
+    width: 120px;
+    height: 30px;
+}
+
 .title-input {
     height: 40px;
-    width: 90%;
+    width: 100%;
     border: 1px solid #DDDDDD;
     padding-left: 10px;
     outline: none;
     display: block;
     margin: 0 auto;
+}
+
+.create-btn {
+    display:block;
+    margin: 0 auto;
+    width: 150px;
 }
 
 .search-btn {
