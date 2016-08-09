@@ -179,13 +179,6 @@ namespace UM.BusinessLogic
             return ds;
         }
 
-        public DataSet GetArticleTypeId(string type)
-        {
-            UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.GetArticleTypeId(type);
-            return ds;
-        }
-
         public bool ValidateArticleId(object articleId)
         {
             Regex regex = new Regex(RegexConstant.ArticleId);

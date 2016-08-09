@@ -36,6 +36,7 @@ namespace UM.UI.Article
             DataSet articleTypeDs = userReg.GetArticleType();
             DropDownList1.DataSource = articleTypeDs;
             DropDownList1.DataTextField = "TypeName";
+            DropDownList1.DataValueField = "TypeId";
             DropDownList1.DataBind();
         }
         public void Button1_Click(object sender, EventArgs e)
@@ -53,9 +54,7 @@ namespace UM.UI.Article
             if (string.IsNullOrEmpty(validateResult))
             {
                 int userId = userReg.GetUserId(username);
-                string dpValue = DropDownList1.SelectedItem.Value;
-                DataSet ds = userReg.GetArticleTypeId(dpValue);
-                int typeId = Convert.ToInt32(ds.Tables[0].Rows[0]["TypeId"].ToString());
+                int typeId = Convert.ToInt32(DropDownList1.SelectedValue);
                 int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, Request["content"].ToString(), userId, typeId);
                 if (i != 0)
                 {
