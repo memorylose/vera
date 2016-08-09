@@ -67,6 +67,11 @@
                                     <asp:Button ID="Button1" runat="server" Text="提交" CssClass="btn btn-danger create-btn" OnClick="Button1_Click" />
                                 </div>
                             </div>
+
+                            <div class="reg_err">
+                                <%=AddErrorMessageshtml%>
+                            </div>
+
                             <uc1:Todo runat="server" ID="Todo" />
                         </div>
                     </div>

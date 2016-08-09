@@ -108,7 +108,6 @@ namespace UM.BusinessLogic
                 errMsg = "Password is empty.";
             }
             return errMsg;
-
         }
 
         public void CreateUser(string username, string nickname, string password, string mail)
@@ -205,6 +204,21 @@ namespace UM.BusinessLogic
             UserRegisterData userReg = new UserRegisterData();
             DataSet ds = userReg.HotArticle();
             return ds;
+        }
+
+        public string AddArticleValidation(string title, string content)
+        {
+            string errMsg = string.Empty;
+
+            if (string.IsNullOrEmpty(title))
+            {
+                errMsg = "Article title is empty.";
+            }
+            else if (string.IsNullOrEmpty(content))
+            {
+                errMsg = "Article content is empty.";
+            }
+            return errMsg;
         }
     }
 }

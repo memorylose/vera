@@ -13,6 +13,7 @@ namespace UM.UI.Article
 {
     public partial class AddArticle : System.Web.UI.Page
     {
+        public string AddErrorMessageshtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -48,19 +49,24 @@ namespace UM.UI.Article
             }
 
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            int userId = userReg.GetUserId(username);
-            string dpValue = DropDownList1.SelectedItem.Value;
-            DataSet ds = userReg.GetArticleTypeId(dpValue);
-            int typeId = Convert.ToInt32(ds.Tables[0].Rows[0]["TypeId"].ToString());
-            int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, Request["content"].ToString(), userId, typeId);
-            if (i != 0)
+            string validateResult = userReg.AddArticleValidation(txtTitle.Value, Request["content"].ToString());
+            if (string.IsNullOrEmpty(validateResult))
             {
-                Response.Redirect("Article.aspx");
+                int userId = userReg.GetUserId(username);
+                string dpValue = DropDownList1.SelectedItem.Value;
+                DataSet ds = userReg.GetArticleTypeId(dpValue);
+                int typeId = Convert.ToInt32(ds.Tables[0].Rows[0]["TypeId"].ToString());
+                int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, Request["content"].ToString(), userId, typeId);
+                if (i != 0)
+                {
+                    Response.Redirect("Article.aspx");
+                }
             }
             else
             {
-                Response.Write("Add Article Failed, Please Try Again");
+                AddErrorMessageshtml += validateResult;
             }
+                
         }
     }
 }
