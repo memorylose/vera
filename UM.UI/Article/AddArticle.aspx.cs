@@ -47,25 +47,27 @@ namespace UM.UI.Article
             if (Session["user"] != null)
             {
                 username = Session["user"].ToString();
-            }
-
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
-            string validateResult = userReg.AddArticleValidation(txtTitle.Value, Request["content"].ToString());
-            if (string.IsNullOrEmpty(validateResult))
-            {
-                int userId = userReg.GetUserId(username);
-                int typeId = Convert.ToInt32(DropDownList1.SelectedValue);
-                int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, Request["content"].ToString(), userId, typeId);
-                if (i != 0)
+                UserRegisterBusiness userReg = new UserRegisterBusiness();
+                string validateResult = userReg.AddArticleValidation(txtTitle.Value, Request["content"].ToString());
+                if (string.IsNullOrEmpty(validateResult))
                 {
-                    Response.Redirect("Article.aspx");
+                    int userId = userReg.GetUserId(username);
+                    int typeId = Convert.ToInt32(DropDownList1.SelectedValue);
+                    int i = userReg.AddArticle(txtTitle.Value, txtSummary.Value, Request["content"].ToString(), userId, typeId);
+                    if (i != 0)
+                    {
+                        Response.Redirect("Article.aspx");
+                    }
+                    else
+                    {
+                        AddErrorMessageshtml += validateResult;
+                    }
                 }
             }
             else
             {
-                AddErrorMessageshtml += validateResult;
+                Response.Redirect("../Login.aspx");
             }
-                
         }
     }
 }
