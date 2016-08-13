@@ -151,6 +151,13 @@ namespace UM.BusinessLogic
             return i;
         }
 
+        public int DeleteArticle(int articleId)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            int i = userReg.DeleteArticle(articleId);
+            return i;
+        }
+
         public DataSet ShowArticle()
         {
             UserRegisterData userReg = new UserRegisterData();

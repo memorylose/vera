@@ -31,6 +31,9 @@
         <div style="height: 40px;">
             <asp:Button ID="Button1" runat="server" Text="Update" Width="70px" Height="25px" OnClick="Button1_Click" />
         </div>
+        <div style="height: 40px;">
+            <asp:Button ID="Button2" runat="server" Text="Delete" Width="70px" Height="25px" OnClick="Button2_Click" />
+        </div>
 
         <div>
             <%--<%=Timehtml%>--%>

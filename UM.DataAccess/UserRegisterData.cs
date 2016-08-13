@@ -122,6 +122,18 @@ namespace UM.DataAccess
             return i;
         }
 
+        public int DeleteArticle(int articleId)
+        {
+            string deleteSql = "delete from Articles where ArticleId = @ArticleId";
+            SqlParameter[] sqlParam =
+            {
+                new SqlParameter("@ArticleId",SqlDbType.Int)
+            };
+            sqlParam[0].Value = articleId;
+            int i = SqlHelper.ExcuteNonQuery(CommandType.Text, deleteSql, sqlParam);
+            return i;
+        }
+
         public DataSet ShowArticle()
         {
             string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName from Articles inner join ArticleType on Articles.TypeId = ArticleType.TypeId order by CreateDate desc";

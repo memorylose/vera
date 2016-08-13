@@ -63,5 +63,16 @@ namespace UM.UI.Article
                 Response.Write("Modify Article Failed, Please Try Again");
             }
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            int articleId = Convert.ToInt32(Request.QueryString["id"]);
+            int i = userReg.DeleteArticle(articleId);
+            if (i != 0)
+            {
+                Response.Redirect("Article.aspx");
+            }
+        }
     }
 }
