@@ -110,6 +110,7 @@
     <Content Include="fonts\lato\lato-regular.svg" />
     <Content Include="images\1.jpg" />
     <Content Include="images\search.png" />
+    <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
     <Content Include="packages.config" />
@@ -160,6 +161,7 @@
     <Content Include="styles\demo.css" />
     <Content Include="styles\flat-ui.css" />
     <Content Include="styles\index.css" />
+    <Content Include="styles\NewIndex.css" />
     <Content Include="styles\plugins\code\code.js" />
     <Content Include="styles\plugins\code\prettify.css" />
     <Content Include="styles\plugins\code\prettify.js" />
@@ -340,6 +342,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
