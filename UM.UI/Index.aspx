@@ -25,14 +25,23 @@
         </div>
 
         <div class="container">
-            <div class="row" style="margin-top: 30px;">
-                <div style="height: 50px; color: black; font-size: 40px; font-weight: bold;" class="">VERA</div>
+            <div class="row header-name">
+                <div class="header-name-detail">VERA</div>
             </div>
-            <div class="row" style="">
-                <div style="height: 50px; color: #666678; font-size: 20px; line-height: 50px;" class="">
+            <div class="row header-word">
+                <div class="header-word-detail">
                     It is said that you will appear in the dreams of others when you fail to fall asleep.
                 </div>
             </div>
+        </div>
+
+        <div class="container">
+            <div class="row test" style="">
+                <div class="col-md-3 test" style="height: 40px;">1</div>
+                <div class="col-md-9 test">2</div>
+
+            </div>
+
         </div>
     </form>
 </body>

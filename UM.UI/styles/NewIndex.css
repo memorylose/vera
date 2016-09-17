@@ -31,6 +31,27 @@
             text-decoration: none;
         }
 
+.header-name {
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.header-name-detail {
+    height: 50px;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.header-word {
+    padding-bottom: 20px;
+}
+
+.header-word-detail {
+    color: #666678;
+    font-size: 20px;
+    line-height: 50px;
+}
 
 .test {
     border: 1px solid red;
