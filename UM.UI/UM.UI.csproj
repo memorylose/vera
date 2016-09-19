@@ -109,6 +109,7 @@
     <Content Include="fonts\lato\lato-light.svg" />
     <Content Include="fonts\lato\lato-regular.svg" />
     <Content Include="images\1.jpg" />
+    <Content Include="images\logo.png" />
     <Content Include="images\people.jpg" />
     <Content Include="images\search.png" />
     <Content Include="Index.aspx" />

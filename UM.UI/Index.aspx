@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Vera Blog</title>
+    <title>薇拉生活坊</title>
     <link href="/styles/bootstrap.min.css" rel="stylesheet" />
     <link href="/styles/NewIndex.css" rel="stylesheet" />
 </head>
@@ -21,12 +21,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <div class="container">
-            <div class="row header-name">
-                <div class="header-name-detail">VERA</div>
+            <div class="row">
+                <img src="/images/logo.png" class="header-img" />
             </div>
             <div class="row header-word">
                 <div class="header-word-detail">
@@ -34,10 +32,9 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
-            <div class="row test" style="">
-                <div class="col-md-3" style="padding: 0;">
+            <div class="row bt-center">
+                <div class="col-md-3 bt-padding">
                     <div class="l-personal-name">个人信息</div>
                     <div class="l-personal-content">
                         <img src="/images/people.jpg" class="l-personal-img" />
@@ -60,7 +57,6 @@
                             <div class="l-detail-name">.NET, SQL, BI</div>
                         </div>
                     </div>
-
                     <div class="l-personal-name">文章分类</div>
                     <div class="l-personal-detail">
                         <div class="row bt-margin">
@@ -80,7 +76,6 @@
                             <div class="l-cate-name-d">(68)</div>
                         </div>
                     </div>
-
                     <div class="l-personal-name">文章存档</div>
                     <div class="l-personal-detail">
                         <div class="row bt-margin">
@@ -100,7 +95,6 @@
                             <div class="l-cate-name-d">(68)</div>
                         </div>
                     </div>
-
                     <div class="l-personal-name">阅读排行</div>
                     <div class="l-personal-detail">
                         <div class="row bt-margin">
@@ -121,27 +115,145 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8" style="background-color:white; margin-left:10px;">
-                    <div class="row">
-                        <div class="col-md-1 bt-padding" style="margin-left:10px;">
-                            <div class="r-date-t">
-                                <div class="r-date-year">2016</div>
-                                <div class="r-date-month">九</div>
+                <div class="col-md-9 r-content">
+                    <div class="l-personal-name" style="margin-left: 20px;">欢迎来到我的生活坊</div>
+                    <div class="r-content-d">
+                        <div class="row row-marginb">
+                            <div class="col-md-1 bt-padding r-time-d">
+                                <div class="r-date-t">
+                                    <div class="r-date-year">2016</div>
+                                    <div class="r-date-month">九</div>
+                                </div>
+                                <div class="r-date-b">
+                                    18
+                                </div>
                             </div>
-                            <div class="r-date-b">
-                                18
+                            <div class="col-md-10 bt-padding">
+                                <div class="r-title"><a href="">WebApi - 错误处理</a></div>
+                                <div class="r-time-1"><a href="">随笔散文</a></div>
+                                <div class="r-time-1"><a href="">编辑</a></div>
+                                <div class="r-time-1"><a href="">删除</a></div>
+                                <div style="clear: both"></div>
+                                <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
                             </div>
-
                         </div>
-                        <div class="col-md-10 test">2</div>
-
                     </div>
 
+                    <div class="r-content-d">
+                        <div class="row row-marginb">
+                            <div class="col-md-1 bt-padding r-time-d">
+                                <div class="r-date-t">
+                                    <div class="r-date-year">2016</div>
+                                    <div class="r-date-month">九</div>
+                                </div>
+                                <div class="r-date-b">
+                                    18
+                                </div>
+                            </div>
+                            <div class="col-md-10 bt-padding">
+                                <div class="r-title"><a href="">WebApi - 错误处理</a></div>
+                                <div class="r-time-1"><a href="">随笔散文</a></div>
+                                <div class="r-time-1"><a href="">编辑</a></div>
+                                <div class="r-time-1"><a href="">删除</a></div>
+                                <div style="clear: both"></div>
+                                <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="r-content-d">
+                        <div class="row row-marginb">
+                            <div class="col-md-1 bt-padding r-time-d">
+                                <div class="r-date-t">
+                                    <div class="r-date-year">2016</div>
+                                    <div class="r-date-month">九</div>
+                                </div>
+                                <div class="r-date-b">
+                                    18
+                                </div>
+                            </div>
+                            <div class="col-md-10 bt-padding">
+                                <div class="r-title"><a href="">WebApi - 错误处理</a></div>
+                                <div class="r-time-1"><a href="">随笔散文</a></div>
+                                <div class="r-time-1"><a href="">编辑</a></div>
+                                <div class="r-time-1"><a href="">删除</a></div>
+                                <div style="clear: both"></div>
+                                <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="r-content-d">
+                        <div class="row row-marginb">
+                            <div class="col-md-1 bt-padding r-time-d">
+                                <div class="r-date-t">
+                                    <div class="r-date-year">2016</div>
+                                    <div class="r-date-month">九</div>
+                                </div>
+                                <div class="r-date-b">
+                                    18
+                                </div>
+                            </div>
+                            <div class="col-md-10 bt-padding">
+                                <div class="r-title"><a href="">WebApi - 错误处理</a></div>
+                                <div class="r-time-1"><a href="">随笔散文</a></div>
+                                <div class="r-time-1"><a href="">编辑</a></div>
+                                <div class="r-time-1"><a href="">删除</a></div>
+                                <div style="clear: both"></div>
+                                <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="r-content-d">
+                        <div class="row row-marginb">
+                            <div class="col-md-1 bt-padding r-time-d">
+                                <div class="r-date-t">
+                                    <div class="r-date-year">2016</div>
+                                    <div class="r-date-month">九</div>
+                                </div>
+                                <div class="r-date-b">
+                                    18
+                                </div>
+                            </div>
+                            <div class="col-md-10 bt-padding">
+                                <div class="r-title"><a href="">WebApi - 错误处理</a></div>
+                                <div class="r-time-1"><a href="">随笔散文</a></div>
+                                <div class="r-time-1"><a href="">编辑</a></div>
+                                <div class="r-time-1"><a href="">删除</a></div>
+                                <div style="clear: both"></div>
+                                <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="r-content-d">
+                        <div class="row row-marginb">
+                            <div class="col-md-1 bt-padding r-time-d">
+                                <div class="r-date-t">
+                                    <div class="r-date-year">2016</div>
+                                    <div class="r-date-month">九</div>
+                                </div>
+                                <div class="r-date-b">
+                                    18
+                                </div>
+                            </div>
+                            <div class="col-md-10 bt-padding">
+                                <div class="r-title"><a href="">WebApi - 错误处理</a></div>
+                                <div class="r-time-1"><a href="">随笔散文</a></div>
+                                <div class="r-time-1"><a href="">编辑</a></div>
+                                <div class="r-time-1"><a href="">删除</a></div>
+                                <div style="clear: both"></div>
+                                <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-detail">
+                京 ICP 证 09002463 号|Copyright © 1999-2016, CSDN.NET, All Rights Reserved
             </div>
         </div>
     </form>
