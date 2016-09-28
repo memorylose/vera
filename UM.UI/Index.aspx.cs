@@ -54,36 +54,11 @@ namespace UM.UI
                 string crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 string crYear = DateTime.Parse(crDate).Year.ToString();
                 string crMonth = DateTime.Parse(crDate).Month.ToString();
-                switch (Convert.ToInt32(crMonth))
-                {
-                    case 1:crMonth = "一";
-                        break;
-                    case 2:crMonth = "二";
-                        break;
-                    case 3:crMonth = "三";
-                        break;
-                    case 4:crMonth = "四";
-                        break;
-                    case 5:crMonth = "五";
-                        break;
-                    case 6:crMonth = "六";
-                        break;
-                    case 7:crMonth = "七";
-                        break;
-                    case 8:crMonth = "八";
-                        break;
-                    case 9:crMonth = "九";
-                        break;
-                    case 10:crMonth = "十";
-                        break;
-                    case 11:crMonth = "十一";
-                        break;
-                    case 12:crMonth = "十二";
-                        break;
-                }
+                string month = ShowMonth(crMonth);
                 string crDay = DateTime.Parse(crDate).Day.ToString();
                 string typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
                 string summary = ds.Tables[0].Rows[i]["Summary"].ToString();
+
                 if (summary == "")
                 {
                     string contents = ds.Tables[0].Rows[i]["Contents"].ToString();
@@ -104,7 +79,7 @@ namespace UM.UI
                 ArticleListhtml += "<div class=\"col-md-1 bt-padding r-time-d\">";
                 ArticleListhtml += "<div class=\"r-date-t\">";
                 ArticleListhtml += "<div class=\"r-date-year\">" + crYear + "</div>";
-                ArticleListhtml += "<div class=\"r-date-month\">" + crMonth + "</div>";//怎么变成汉字的一到十二？
+                ArticleListhtml += "<div class=\"r-date-month\">" + month + "</div>";
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "<div class=\"r-date-b\">";
                 ArticleListhtml += crDay;
@@ -123,6 +98,50 @@ namespace UM.UI
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "</div>";
             }
+        }
+
+        public string ShowMonth(string month)
+        {
+            switch (Convert.ToInt32(month))
+            {
+                case 1:
+                    month = "一";
+                    break;
+                case 2:
+                    month = "二";
+                    break;
+                case 3:
+                    month = "三";
+                    break;
+                case 4:
+                    month = "四";
+                    break;
+                case 5:
+                    month = "五";
+                    break;
+                case 6:
+                    month = "六";
+                    break;
+                case 7:
+                    month = "七";
+                    break;
+                case 8:
+                    month = "八";
+                    break;
+                case 9:
+                    month = "九";
+                    break;
+                case 10:
+                    month = "十";
+                    break;
+                case 11:
+                    month = "十一";
+                    break;
+                case 12:
+                    month = "十二";
+                    break;
+            }
+            return month;
         }
     }
 }
