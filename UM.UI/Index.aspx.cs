@@ -102,46 +102,17 @@ namespace UM.UI
 
         public string ShowMonth(string month)
         {
-            switch (Convert.ToInt32(month))
+            string result = string.Empty;
+            string[] monthArray = { "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二" };
+            for (int j = 1; j < monthArray.Length + 1; j++)
             {
-                case 1:
-                    month = "一";
+                if (j == Convert.ToInt32(month))
+                {
+                    result = monthArray[j - 1].ToString();
                     break;
-                case 2:
-                    month = "二";
-                    break;
-                case 3:
-                    month = "三";
-                    break;
-                case 4:
-                    month = "四";
-                    break;
-                case 5:
-                    month = "五";
-                    break;
-                case 6:
-                    month = "六";
-                    break;
-                case 7:
-                    month = "七";
-                    break;
-                case 8:
-                    month = "八";
-                    break;
-                case 9:
-                    month = "九";
-                    break;
-                case 10:
-                    month = "十";
-                    break;
-                case 11:
-                    month = "十一";
-                    break;
-                case 12:
-                    month = "十二";
-                    break;
+                }
             }
-            return month;
+            return result;
         }
     }
 }
