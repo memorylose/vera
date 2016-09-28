@@ -46,20 +46,47 @@ namespace UM.UI
         public void ShowArticleList()
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet ds1 = userReg.ShowArticle();
-            for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
+            DataSet ds = userReg.ShowArticle();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                int articleId = Convert.ToInt32(ds1.Tables[0].Rows[i]["ArticleId"]);
-                string title = ds1.Tables[0].Rows[i]["Title"].ToString();
-                string crDate = ds1.Tables[0].Rows[i]["CreateDate"].ToString();
+                int articleId = Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]);
+                string title = ds.Tables[0].Rows[i]["Title"].ToString();
+                string crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 string crYear = DateTime.Parse(crDate).Year.ToString();
                 string crMonth = DateTime.Parse(crDate).Month.ToString();
+                switch (Convert.ToInt32(crMonth))
+                {
+                    case 1:crMonth = "一";
+                        break;
+                    case 2:crMonth = "二";
+                        break;
+                    case 3:crMonth = "三";
+                        break;
+                    case 4:crMonth = "四";
+                        break;
+                    case 5:crMonth = "五";
+                        break;
+                    case 6:crMonth = "六";
+                        break;
+                    case 7:crMonth = "七";
+                        break;
+                    case 8:crMonth = "八";
+                        break;
+                    case 9:crMonth = "九";
+                        break;
+                    case 10:crMonth = "十";
+                        break;
+                    case 11:crMonth = "十一";
+                        break;
+                    case 12:crMonth = "十二";
+                        break;
+                }
                 string crDay = DateTime.Parse(crDate).Day.ToString();
-                string typeName = ds1.Tables[0].Rows[i]["TypeName"].ToString();
-                string summary = ds1.Tables[0].Rows[i]["Summary"].ToString();
+                string typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
+                string summary = ds.Tables[0].Rows[i]["Summary"].ToString();
                 if (summary == "")
                 {
-                    string contents = ds1.Tables[0].Rows[i]["Contents"].ToString();
+                    string contents = ds.Tables[0].Rows[i]["Contents"].ToString();
                     contents = System.Text.RegularExpressions.Regex.Replace(contents, RegexConstant.Htmlmark, "");
                     if (contents.Length < 100)
                     {
