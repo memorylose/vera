@@ -6,7 +6,7 @@
             <div class="col-md-2 header-col"></div>
             <div class="col-md-8 header-col"></div>
             <div class="col-md-2 header-col">
-                <%=Pageheadhtml%>
+                <%=Pageheadhtml %>
             </div>
         </div>
     </div>
