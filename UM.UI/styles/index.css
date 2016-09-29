@@ -226,7 +226,7 @@
 }
 
 .create-btn {
-    display:block;
+    display: block;
     margin: 0 auto;
     width: 150px;
 }
@@ -278,6 +278,8 @@
             text-decoration: none;
             color: #D6623D;
         }
+
+
 
 .test {
     border: 1px solid red;
