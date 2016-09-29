@@ -37,7 +37,7 @@ namespace UM.UI {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UM.UI.UserControl.Head LeftPage;
+        protected global::UM.UI.UserControl.LeftPage LeftPage;
         
         /// <summary>
         /// Footer control.

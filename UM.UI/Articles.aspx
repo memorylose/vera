@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Articles.aspx.cs" Inherits="UM.UI.Articles" %>
-<%@ Register Src="~/UserControl/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
-<%@ Register Src="~/UserControl/LeftPage.ascx" TagPrefix="uc1" TagName="LeftPage" %>
 <%@ Register Src="~/UserControl/Head.ascx" TagPrefix="uc1" TagName="Head" %>
+<%@ Register Src="~/UserControl/LeftPage.ascx" TagPrefix="uc1" TagName="LeftPage" %>
+<%@ Register Src="~/UserControl/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+
+
 
 
 
