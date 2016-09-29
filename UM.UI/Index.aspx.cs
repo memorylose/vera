@@ -31,9 +31,9 @@ namespace UM.UI
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 string title = ds.Tables[0].Rows[i]["Title"].ToString();
-                if (title.Length >= 17)
+                if (title.Length >= 15)
                 {
-                    title = title.Substring(0, 16);
+                    title = title.Substring(0, 15);
                     title += "...";
                 }
                 RankListhtml += "<div class=\"row bt-margin\">";
@@ -87,7 +87,7 @@ namespace UM.UI
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
 
-                ArticleListhtml += "<div class=\"r-title\"><a href=\"Article/ArticleDetail.aspx?id=" + articleId + "\">" + title + "</a></div>";
+                ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
                 ArticleListhtml += "<div class=\"r-time-1\"><a href=\"\">" + typeName + "</a></div>";
                 ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>";
                 ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>";

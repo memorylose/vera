@@ -38,7 +38,7 @@ namespace UM.UI
                         if (i > 0)
                         {
                             Session["user"] = txtUsername.Value;
-                            Response.Redirect("Article/Article.aspx");
+                            Response.Redirect("Index.aspx");//Article/Article
                         }
                         else
                         {

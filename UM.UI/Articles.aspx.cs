@@ -13,12 +13,17 @@ namespace UM.UI
     {
         public string RankListhtml = "";
         public string Pageheadhtml = "";
-
+        public string TitleHtml = "";
+        public string CrDateHtml="";
+        public string TypeHtml = "";
+        public string ContentHtml = "";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            Pageheadhtml += "<div class=\"header-login\"><a href=\"../Register.aspx\">注册</a></div>";
-            Pageheadhtml += "<div class=\"header-login\"><a href=\"../Login.aspx\">登录</a></div>";
+            Pageheadhtml += "<div class=\"header-login\"><a href=\"Register.aspx\">注册</a></div>";
+            Pageheadhtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
             ShowHotArticle();
+            ShowArticleDetail();
         }
 
         public void ShowHotArticle()
@@ -28,9 +33,9 @@ namespace UM.UI
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 string title = ds.Tables[0].Rows[i]["Title"].ToString();
-                if (title.Length >= 17)
+                if (title.Length >= 15)
                 {
-                    title = title.Substring(0, 16);
+                    title = title.Substring(0, 15);
                     title += "...";
                 }
                 RankListhtml += "<div class=\"row bt-margin\">";
@@ -38,6 +43,17 @@ namespace UM.UI
                 RankListhtml += "<div class=\"l-read-name-d\">(239)</div>";
                 RankListhtml += "</div>";
             }
+        }
+
+        public void ShowArticleDetail()
+        {
+            int articleId = Convert.ToInt32(Request.QueryString["id"]);
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            DataSet dsArtDetail = userReg.ArticleDetails(articleId);
+            TitleHtml += dsArtDetail.Tables[0].Rows[0]["Title"].ToString();
+            CrDateHtml += dsArtDetail.Tables[0].Rows[0]["CreateDate"].ToString();
+            TypeHtml += dsArtDetail.Tables[0].Rows[0]["TypeName"].ToString();
+            ContentHtml += dsArtDetail.Tables[0].Rows[0]["Contents"].ToString();
         }
     }
 }

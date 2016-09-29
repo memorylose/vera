@@ -102,16 +102,17 @@
                 <div class="col-md-9 r-content">
                     <div class="l-personal-name" style="margin-left: 20px;">欢迎来到我的生活坊</div>
                     <div class="r-content-d">
-                        <div class="d-title">WebApi 安全认证（一）</div>
+                        <div class="d-title"><%--WebApi 安全认证（一）--%><%=TitleHtml %></div>
                         <div class="d-title-line">
                             <div class="d-title-type">收藏</div>
-                            <div class="d-title-type">2015/08/08 23:22:00</div>
-                            <div class="d-title-type"><a href="">心情随笔</a></div>
+                            <div class="d-title-type"><%--2015/08/08 23:22:00--%><%=CrDateHtml %></div>
+                            <div class="d-title-type"><a href=""><%--心情随笔--%><%=TypeHtml %></a></div>
                             <div style="clear: both;"></div>
                         </div>
 
                         <div class="word-detail">
-                            问：据报道，昨天，美国国务院亚太事务助卿拉塞尔在美国参院外委会听证会上称，中国购买煤炭等经济活动为朝鲜提供了救命稻草，降低了全球对朝制裁效果。中方对此有何回应？
+                            <%=ContentHtml %>
+                            <%--问：据报道，昨天，美国国务院亚太事务助卿拉塞尔在美国参院外委会听证会上称，中国购买煤炭等经济活动为朝鲜提供了救命稻草，降低了全球对朝制裁效果。中方对此有何回应？
 
 答：中方反对朝鲜发展核武器，致力于推动半岛无核化的立场是一贯、明确的。中国是负责任的国家，中方一直认真执行安理会涉朝决议。目前中朝间煤炭等矿产贸易均符合有关决议的规定，也符合中国国内的有关法规。
 
@@ -129,7 +130,7 @@
 
 第二，任何企业或个人如有违规之举，一经查实，我们会依法依规严肃处理。
 
-第三，我们愿在相互尊重、平等相待的前提下同有关国家开展合作，同时反对任何国家根据其国内法对中方实体和个人实施所谓的“长臂管辖”。
+第三，我们愿在相互尊重、平等相待的前提下同有关国家开展合作，同时反对任何国家根据其国内法对中方实体和个人实施所谓的“长臂管辖”。--%>
                         </div>
 
                     </div>
