@@ -18,10 +18,15 @@ namespace UM.UI
         public string ArticleListhtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            Pageheadhtml += "<div class=\"header-login\"><a href=\"../Register.aspx\">注册</a></div>";
-            Pageheadhtml += "<div class=\"header-login\"><a href=\"../Login.aspx\">登录</a></div>";
+            ShowPageHead();
             ShowHotArticle();
             ShowArticleList();
+        }
+
+        public void ShowPageHead()
+        {
+            Pageheadhtml += "<div class=\"header-login\"><a href=\"Register.aspx\">注册</a></div>";
+            Pageheadhtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
         }
 
         public void ShowHotArticle()

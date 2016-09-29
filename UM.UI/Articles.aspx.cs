@@ -20,10 +20,15 @@ namespace UM.UI
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            Pageheadhtml += "<div class=\"header-login\"><a href=\"Register.aspx\">注册</a></div>";
-            Pageheadhtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
+            ShowPageHead();
             ShowHotArticle();
             ShowArticleDetail();
+        }
+
+        public void ShowPageHead()
+        {
+            Pageheadhtml += "<div class=\"header-login\"><a href=\"Register.aspx\">注册</a></div>";
+            Pageheadhtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
         }
 
         public void ShowHotArticle()
@@ -47,13 +52,27 @@ namespace UM.UI
 
         public void ShowArticleDetail()
         {
-            int articleId = Convert.ToInt32(Request.QueryString["id"]);
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet dsArtDetail = userReg.ArticleDetails(articleId);
-            TitleHtml += dsArtDetail.Tables[0].Rows[0]["Title"].ToString();
-            CrDateHtml += dsArtDetail.Tables[0].Rows[0]["CreateDate"].ToString();
-            TypeHtml += dsArtDetail.Tables[0].Rows[0]["TypeName"].ToString();
-            ContentHtml += dsArtDetail.Tables[0].Rows[0]["Contents"].ToString();
+            if (!userReg.ValidateArticleId(Request.QueryString["id"]))
+            {
+                Response.Redirect("Article.aspx");
+            }
+            else
+            {
+                int articleId = Convert.ToInt32(Request.QueryString["id"]);
+                DataSet dsArtDetail = userReg.ArticleDetails(articleId);
+                if (dsArtDetail.Tables[0].Rows.Count > 0)
+                {
+                    TitleHtml += dsArtDetail.Tables[0].Rows[0]["Title"].ToString();
+                    CrDateHtml += dsArtDetail.Tables[0].Rows[0]["CreateDate"].ToString();
+                    TypeHtml += dsArtDetail.Tables[0].Rows[0]["TypeName"].ToString();
+                    ContentHtml += dsArtDetail.Tables[0].Rows[0]["Contents"].ToString();
+                }
+                else
+                {
+                    Response.Redirect("Index.aspx");
+                }
+            }          
         }
     }
 }
