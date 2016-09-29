@@ -21,7 +21,7 @@ namespace UM.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             ShowPageHead();
-            ShowHotArticle();
+            //ShowHotArticle();
             ShowArticleDetail();
         }
 
@@ -31,24 +31,24 @@ namespace UM.UI
             Pageheadhtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
         }
 
-        public void ShowHotArticle()
-        {
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet ds = userReg.HotArticle();
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                string title = ds.Tables[0].Rows[i]["Title"].ToString();
-                if (title.Length >= 15)
-                {
-                    title = title.Substring(0, 15);
-                    title += "...";
-                }
-                RankListhtml += "<div class=\"row bt-margin\">";
-                RankListhtml += "<div class=\"l-read-name\"><a href=\"ArticleDetail.aspx?id=" + Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]) + "\">" + title + "</a></div>";
-                RankListhtml += "<div class=\"l-read-name-d\">(239)</div>";
-                RankListhtml += "</div>";
-            }
-        }
+        //public void ShowHotArticle()
+        //{
+        //    UserRegisterBusiness userReg = new UserRegisterBusiness();
+        //    DataSet ds = userReg.HotArticle();
+        //    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        //    {
+        //        string title = ds.Tables[0].Rows[i]["Title"].ToString();
+        //        if (title.Length >= 15)
+        //        {
+        //            title = title.Substring(0, 15);
+        //            title += "...";
+        //        }
+        //        RankListhtml += "<div class=\"row bt-margin\">";
+        //        RankListhtml += "<div class=\"l-read-name\"><a href=\"ArticleDetail.aspx?id=" + Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]) + "\">" + title + "</a></div>";
+        //        RankListhtml += "<div class=\"l-read-name-d\">(239)</div>";
+        //        RankListhtml += "</div>";
+        //    }
+        //}
 
         public void ShowArticleDetail()
         {

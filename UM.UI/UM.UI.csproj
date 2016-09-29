@@ -309,6 +309,8 @@
     <Content Include="styles\prettify.js" />
     <Content Include="styles\simple.css" />
     <Content Include="UserControl\Footer.ascx" />
+    <Content Include="UserControl\Head.ascx" />
+    <Content Include="UserControl\LeftPage.ascx" />
     <Content Include="UserControl\Todo.ascx" />
     <Content Include="UserControl\Top.ascx" />
     <Content Include="Verification\VerifyCode.aspx" />
@@ -388,6 +390,20 @@
     </Compile>
     <Compile Include="UserControl\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Head.ascx.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Head.ascx.designer.cs">
+      <DependentUpon>Head.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\LeftPage.ascx.cs">
+      <DependentUpon>LeftPage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\LeftPage.ascx.designer.cs">
+      <DependentUpon>LeftPage.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Todo.ascx.cs">
       <DependentUpon>Todo.ascx</DependentUpon>

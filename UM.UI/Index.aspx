@@ -1,4 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="UM.UI.Index" %>
+<%@ Register Src="~/UserControl/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+<%@ Register Src="~/UserControl/LeftPage.ascx" TagPrefix="uc1" TagName="LeftPage" %>
+<%@ Register Src="~/UserControl/Head.ascx" TagPrefix="uc1" TagName="Head" %>
+
+
+
+
 
 <!DOCTYPE html>
 
@@ -10,15 +17,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="header">
+        <uc1:Head runat="server" id="Head" />
+        <%--<div class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-2 header-col"></div>
                     <div class="col-md-8 header-col"></div>
                     <div class="col-md-2 header-col">
                         <%=Pageheadhtml%>
-                        <%--<div class="header-login"><a href="">注册</a></div>
-                        <div class="header-login"><a href="">登录</a></div>--%>
+                        <div class="header-login"><a href="">注册</a></div>
+                        <div class="header-login"><a href="">登录</a></div>
                     </div>
                 </div>
             </div>
@@ -32,10 +40,11 @@
                     It is said that you will appear in the dreams of others when you fail to fall asleep.
                 </div>
             </div>
-        </div>
+        </div>--%>
         <div class="container">
             <div class="row bt-center">
-                <div class="col-md-3 bt-padding">
+                <uc1:LeftPage runat="server" id="LeftPage" />
+                <%--<div class="col-md-3 bt-padding">
                     <div class="l-personal-name">个人信息</div>
                     <div class="l-personal-content">
                         <img src="/images/people.jpg" class="l-personal-img" />
@@ -99,7 +108,7 @@
                     <div class="l-personal-name">阅读排行</div>
                     <div class="l-personal-detail">
                         <%=RankListhtml %>
-                        <%--<div class="row bt-margin">
+                        <div class="row bt-margin">
                             <div class="l-read-name"><a href="">WebApi - 错误处理</a></div>
                             <div class="l-read-name-d">(239)</div>
                         </div>
@@ -114,9 +123,10 @@
                         <div class="row bt-margin">
                             <div class="l-read-name"><a href="">Entity Framework Log </a></div>
                             <div class="l-read-name-d">(68)</div>
-                        </div>--%>
+                        </div>
                     </div>
-                </div>
+                </div>--%>
+
                 <div class="col-md-9 r-content">
                     <div class="l-personal-name" style="margin-left: 20px;">欢迎来到我的生活坊</div>
                     <%=ArticleListhtml %>
@@ -255,9 +265,10 @@
             </div>
         </div>
         <div class="footer">
-            <div class="footer-detail">
+            <uc1:Footer runat="server" id="Footer" />
+            <%--<div class="footer-detail">
                 京 ICP 证 09002463 号|Copyright © 1999-2016, CSDN.NET, All Rights Reserved
-            </div>
+            </div>--%>
         </div>
     </form>
 </body>
