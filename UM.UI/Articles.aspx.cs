@@ -55,7 +55,7 @@ namespace UM.UI
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             if (!userReg.ValidateArticleId(Request.QueryString["id"]))
             {
-                Response.Redirect("Article.aspx");
+                Response.Redirect("Index.aspx");
             }
             else
             {
