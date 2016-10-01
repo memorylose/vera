@@ -22,30 +22,66 @@ namespace UM.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Head control.
+        /// HeaderTop1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UM.UI.UserControl.Head Head;
+        protected global::UM.UI.UserControl.HeaderTop HeaderTop1;
         
         /// <summary>
-        /// LeftPage control.
+        /// HeaderWord1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UM.UI.UserControl.LeftPage LeftPage;
+        protected global::UM.UI.UserControl.WebUserControl1 HeaderWord1;
         
         /// <summary>
-        /// Footer control.
+        /// UserInfo1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UM.UI.UserControl.Footer Footer;
+        protected global::UM.UI.UserControl.UserInfo UserInfo1;
+        
+        /// <summary>
+        /// ArticleType1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.ArticleType ArticleType1;
+        
+        /// <summary>
+        /// ArticleDate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.ArticleDate ArticleDate1;
+        
+        /// <summary>
+        /// HotArticleList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.HotArticleList HotArticleList1;
+        
+        /// <summary>
+        /// Footer1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.Footer Footer1;
     }
 }

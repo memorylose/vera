@@ -9,7 +9,7 @@ using UM.BusinessLogic;
 
 namespace UM.UI.UserControl
 {
-    public partial class Head : System.Web.UI.Page
+    public partial class HotArticleList : System.Web.UI.UserControl
     {
         public string RankListhtml = "";
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace UM.UI.UserControl
                     title += "...";
                 }
                 RankListhtml += "<div class=\"row bt-margin\">";
-                RankListhtml += "<div class=\"l-read-name\"><a href=\"ArticleDetail.aspx?id=" + Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]) + "\">" + title + "</a></div>";
+                RankListhtml += "<div class=\"l-read-name\"><a href=\"Articles.aspx?id=" + Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]) + "\">" + title + "</a></div>";
                 RankListhtml += "<div class=\"l-read-name-d\">(239)</div>";
                 RankListhtml += "</div>";
             }

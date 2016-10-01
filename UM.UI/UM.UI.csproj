@@ -76,6 +76,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -85,6 +94,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -308,15 +325,20 @@
     <Content Include="styles\prettify.css" />
     <Content Include="styles\prettify.js" />
     <Content Include="styles\simple.css" />
+    <Content Include="UserControl\ArticleDate.ascx" />
+    <Content Include="UserControl\ArticleType.ascx" />
     <Content Include="UserControl\Footer.ascx" />
-    <Content Include="UserControl\Head.ascx" />
-    <Content Include="UserControl\LeftPage.ascx" />
+    <Content Include="UserControl\HeaderTop.ascx" />
+    <Content Include="UserControl\HotArticleList.ascx" />
     <Content Include="UserControl\Todo.ascx" />
     <Content Include="UserControl\Top.ascx" />
+    <Content Include="UserControl\HeaderWord.ascx" />
+    <Content Include="UserControl\UserInfo.ascx" />
     <Content Include="Verification\VerifyCode.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Articles.aspx.cs">
       <DependentUpon>Articles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,6 +406,20 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ArticleDate.ascx.cs">
+      <DependentUpon>ArticleDate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ArticleDate.ascx.designer.cs">
+      <DependentUpon>ArticleDate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ArticleType.ascx.cs">
+      <DependentUpon>ArticleType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ArticleType.ascx.designer.cs">
+      <DependentUpon>ArticleType.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,19 +427,19 @@
     <Compile Include="UserControl\Footer.ascx.designer.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Head.ascx.cs">
-      <DependentUpon>Head.ascx</DependentUpon>
+    <Compile Include="UserControl\HeaderTop.ascx.cs">
+      <DependentUpon>HeaderTop.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControl\Head.ascx.designer.cs">
-      <DependentUpon>Head.ascx</DependentUpon>
+    <Compile Include="UserControl\HeaderTop.ascx.designer.cs">
+      <DependentUpon>HeaderTop.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\LeftPage.ascx.cs">
-      <DependentUpon>LeftPage.ascx</DependentUpon>
+    <Compile Include="UserControl\HotArticleList.ascx.cs">
+      <DependentUpon>HotArticleList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControl\LeftPage.ascx.designer.cs">
-      <DependentUpon>LeftPage.ascx</DependentUpon>
+    <Compile Include="UserControl\HotArticleList.ascx.designer.cs">
+      <DependentUpon>HotArticleList.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Todo.ascx.cs">
       <DependentUpon>Todo.ascx</DependentUpon>
@@ -419,6 +455,20 @@
     <Compile Include="UserControl\Top.ascx.designer.cs">
       <DependentUpon>Top.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\HeaderWord.ascx.cs">
+      <DependentUpon>HeaderWord.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\HeaderWord.ascx.designer.cs">
+      <DependentUpon>HeaderWord.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserInfo.ascx.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserInfo.ascx.designer.cs">
+      <DependentUpon>UserInfo.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Verification\VerifyCode.aspx.cs">
       <DependentUpon>VerifyCode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -429,6 +479,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
