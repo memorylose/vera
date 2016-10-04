@@ -34,6 +34,9 @@ namespace UM.UI
                 string crDay = DateTime.Parse(crDate).Day.ToString();
                 string typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
                 string summary = ds.Tables[0].Rows[i]["Summary"].ToString();
+                string author = ds.Tables[0].Rows[i]["UserName"].ToString();
+                string username = string.Empty;
+
 
                 if (summary == "")
                 {
@@ -65,8 +68,23 @@ namespace UM.UI
 
                 ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
                 ArticleListhtml += "<div class=\"r-time-1\"><a href=\"\">" + typeName + "</a></div>";
-                ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>";
-                ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>";
+                if (Session["user"] != null)
+                {
+                    username = Session["user"].ToString();
+                    if (username == author)
+                    {
+                        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>";
+                        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>";
+                    }
+                    else
+                    {
+                        ArticleListhtml += "";
+                    }
+                }
+                else
+                {
+                    ArticleListhtml += "";
+                }
                 ArticleListhtml += "<div style=\"clear: both\"></div>";
                 ArticleListhtml += "<div class=\"r-subject\">" + summary + "</div>";
 

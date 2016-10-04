@@ -220,5 +220,12 @@ namespace UM.BusinessLogic
             }
             return errMsg;
         }
+
+        public DataSet ArticleType()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.GetArticleType();
+            return ds;
+        }
     }
 }

@@ -17,8 +17,19 @@ namespace UM.UI.UserControl
 
         public void ShowHeaderTop()
         {
-            HeaderTophtml += "<div class=\"header-login\"><a href=\"Register.aspx\">注册</a></div>";
-            HeaderTophtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
+            string username = string.Empty;
+            if (Session["user"] == null)
+            {
+                HeaderTophtml += "<div class=\"header-login\"><a href=\"Register.aspx\">注册</a></div>";
+                HeaderTophtml += "<div class=\"header-login\"><a href=\"Login.aspx\">登录</a></div>";
+            }
+            else
+            {
+                username = Session["user"].ToString();
+                HeaderTophtml += "<div class=\"header-login\">你好，" + username + "</div>";
+                HeaderTophtml += "<div class=\"header-login\"><a href=\"../LogOut.aspx\">登出</a></div>";
+            }
+                
         }
     }
 }
