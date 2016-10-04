@@ -190,20 +190,11 @@ namespace UM.DataAccess
 
         public DataSet ArticleType()
         {
-            string sql = "select TypeId, TypeName from ArticleType";
+            string sql = "select count(Articles.ArticleId) TypeCount, ArticleType.TypeName, ArticleType.TypeId from ArticleType left join Articles on ArticleType.TypeId = Articles.TypeId group by ArticleType.TypeId, ArticleType.TypeName";
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
 
-        public DataSet TypeCount(int IdNumber)
-        {
-            string sql = "select TypeId, count(*) TypeCount from Articles where TypeId = @TypeIdNumber group by TypeId ";
-            SqlParameter[] sqlParam = {
-                new SqlParameter("@TypeIdNumber",SqlDbType.Int)
-            };
-            sqlParam[0].Value = IdNumber;
-            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
-            return ds;
-        }
+        
     }
 }
