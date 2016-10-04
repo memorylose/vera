@@ -227,5 +227,12 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.GetArticleType();
             return ds;
         }
+
+        public DataSet TypeCount(int IdNumber)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.TypeCount(IdNumber);
+            return ds;
+        }
     }
 }

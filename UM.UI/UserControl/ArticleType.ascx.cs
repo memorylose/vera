@@ -23,13 +23,18 @@ namespace UM.UI.UserControl
             DataSet dsArtType = userReg.ArticleType();
             string TypeName = string.Empty;
             string TypeId = string.Empty;
+            int TypeIdNumber;
+            string Count = string.Empty;
             for (int i = 0; i < dsArtType.Tables[0].Rows.Count; i++)
             {
                 TypeName = dsArtType.Tables[0].Rows[i]["TypeName"].ToString();
                 TypeId = dsArtType.Tables[0].Rows[i]["TypeId"].ToString();
+                TypeIdNumber = Convert.ToInt32(TypeId);
+                DataSet dsTypeCount = userReg.TypeCount(TypeIdNumber);
+                Count = dsTypeCount.Tables[0].Rows[0]["TypeCount"].ToString();
                 ArticleTypeHtml += "<div class=\"row bt-margin\">";
                 ArticleTypeHtml += "<div class=\"l-cate-name\"><a href=\"\">" + TypeName + "</a></div>";
-                ArticleTypeHtml += "<div class=\"l-cate-name-d\">(10)</div>";
+                ArticleTypeHtml += "<div class=\"l-cate-name-d\">(" + Count + ")</div>";
                 ArticleTypeHtml += "</div>";
             }
         }

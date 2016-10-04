@@ -194,5 +194,16 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
+
+        public DataSet TypeCount(int IdNumber)
+        {
+            string sql = "select TypeId, count(*) TypeCount from Articles where TypeId = @TypeIdNumber group by TypeId ";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@TypeIdNumber",SqlDbType.Int)
+            };
+            sqlParam[0].Value = IdNumber;
+            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
+            return ds;
+        }
     }
 }
