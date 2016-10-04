@@ -228,5 +228,11 @@ namespace UM.BusinessLogic
             return ds;
         }
 
+        public DataSet ArticleDate()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.ArticleDate();
+            return ds;
+        }
     }
 }

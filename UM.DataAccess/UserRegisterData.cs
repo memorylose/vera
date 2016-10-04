@@ -195,6 +195,11 @@ namespace UM.DataAccess
             return ds;
         }
 
-        
+        public DataSet ArticleDate()
+        {
+            string sql = "select convert(varchar(7),CreateDate,120) as CrDate, Count(ArticleId) as DateCount from Articles group by convert(varchar(7),CreateDate,120)";
+            DataSet ds = SqlHelper.ExcuteDataSet(sql);
+            return ds;
+        }
     }
 }
