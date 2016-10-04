@@ -224,7 +224,7 @@ namespace UM.BusinessLogic
         public DataSet ArticleType()
         {
             UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.GetArticleType();
+            DataSet ds = userReg.ArticleType();
             return ds;
         }
 
