@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UM.BusinessLogic;
 
 namespace UM.UI.UserControl
 {
@@ -12,12 +14,24 @@ namespace UM.UI.UserControl
         public string HeaderWrodhtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShowHeaderWord();
+            if (Session["user"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                ShowHeaderWord();
+            }
         }
 
         public void ShowHeaderWord()
         {
-            HeaderWrodhtml += "It is said that you will appear in the dreams of others when you fail to fall asleep.";
+            UserRegisterBusiness userReg = new UserRegisterBusiness();
+            string username = Session["user"].ToString();
+            int userId = userReg.GetUserId(username);
+            DataSet dsUserSign = userReg.ShowUserSign(userId);
+            string Signature = dsUserSign.Tables[0].Rows[0]["Signature"].ToString();
+            HeaderWrodhtml += Signature;
         }
     }
 }

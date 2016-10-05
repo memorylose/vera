@@ -201,5 +201,27 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
+
+        public DataSet ShowUserInfo(int UserId)
+        {
+            string sql = "select Gender, Profession, Major from UserInformation where UserId = @UserId";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@UserId",SqlDbType.Int)
+            };
+            sqlParam[0].Value = UserId;
+            DataSet ds = SqlHelper.ExcuteDataSet(sql,CommandType.Text,sqlParam);
+            return ds;
+        }
+
+        public DataSet ShowUserSign(int UserId)
+        {
+            string sql = "select Signature from UserInformation where UserId = @UserId";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@UserId",SqlDbType.Int)
+            };
+            sqlParam[0].Value = UserId;
+            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
+            return ds;
+        }
     }
 }

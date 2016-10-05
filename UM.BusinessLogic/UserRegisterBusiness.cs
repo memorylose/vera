@@ -234,5 +234,19 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.ArticleDate();
             return ds;
         }
+
+        public DataSet ShowUserInfo(int UserId)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.ShowUserInfo(UserId);
+            return ds;
+        }
+
+        public DataSet ShowUserSign(int UserId)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.ShowUserSign(UserId);
+            return ds;
+        }
     }
 }
