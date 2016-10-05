@@ -165,6 +165,21 @@ namespace UM.BusinessLogic
             return titles;
         }
 
+        public string ShowMonth(string month)
+        {
+            string result = string.Empty;
+            string[] monthArray = { "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二" };
+            for (int j = 1; j < monthArray.Length + 1; j++)
+            {
+                if (j == Convert.ToInt32(month))
+                {
+                    result = monthArray[j - 1].ToString();
+                    break;
+                }
+            }
+            return result;
+        }
+
         public DataSet ShowArticle(int userid)
         {
             UserRegisterData userReg = new UserRegisterData();

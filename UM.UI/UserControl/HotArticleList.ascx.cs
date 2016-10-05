@@ -17,7 +17,7 @@ namespace UM.UI.UserControl
             ShowHotArticle();
         }
 
-        public void ShowHotArticle()
+        private void ShowHotArticle()
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet ds = userReg.HotArticle();
@@ -25,10 +25,7 @@ namespace UM.UI.UserControl
             {
                 string title = ds.Tables[0].Rows[i]["Title"].ToString();
                 if (title.Length >= 15)
-                {
-                    title = title.Substring(0, 15);
-                    title += "...";
-                }
+                    title = title.Substring(0, 15) + "...";
                 RankListhtml += "<div class=\"row bt-margin\">";
                 RankListhtml += "<div class=\"l-read-name\"><a href=\"Articles.aspx?id=" + Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]) + "\">" + title + "</a></div>";
                 RankListhtml += "<div class=\"l-read-name-d\">(239)</div>";

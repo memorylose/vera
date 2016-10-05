@@ -15,7 +15,7 @@ namespace UM.UI.UserControl
             ShowHeaderTop();
         }
 
-        public void ShowHeaderTop()
+        private void ShowHeaderTop()
         {
             string username = string.Empty;
             if (Session["user"] == null)
@@ -29,7 +29,7 @@ namespace UM.UI.UserControl
                 HeaderTophtml += "<div class=\"header-login\">你好，" + username + "</div>";
                 HeaderTophtml += "<div class=\"header-login\"><a href=\"../LogOut.aspx\">登出</a></div>";
             }
-                
+
         }
     }
 }

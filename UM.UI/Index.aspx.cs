@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using UM.BusinessLogic;
 using UM.Utility;
 
@@ -19,7 +14,11 @@ namespace UM.UI
             ShowArticleList();
         }
 
-        public void ShowArticleList()
+
+        /// <summary>
+        /// Show articles on home page
+        /// </summary>
+        private void ShowArticleList()
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet ds = userReg.ShowArticle();
@@ -30,14 +29,12 @@ namespace UM.UI
                 string crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 string crYear = DateTime.Parse(crDate).Year.ToString();
                 string crMonth = DateTime.Parse(crDate).Month.ToString();
-                string month = ShowMonth(crMonth);
+                string month = userReg.ShowMonth(crMonth);
                 string crDay = DateTime.Parse(crDate).Day.ToString();
                 string typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
                 string summary = ds.Tables[0].Rows[i]["Summary"].ToString();
                 string author = ds.Tables[0].Rows[i]["UserName"].ToString();
                 string username = string.Empty;
-
-
                 if (summary == "")
                 {
                     string contents = ds.Tables[0].Rows[i]["Contents"].ToString();
@@ -65,7 +62,6 @@ namespace UM.UI
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
-
                 ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
                 ArticleListhtml += "<div class=\"r-time-1\"><a href=\"\">" + typeName + "</a></div>";
                 if (Session["user"] != null)
@@ -87,26 +83,10 @@ namespace UM.UI
                 }
                 ArticleListhtml += "<div style=\"clear: both\"></div>";
                 ArticleListhtml += "<div class=\"r-subject\">" + summary + "</div>";
-
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "</div>";
             }
-        }
-
-        public string ShowMonth(string month)
-        {
-            string result = string.Empty;
-            string[] monthArray = { "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二" };
-            for (int j = 1; j < monthArray.Length + 1; j++)
-            {
-                if (j == Convert.ToInt32(month))
-                {
-                    result = monthArray[j - 1].ToString();
-                    break;
-                }
-            }
-            return result;
         }
     }
 }

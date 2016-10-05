@@ -17,31 +17,34 @@ namespace UM.UI.UserControl
             ShowUserInfo();
         }
 
-        public void ShowUserInfo()
+        private void ShowUserInfo()
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet dsUserInfo = userReg.ShowUserInfo();
-            string NickName = dsUserInfo.Tables[0].Rows[0]["NickName"].ToString();
-            string Gender = dsUserInfo.Tables[0].Rows[0]["Gender"].ToString();
-            string Profession = dsUserInfo.Tables[0].Rows[0]["Profession"].ToString();
-            string Major = dsUserInfo.Tables[0].Rows[0]["Major"].ToString();
+            if (dsUserInfo.Tables[0].Rows.Count > 0)
+            {
+                string NickName = dsUserInfo.Tables[0].Rows[0]["NickName"].ToString();
+                string Gender = dsUserInfo.Tables[0].Rows[0]["Gender"].ToString();
+                string Profession = dsUserInfo.Tables[0].Rows[0]["Profession"].ToString();
+                string Major = dsUserInfo.Tables[0].Rows[0]["Major"].ToString();
 
-            UserInfoHtml += "<div class=\"row bt-margin\">";
-            UserInfoHtml += "<div class=\"l-detail-name\">姓名：</div>";
-            UserInfoHtml += "<div class=\"l-detail-name\">" + NickName + "</div>";
-            UserInfoHtml += "</div>";
-            UserInfoHtml += "<div class=\"row bt-margin\">";
-            UserInfoHtml += "<div class=\"l-detail-name\">性别：</div>";
-            UserInfoHtml += "<div class=\"l-detail-name\">" + Gender + "</div>";
-            UserInfoHtml += "</div>";
-            UserInfoHtml += "<div class=\"row bt-margin\">";
-            UserInfoHtml += "<div class=\"l-detail-name\">职业：</div>";
-            UserInfoHtml += "<div class=\"l-detail-name\">" + Profession + "</div>";
-            UserInfoHtml += "</div>";
-            UserInfoHtml += "<div class=\"row bt-margin\">";
-            UserInfoHtml += "<div class=\"l-detail-name\">领域：</div>";
-            UserInfoHtml += "<div class=\"l-detail-name\">" + Major + "</div>";
-            UserInfoHtml += "</div>";
+                UserInfoHtml += "<div class=\"row bt-margin\">";
+                UserInfoHtml += "<div class=\"l-detail-name\">姓名：</div>";
+                UserInfoHtml += "<div class=\"l-detail-name\">" + NickName + "</div>";
+                UserInfoHtml += "</div>";
+                UserInfoHtml += "<div class=\"row bt-margin\">";
+                UserInfoHtml += "<div class=\"l-detail-name\">性别：</div>";
+                UserInfoHtml += "<div class=\"l-detail-name\">" + Gender + "</div>";
+                UserInfoHtml += "</div>";
+                UserInfoHtml += "<div class=\"row bt-margin\">";
+                UserInfoHtml += "<div class=\"l-detail-name\">职业：</div>";
+                UserInfoHtml += "<div class=\"l-detail-name\">" + Profession + "</div>";
+                UserInfoHtml += "</div>";
+                UserInfoHtml += "<div class=\"row bt-margin\">";
+                UserInfoHtml += "<div class=\"l-detail-name\">领域：</div>";
+                UserInfoHtml += "<div class=\"l-detail-name\">" + Major + "</div>";
+                UserInfoHtml += "</div>";
+            }
         }
     }
 }

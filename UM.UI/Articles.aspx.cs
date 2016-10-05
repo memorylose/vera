@@ -12,21 +12,25 @@ namespace UM.UI
     public partial class Articles : System.Web.UI.Page
     {
         public string TitleHtml = "";
-        public string CrDateHtml="";
+        public string CrDateHtml = "";
         public string TypeHtml = "";
         public string ContentHtml = "";
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ShowArticleDetail();
         }
 
-        public void ShowArticleDetail()
+        /// <summary>
+        /// show artcile detail
+        /// </summary>
+        private void ShowArticleDetail()
         {
+            bool isSuc = true;
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            if (!userReg.ValidateArticleId(Request.QueryString["id"]))
+            if (Request.QueryString["id"] != null && !userReg.ValidateArticleId(Request.QueryString["id"]))
             {
-                Response.Redirect("Index.aspx");
+                isSuc = false;
             }
             else
             {
@@ -41,9 +45,12 @@ namespace UM.UI
                 }
                 else
                 {
-                    Response.Redirect("Index.aspx");
+                    isSuc = false;
                 }
-            }          
+            }
+
+            if (!isSuc)
+                Response.Redirect("Index.aspx");
         }
     }
 }

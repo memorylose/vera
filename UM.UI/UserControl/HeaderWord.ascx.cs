@@ -17,12 +17,15 @@ namespace UM.UI.UserControl
             ShowHeaderWord();
         }
 
-        public void ShowHeaderWord()
+        private void ShowHeaderWord()
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             DataSet dsUserSign = userReg.ShowUserSign();
-            string Signature = dsUserSign.Tables[0].Rows[0]["Signature"].ToString();
-            HeaderWrodhtml += Signature;
+            if (dsUserSign.Tables[0].Rows.Count > 0)
+            {
+                string Signature = dsUserSign.Tables[0].Rows[0]["Signature"].ToString();
+                HeaderWrodhtml += Signature;
+            }
         }
     }
 }
