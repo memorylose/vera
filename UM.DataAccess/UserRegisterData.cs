@@ -215,5 +215,16 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
+
+        public DataSet ShowArticleTypeList(int TypeId)
+        {
+            string sql = "select Articles.ArticleId, Articles.Title, Articles.Summary, Articles.Contents, Articles.CreateDate, Users.UserName from Users inner join Articles on Users.UserId = Articles.CreateUserId where TypeId = @TypeId";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@TypeId",SqlDbType.Int)
+            };
+            sqlParam[0].Value = TypeId;
+            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
+            return ds;
+        }
     }
 }

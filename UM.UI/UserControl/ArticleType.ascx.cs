@@ -19,7 +19,7 @@ namespace UM.UI.UserControl
             for (int i = 0; i < dsArtType.Tables[0].Rows.Count; i++)
             {
                 ArticleTypeHtml += "<div class=\"row bt-margin\">";
-                ArticleTypeHtml += "<div class=\"l-cate-name\"><a href=\"\">" + dsArtType.Tables[0].Rows[i]["TypeName"].ToString() + "</a></div>";
+                ArticleTypeHtml += "<div class=\"l-cate-name\"><a href=\"Index.aspx?id="+ dsArtType.Tables[0].Rows[i]["TypeId"].ToString() + "\">" + dsArtType.Tables[0].Rows[i]["TypeName"].ToString() + "</a></div>";
                 ArticleTypeHtml += "<div class=\"l-cate-name-d\">(" + dsArtType.Tables[0].Rows[i]["TypeCount"].ToString() + ")</div>";
                 ArticleTypeHtml += "</div>";
             }
