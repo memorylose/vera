@@ -235,17 +235,17 @@ namespace UM.BusinessLogic
             return ds;
         }
 
-        public DataSet ShowUserInfo(int UserId)
+        public DataSet ShowUserInfo()
         {
             UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.ShowUserInfo(UserId);
+            DataSet ds = userReg.ShowUserInfo();
             return ds;
         }
 
-        public DataSet ShowUserSign(int UserId)
+        public DataSet ShowUserSign()
         {
             UserRegisterData userReg = new UserRegisterData();
-            DataSet ds = userReg.ShowUserSign(UserId);
+            DataSet ds = userReg.ShowUserSign();
             return ds;
         }
     }

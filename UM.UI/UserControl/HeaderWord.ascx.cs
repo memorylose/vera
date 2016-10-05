@@ -14,22 +14,13 @@ namespace UM.UI.UserControl
         public string HeaderWrodhtml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
-                ShowHeaderWord();
-            }
+            ShowHeaderWord();
         }
 
         public void ShowHeaderWord()
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
-            string username = Session["user"].ToString();
-            int userId = userReg.GetUserId(username);
-            DataSet dsUserSign = userReg.ShowUserSign(userId);
+            DataSet dsUserSign = userReg.ShowUserSign();
             string Signature = dsUserSign.Tables[0].Rows[0]["Signature"].ToString();
             HeaderWrodhtml += Signature;
         }

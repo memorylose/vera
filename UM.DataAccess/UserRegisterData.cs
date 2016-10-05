@@ -202,25 +202,17 @@ namespace UM.DataAccess
             return ds;
         }
 
-        public DataSet ShowUserInfo(int UserId)
+        public DataSet ShowUserInfo()
         {
-            string sql = "select Gender, Profession, Major from UserInformation where UserId = @UserId";
-            SqlParameter[] sqlParam = {
-                new SqlParameter("@UserId",SqlDbType.Int)
-            };
-            sqlParam[0].Value = UserId;
-            DataSet ds = SqlHelper.ExcuteDataSet(sql,CommandType.Text,sqlParam);
+            string sql = "select Gender, Profession, Major from UserInformation where UserName = 'VeraJiang'";
+            DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
 
-        public DataSet ShowUserSign(int UserId)
+        public DataSet ShowUserSign()
         {
-            string sql = "select Signature from UserInformation where UserId = @UserId";
-            SqlParameter[] sqlParam = {
-                new SqlParameter("@UserId",SqlDbType.Int)
-            };
-            sqlParam[0].Value = UserId;
-            DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
+            string sql = "select Signature from UserInformation where UserName = 'VeraJiang'";
+            DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
     }
