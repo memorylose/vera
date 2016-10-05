@@ -204,14 +204,14 @@ namespace UM.DataAccess
 
         public DataSet ShowUserInfo()
         {
-            string sql = "select Gender, Profession, Major from UserInformation where NickName = 'Cero_Uno'";
+            string sql = "select NickName, Gender, Profession, Major from UserInformation where UserId =1";
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
 
         public DataSet ShowUserSign()
         {
-            string sql = "select Signature from UserInformation where NickName = 'Cero_Uno'";
+            string sql = "select Signature from UserInformation where UserId = 1";
             DataSet ds = SqlHelper.ExcuteDataSet(sql);
             return ds;
         }
