@@ -327,6 +327,7 @@
     <Content Include="styles\simple.css" />
     <Content Include="UserControl\ArticleDate.ascx" />
     <Content Include="UserControl\ArticleType.ascx" />
+    <Content Include="UserControl\BlogName.ascx" />
     <Content Include="UserControl\Footer.ascx" />
     <Content Include="UserControl\HeaderTop.ascx" />
     <Content Include="UserControl\HotArticleList.ascx" />
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="UserControl\ArticleType.ascx.designer.cs">
       <DependentUpon>ArticleType.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\BlogName.ascx.cs">
+      <DependentUpon>BlogName.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\BlogName.ascx.designer.cs">
+      <DependentUpon>BlogName.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>

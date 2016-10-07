@@ -6,6 +6,8 @@
 <%@ Register src="UserControl/ArticleType.ascx" tagname="ArticleType" tagprefix="uc5" %>
 <%@ Register src="UserControl/ArticleDate.ascx" tagname="ArticleDate" tagprefix="uc6" %>
 <%@ Register src="UserControl/HotArticleList.ascx" tagname="HotArticleList" tagprefix="uc7" %>
+<%@ Register Src="UserControl/BlogName.ascx" TagName="BlogName" TagPrefix="uc8"  %>
+
 
 
 
@@ -36,7 +38,8 @@
         </div>
         <div class="container">
             <div class="row">
-                <a href="Index.aspx"><img src="/images/logo.png" class="header-img" /></a>
+                <uc8:BlogName runat="server" id="BlogName" />
+                <%--<a href="Index.aspx"><img src="/images/logo.png" class="header-img" /></a>--%>
             </div>
             <div class="row header-word">
                 <div class="header-word-detail">

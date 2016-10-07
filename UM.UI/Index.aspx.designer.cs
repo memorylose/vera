@@ -31,6 +31,15 @@ namespace UM.UI {
         protected global::UM.UI.UserControl.HeaderTop HeaderTop1;
         
         /// <summary>
+        /// BlogName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::UM.UI.UserControl.BlogName BlogName;
+        
+        /// <summary>
         /// HeaderWord1 control.
         /// </summary>
         /// <remarks>
