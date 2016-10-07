@@ -207,6 +207,12 @@ namespace UM.BusinessLogic
             return regex.IsMatch(articleId.ToString());
         }
 
+        public bool ValidateTypeId(object typeId)
+        {
+            Regex regex = new Regex(RegexConstant.TypeId);
+            return regex.IsMatch(typeId.ToString());
+        }
+
         public DataSet SearchArticle(string schcontent)
         {
             UserRegisterData userReg = new UserRegisterData();

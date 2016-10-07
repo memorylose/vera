@@ -15,6 +15,6 @@ namespace UM.Utility
         public const string Password = "^(?=.{6,16})(?=.*[a-z])(?=.*\\d).*$";
         public const string Email = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
         public const string ArticleId = "^[0-9]*$";
-        //public const string CreateDate = "/^((((19|20)\\d{2})-(0?(1|[3-9])|1[012])-(0?[1-9]|[12]\\d|30))|(((19|20)\\d{2})-(0?[13578]|1[02])-31)|(((19|20)\\d{2})-0?2-(0?[1-9]|1\\d|2[0-8]))|((((19|20)([13579][26]|[2468][048]|0[48]))|(2000))-0?2-29))$/";
+        public const string TypeId = "^[0-9]*$";
     }
 }

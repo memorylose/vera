@@ -32,11 +32,12 @@ namespace UM.UI
             string typeName = string.Empty;
             string summary = string.Empty;
             string author = string.Empty;
-            if (Request.QueryString["id"] != null)
+
+            if (Request.QueryString["id"] != null && userReg.ValidateTypeId(Request.QueryString["id"]))
             {
                 int TypeId = Convert.ToInt32(Request.QueryString["id"]);
                 ds = userReg.ShowArticleTypeList(TypeId);
-            }
+            }              
             else
             {
                 ds = userReg.ShowArticle();
