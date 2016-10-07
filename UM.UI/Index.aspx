@@ -1,11 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="UM.UI.Index" %>
-<%@ Register src="UserControl/Footer.ascx" tagname="Footer" tagprefix="uc1" %>
-<%@ Register src="UserControl/HeaderWord.ascx" tagname="HeaderWord" tagprefix="uc2" %>
-<%@ Register src="UserControl/HeaderTop.ascx" tagname="HeaderTop" tagprefix="uc3" %>
-<%@ Register src="UserControl/HotArticleList.ascx" tagname="HotArticleList" tagprefix="uc4" %>
-<%@ Register src="UserControl/UserInfo.ascx" tagname="UserInfo" tagprefix="uc5" %>
-<%@ Register src="UserControl/ArticleType.ascx" tagname="ArticleType" tagprefix="uc6" %>
-<%@ Register src="UserControl/ArticleDate.ascx" tagname="ArticleDate" tagprefix="uc7" %>
+
+<%@ Register Src="UserControl/Footer.ascx" TagName="Footer" TagPrefix="uc1" %>
+<%@ Register Src="UserControl/HeaderWord.ascx" TagName="HeaderWord" TagPrefix="uc2" %>
+<%@ Register Src="UserControl/HeaderTop.ascx" TagName="HeaderTop" TagPrefix="uc3" %>
+<%@ Register Src="UserControl/HotArticleList.ascx" TagName="HotArticleList" TagPrefix="uc4" %>
+<%@ Register Src="UserControl/UserInfo.ascx" TagName="UserInfo" TagPrefix="uc5" %>
+<%@ Register Src="UserControl/ArticleType.ascx" TagName="ArticleType" TagPrefix="uc6" %>
+<%@ Register Src="UserControl/ArticleDate.ascx" TagName="ArticleDate" TagPrefix="uc7" %>
 
 
 
@@ -18,7 +19,7 @@
     <link href="/styles/NewIndex.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">        
+    <form id="form1" runat="server">
         <div class="header">
             <div class="container">
                 <div class="row">
@@ -34,7 +35,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <img src="/images/logo.png" class="header-img" />
+                <a href="Index.aspx"><img src="/images/logo.png" class="header-img" /></a>
             </div>
             <div class="row header-word">
                 <%--<div class="header-word-detail">
@@ -44,7 +45,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row bt-center">               
+            <div class="row bt-center">
                 <div class="col-md-3 bt-padding">
                     <div class="l-personal-name">个人信息</div>
                     <div class="l-personal-content">

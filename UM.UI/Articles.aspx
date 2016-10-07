@@ -8,6 +8,8 @@
 <%@ Register src="UserControl/HotArticleList.ascx" tagname="HotArticleList" tagprefix="uc7" %>
 
 
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,7 +23,8 @@
         <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2 header-col"></div>
+                    <div class="col-md-2 header-col">
+                    </div>
                     <div class="col-md-8 header-col"></div>
                     <div class="col-md-2 header-col">
                         <uc2:HeaderTop ID="HeaderTop1" runat="server" />
@@ -33,7 +36,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <img src="/images/logo.png" class="header-img" />
+                <a href="Index.aspx"><img src="/images/logo.png" class="header-img" /></a>
             </div>
             <div class="row header-word">
                 <div class="header-word-detail">

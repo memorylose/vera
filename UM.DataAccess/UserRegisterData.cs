@@ -136,7 +136,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticle()
         {
-            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,ArticleType.TypeName, Users.UserName from Articles inner join Users on Articles.CreateUserId=Users.UserId inner join ArticleType on Articles.TypeId = ArticleType.TypeId order by CreateDate desc";
+            string sql = "select Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,Articles.TypeId, ArticleType.TypeName, Users.UserName from Articles inner join Users on Articles.CreateUserId=Users.UserId inner join ArticleType on Articles.TypeId = ArticleType.TypeId order by CreateDate desc";
             DataSet dshow = SqlHelper.ExcuteDataSet(sql);
             return dshow;
         }
@@ -218,7 +218,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticleTypeList(int TypeId)
         {
-            string sql = "select Articles.ArticleId, Articles.Title, Articles.Summary, Articles.Contents, Articles.CreateDate, Users.UserName, ArticleType.TypeName from Users inner join Articles on Users.UserId = Articles.CreateUserId inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Articles.TypeId = @TypeId";
+            string sql = "select Articles.ArticleId, Articles.Title, Articles.Summary, Articles.Contents, Articles.CreateDate, Users.UserName, ArticleType.TypeName, Articles.TypeId from Users inner join Articles on Users.UserId = Articles.CreateUserId inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Articles.TypeId = @TypeId";
             SqlParameter[] sqlParam = {
                 new SqlParameter("@TypeId",SqlDbType.Int)
             };

@@ -32,12 +32,12 @@ namespace UM.UI
             string typeName = string.Empty;
             string summary = string.Empty;
             string author = string.Empty;
-
+            string typeId = string.Empty;
             if (Request.QueryString["id"] != null && userReg.ValidateTypeId(Request.QueryString["id"]))
             {
                 int TypeId = Convert.ToInt32(Request.QueryString["id"]);
                 ds = userReg.ShowArticleTypeList(TypeId);
-            }              
+            }
             else
             {
                 ds = userReg.ShowArticle();
@@ -54,7 +54,7 @@ namespace UM.UI
                 typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
                 summary = ds.Tables[0].Rows[i]["Summary"].ToString();
                 author = ds.Tables[0].Rows[i]["UserName"].ToString();
-
+                typeId = ds.Tables[0].Rows[i]["TypeId"].ToString();
                 if (summary == "")
                 {
                     string contents = ds.Tables[0].Rows[i]["Contents"].ToString();
@@ -83,7 +83,7 @@ namespace UM.UI
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
                 ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                ArticleListhtml += "<div class=\"r-time-1\"><a href=\"\">" + typeName + "</a></div>";
+                ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Index.aspx?id=" + typeId + "\">" + typeName + "</a></div>";
                 if (Session["user"] != null)
                 {
                     username = Session["user"].ToString();
