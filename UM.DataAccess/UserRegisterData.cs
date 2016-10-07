@@ -218,7 +218,7 @@ namespace UM.DataAccess
 
         public DataSet ShowArticleTypeList(int TypeId)
         {
-            string sql = "select Articles.ArticleId, Articles.Title, Articles.Summary, Articles.Contents, Articles.CreateDate, Users.UserName from Users inner join Articles on Users.UserId = Articles.CreateUserId where TypeId = @TypeId";
+            string sql = "select Articles.ArticleId, Articles.Title, Articles.Summary, Articles.Contents, Articles.CreateDate, Users.UserName, ArticleType.TypeName from Users inner join Articles on Users.UserId = Articles.CreateUserId inner join ArticleType on Articles.TypeId = ArticleType.TypeId where Articles.TypeId = @TypeId";
             SqlParameter[] sqlParam = {
                 new SqlParameter("@TypeId",SqlDbType.Int)
             };
