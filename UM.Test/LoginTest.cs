@@ -12,12 +12,10 @@ namespace UM.Test
     [TestClass]
     public class LoginTest
     {
-        UserRegisterBusiness userReg = new UserRegisterBusiness();
+        UserRegisterBusiness userReg;
         public LoginTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            userReg = new UserRegisterBusiness();
         }
 
         private TestContext testContextInstance;
@@ -60,6 +58,7 @@ namespace UM.Test
         //
         #endregion
 
+        #region Test login validation
         [TestMethod]
         public void TestLoginValidationWithUsernameAndPasswordEmpty()
         {
@@ -100,6 +99,9 @@ namespace UM.Test
             string validateResult = userReg.LoginValidation(username, password);
             Assert.AreEqual("User name is empty.", validateResult);
         }
+        #endregion
+
+        #region Test login
 
         [TestMethod]
         public void TestUserLoginWithWrongUsername()
@@ -135,7 +137,9 @@ namespace UM.Test
             string password = "jyr1008";
             int loginResult = userReg.UserLogin(username, password);
             Assert.AreEqual(1, loginResult);
-            
+
         }
+
+        #endregion
     }
 }
