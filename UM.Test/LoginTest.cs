@@ -100,5 +100,42 @@ namespace UM.Test
             string validateResult = userReg.LoginValidation(username, password);
             Assert.AreEqual("User name is empty.", validateResult);
         }
+
+        [TestMethod]
+        public void TestUserLoginWithWrongUsername()
+        {
+            string username = "000";
+            string password = "jyr1008";
+            int loginResult = userReg.UserLogin(username, password);
+            Assert.AreEqual(0, loginResult);
+        }
+
+        [TestMethod]
+        public void TestUserLoginWithWrongPassword()
+        {
+            string username = "VeraJiang";
+            string password = "000";
+            int loginResult = userReg.UserLogin(username, password);
+            Assert.AreEqual(0, loginResult);
+        }
+
+        [TestMethod]
+        public void TestUserLoginWithWrongUsernameandWrongPassword()
+        {
+            string username = "000";
+            string password = "000";
+            int loginResult = userReg.UserLogin(username, password);
+            Assert.AreEqual(0, loginResult);
+        }
+
+        [TestMethod]
+        public void TestUserLoginWithCorrectUsernameandCorrectPassword()
+        {
+            string username = "VeraJiang";
+            string password = "jyr1008";
+            int loginResult = userReg.UserLogin(username, password);
+            Assert.AreEqual(1, loginResult);
+            
+        }
     }
 }
