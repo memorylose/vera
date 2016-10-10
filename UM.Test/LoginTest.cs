@@ -12,6 +12,7 @@ namespace UM.Test
     [TestClass]
     public class LoginTest
     {
+        UserRegisterBusiness userReg = new UserRegisterBusiness();
         public LoginTest()
         {
             //
@@ -62,12 +63,22 @@ namespace UM.Test
         [TestMethod]
         public void TestLoginValidationWithUsernameEmpty()
         {
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
+
             string username = "";
             string password = "";
 
             string validateResult = userReg.LoginValidation(username, password);
             Assert.AreEqual("User name is empty.", validateResult);
+        }
+
+        public void TestLoginValidationWithWrongPassword()
+        {
+
+            string username = "VeraJiang";
+            string password = "123";
+
+            string result = userReg.LoginValidation(username, password);
+            Assert.AreEqual("", result);
         }
     }
 }
