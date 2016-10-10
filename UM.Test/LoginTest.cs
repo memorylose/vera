@@ -71,14 +71,14 @@ namespace UM.Test
             Assert.AreEqual("User name is empty.", validateResult);
         }
 
-        public void TestLoginValidationWithWrongPassword()
+        public void TestLoginValidationWithPasswordEmpty()
         {
 
             string username = "VeraJiang";
-            string password = "123";
+            string password = "";
 
             string result = userReg.LoginValidation(username, password);
-            Assert.AreEqual("", result);
+            Assert.AreEqual("Password is empty.", result);
         }
     }
 }
