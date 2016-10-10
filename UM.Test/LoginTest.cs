@@ -61,7 +61,7 @@ namespace UM.Test
         #endregion
 
         [TestMethod]
-        public void TestLoginValidationWithUsernameEmpty()
+        public void TestLoginValidationWithUsernameAndPasswordEmpty()
         {
 
             string username = "";
@@ -91,7 +91,7 @@ namespace UM.Test
             Assert.AreEqual("", result);
         }
         [TestMethod]
-        public void TestLoginValidationWithPassword()
+        public void TestLoginValidationWithUsernameEmpty()
         {
 
             string username = "";
