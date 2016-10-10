@@ -70,7 +70,7 @@ namespace UM.Test
             string validateResult = userReg.LoginValidation(username, password);
             Assert.AreEqual("User name is empty.", validateResult);
         }
-
+        [TestMethod]
         public void TestLoginValidationWithPasswordEmpty()
         {
 
@@ -80,7 +80,7 @@ namespace UM.Test
             string result = userReg.LoginValidation(username, password);
             Assert.AreEqual("Password is empty.", result);
         }
-
+        [TestMethod]
         public void TestLoginValidationWithUsernameandPassword()
         {
 
@@ -90,7 +90,7 @@ namespace UM.Test
             string result = userReg.LoginValidation(username, password);
             Assert.AreEqual("", result);
         }
-
+        [TestMethod]
         public void TestLoginValidationWithPassword()
         {
 
