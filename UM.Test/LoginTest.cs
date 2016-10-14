@@ -62,40 +62,32 @@ namespace UM.Test
         [TestMethod]
         public void TestLoginValidationWithUsernameAndPasswordEmpty()
         {
-
             string username = "";
             string password = "";
-
             string validateResult = userReg.LoginValidation(username, password);
             Assert.AreEqual("User name is empty.", validateResult);
         }
         [TestMethod]
         public void TestLoginValidationWithPasswordEmpty()
         {
-
             string username = "VeraJiang";
             string password = "";
-
             string result = userReg.LoginValidation(username, password);
             Assert.AreEqual("Password is empty.", result);
         }
         [TestMethod]
         public void TestLoginValidationWithUsernameandPassword()
         {
-
             string username = "VeraJiang";
             string password = "123";
-
             string result = userReg.LoginValidation(username, password);
             Assert.AreEqual("", result);
         }
         [TestMethod]
         public void TestLoginValidationWithUsernameEmpty()
         {
-
             string username = "";
             string password = "123";
-
             string validateResult = userReg.LoginValidation(username, password);
             Assert.AreEqual("User name is empty.", validateResult);
         }

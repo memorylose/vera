@@ -18,23 +18,48 @@ namespace UM.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ShowArticleDetail();
+            //ShowArticleDetail();
+            ShowArticleDetailNewMethod();
         }
 
         /// <summary>
         /// show artcile detail
         /// </summary>
-        private void ShowArticleDetail()
+        //private void ShowArticleDetail()
+        //{
+        //    bool isSuc = true;
+        //    UserRegisterBusiness userReg = new UserRegisterBusiness();
+        //    if (Request.QueryString["id"] != null && !userReg.ValidateArticleId(Request.QueryString["id"]))
+        //    {
+        //        isSuc = false;
+        //    }
+        //    else
+        //    {
+        //        int articleId = Convert.ToInt32(Request.QueryString["id"]);
+        //        DataSet dsArtDetail = userReg.ArticleDetails(articleId);
+        //        if (dsArtDetail.Tables[0].Rows.Count > 0)
+        //        {
+        //            TitleHtml += dsArtDetail.Tables[0].Rows[0]["Title"].ToString();
+        //            CrDateHtml += dsArtDetail.Tables[0].Rows[0]["CreateDate"].ToString();
+        //            TypeHtml += dsArtDetail.Tables[0].Rows[0]["TypeName"].ToString();
+        //            ContentHtml += dsArtDetail.Tables[0].Rows[0]["Contents"].ToString();
+        //        }
+        //        else
+        //        {
+        //            isSuc = false;
+        //        }
+        //    }
+
+        //    if (!isSuc)
+        //        Response.Redirect("Index.aspx");
+        //}
+
+        private void ShowArticleDetailNewMethod()
         {
-            bool isSuc = true;
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
-            if (Request.QueryString["id"] != null && !userReg.ValidateArticleId(Request.QueryString["id"]))
+            if (Session["articleId"] != null)
             {
-                isSuc = false;
-            }
-            else
-            {
-                int articleId = Convert.ToInt32(Request.QueryString["id"]);
+                int articleId = Convert.ToInt32(Session["articleId"]);
+                UserRegisterBusiness userReg = new UserRegisterBusiness();
                 DataSet dsArtDetail = userReg.ArticleDetails(articleId);
                 if (dsArtDetail.Tables[0].Rows.Count > 0)
                 {
@@ -43,14 +68,11 @@ namespace UM.UI
                     TypeHtml += dsArtDetail.Tables[0].Rows[0]["TypeName"].ToString();
                     ContentHtml += dsArtDetail.Tables[0].Rows[0]["Contents"].ToString();
                 }
-                else
-                {
-                    isSuc = false;
-                }
             }
-
-            if (!isSuc)
+            else
+            {
                 Response.Redirect("Index.aspx");
+            }
         }
     }
 }

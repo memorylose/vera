@@ -45,6 +45,7 @@ namespace UM.UI
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 int articleId = Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]);
+                Session["articleId"] = articleId.ToString();
                 title = ds.Tables[0].Rows[i]["Title"].ToString();
                 crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 crYear = DateTime.Parse(crDate).Year.ToString();
@@ -82,7 +83,8 @@ namespace UM.UI
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "</div>";
                 ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
-                ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
+                //ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
+                ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx\">" + title + "</a></div>";
                 ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Index.aspx?id=" + typeId + "\">" + typeName + "</a></div>";
                 if (Session["user"] != null)
                 {
