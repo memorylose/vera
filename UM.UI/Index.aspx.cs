@@ -8,8 +8,7 @@ namespace UM.UI
 {
     public partial class Index : System.Web.UI.Page
     {
-        //public string ArticleDetailhtml = "";
-        public StringBuilder ArticleListhtml=new StringBuilder();
+        public StringBuilder ArticleListhtml = new StringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
             ShowArticleList();
@@ -71,42 +70,6 @@ namespace UM.UI
                         summary += "......";
                     }
                 }
-                //ArticleListhtml += "<div class=\"r-content-d\">";
-                //ArticleListhtml += "<div class=\"row row-marginb\">";
-                //ArticleListhtml += "<div class=\"col-md-1 bt-padding r-time-d\">";
-                //ArticleListhtml += "<div class=\"r-date-t\">";
-                //ArticleListhtml += "<div class=\"r-date-year\">" + crYear + "</div>";
-                //ArticleListhtml += "<div class=\"r-date-month\">" + month + "</div>";
-                //ArticleListhtml += "</div>";
-                //ArticleListhtml += "<div class=\"r-date-b\">";
-                //ArticleListhtml += crDay;
-                //ArticleListhtml += "</div>";
-                //ArticleListhtml += "</div>";
-                //ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
-                //ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                //ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Index.aspx?id=" + typeId + "\">" + typeName + "</a></div>";
-                //if (Session["user"] != null)
-                //{
-                //    username = Session["user"].ToString();
-                //    if (username == author)
-                //    {
-                //        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>";
-                //        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>";
-                //    }
-                //    else
-                //    {
-                //        ArticleListhtml += "";
-                //    }
-                //}
-                //else
-                //{
-                //    ArticleListhtml += "";
-                //}
-                //ArticleListhtml += "<div style=\"clear: both\"></div>";
-                //ArticleListhtml += "<div class=\"r-subject\">" + summary + "</div>";
-                //ArticleListhtml += "</div>";
-                //ArticleListhtml += "</div>";
-                //ArticleListhtml += "</div>";
 
                 ArticleListhtml.Append("<div class=\"r-content-d\">");
                 ArticleListhtml.Append("<div class=\"row row-marginb\">");
