@@ -126,13 +126,17 @@ namespace UM.UI
             {
                 pageNumber = articelNumber / 10;
             }
-
-            for (int j = 1; j <= pageNumber; j++)
+            int j = 0;
+            int beginRowNumber = 0;
+            int endRowNumber = 0;
+            for (j = 1; j <= pageNumber; j++)
             {
-                int beginRowNumber = (j - 1) * 10 + 1;
-                int endRowNumber = j * 10;
-                DataSet dsPageDevision = userReg.ShowPageDevision(beginRowNumber, endRowNumber);
                 PageDevisionhtml += "<a href =\"Index.aspx?id=\">" + j;
+                beginRowNumber = (j - 1) * 10 + 1;
+                endRowNumber = j * 10;
+
+
+                DataSet dsPageDevision = userReg.ShowPageDevision(beginRowNumber, endRowNumber);
                 for (int i = 0; i < dsPageDevision.Tables[0].Rows.Count; i++)
                 {
                     int articleId = Convert.ToInt32(dsPageDevision.Tables[0].Rows[i]["ArticleId"]);
@@ -203,3 +207,4 @@ namespace UM.UI
         }
     }
 }
+

@@ -139,6 +139,7 @@
                 <div class="col-md-9 r-content">
                     <div class="l-personal-name" style="margin-left: 20px;">欢迎来到我的生活坊</div>
                     <%=ArticleListhtml %>
+                    <%=PageDevisionhtml %>
                     <%--<div class="r-content-d">
                         <div class="row row-marginb">
                             <div class="col-md-1 bt-padding r-time-d">
