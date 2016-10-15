@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Text;
 using UM.BusinessLogic;
 using UM.Utility;
 
@@ -7,8 +8,8 @@ namespace UM.UI
 {
     public partial class Index : System.Web.UI.Page
     {
-        public string ArticleDetailhtml = "";
-        public string ArticleListhtml = "";
+        //public string ArticleDetailhtml = "";
+        public StringBuilder ArticleListhtml=new StringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
             ShowArticleList();
@@ -45,7 +46,6 @@ namespace UM.UI
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 int articleId = Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]);
-                Session["articleId"] = articleId.ToString();
                 title = ds.Tables[0].Rows[i]["Title"].ToString();
                 crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 crYear = DateTime.Parse(crDate).Year.ToString();
@@ -71,43 +71,79 @@ namespace UM.UI
                         summary += "......";
                     }
                 }
-                ArticleListhtml += "<div class=\"r-content-d\">";
-                ArticleListhtml += "<div class=\"row row-marginb\">";
-                ArticleListhtml += "<div class=\"col-md-1 bt-padding r-time-d\">";
-                ArticleListhtml += "<div class=\"r-date-t\">";
-                ArticleListhtml += "<div class=\"r-date-year\">" + crYear + "</div>";
-                ArticleListhtml += "<div class=\"r-date-month\">" + month + "</div>";
-                ArticleListhtml += "</div>";
-                ArticleListhtml += "<div class=\"r-date-b\">";
-                ArticleListhtml += crDay;
-                ArticleListhtml += "</div>";
-                ArticleListhtml += "</div>";
-                ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
+                //ArticleListhtml += "<div class=\"r-content-d\">";
+                //ArticleListhtml += "<div class=\"row row-marginb\">";
+                //ArticleListhtml += "<div class=\"col-md-1 bt-padding r-time-d\">";
+                //ArticleListhtml += "<div class=\"r-date-t\">";
+                //ArticleListhtml += "<div class=\"r-date-year\">" + crYear + "</div>";
+                //ArticleListhtml += "<div class=\"r-date-month\">" + month + "</div>";
+                //ArticleListhtml += "</div>";
+                //ArticleListhtml += "<div class=\"r-date-b\">";
+                //ArticleListhtml += crDay;
+                //ArticleListhtml += "</div>";
+                //ArticleListhtml += "</div>";
+                //ArticleListhtml += "<div class=\"col-md-10 bt-padding\">";
                 //ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>";
-                ArticleListhtml += "<div class=\"r-title\"><a href=\"Articles.aspx\">" + title + "</a></div>";
-                ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Index.aspx?id=" + typeId + "\">" + typeName + "</a></div>";
+                //ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Index.aspx?id=" + typeId + "\">" + typeName + "</a></div>";
+                //if (Session["user"] != null)
+                //{
+                //    username = Session["user"].ToString();
+                //    if (username == author)
+                //    {
+                //        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>";
+                //        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>";
+                //    }
+                //    else
+                //    {
+                //        ArticleListhtml += "";
+                //    }
+                //}
+                //else
+                //{
+                //    ArticleListhtml += "";
+                //}
+                //ArticleListhtml += "<div style=\"clear: both\"></div>";
+                //ArticleListhtml += "<div class=\"r-subject\">" + summary + "</div>";
+                //ArticleListhtml += "</div>";
+                //ArticleListhtml += "</div>";
+                //ArticleListhtml += "</div>";
+
+                ArticleListhtml.Append("<div class=\"r-content-d\">");
+                ArticleListhtml.Append("<div class=\"row row-marginb\">");
+                ArticleListhtml.Append("<div class=\"col-md-1 bt-padding r-time-d\">");
+                ArticleListhtml.Append("<div class=\"r-date-t\">");
+                ArticleListhtml.Append("<div class=\"r-date-year\">" + crYear + "</div>");
+                ArticleListhtml.Append("<div class=\"r-date-month\">" + month + "</div>");
+                ArticleListhtml.Append("</div>");
+                ArticleListhtml.Append("<div class=\"r-date-b\">");
+                ArticleListhtml.Append(crDay);
+                ArticleListhtml.Append("</div>");
+                ArticleListhtml.Append("</div>");
+                ArticleListhtml.Append("<div class=\"col-md-10 bt-padding\">");
+                ArticleListhtml.Append("<div class=\"r-title\"><a href=\"Articles.aspx?id=" + articleId + "\">" + title + "</a></div>");
+                ArticleListhtml.Append("<div class=\"r-time-1\"><a href=\"Index.aspx?id=" + typeId + "\">" + typeName + "</a></div>");
                 if (Session["user"] != null)
                 {
                     username = Session["user"].ToString();
                     if (username == author)
                     {
-                        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>";
-                        ArticleListhtml += "<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>";
+                        ArticleListhtml.Append("<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "编辑" + "</a></div>");
+                        ArticleListhtml.Append("<div class=\"r-time-1\"><a href=\"Article/ArticleModify.aspx?id=" + articleId + "\">" + "删除" + "</a></div>");
                     }
                     else
                     {
-                        ArticleListhtml += "";
+                        ArticleListhtml.Append("");
                     }
                 }
                 else
                 {
-                    ArticleListhtml += "";
+                    ArticleListhtml.Append("");
                 }
-                ArticleListhtml += "<div style=\"clear: both\"></div>";
-                ArticleListhtml += "<div class=\"r-subject\">" + summary + "</div>";
-                ArticleListhtml += "</div>";
-                ArticleListhtml += "</div>";
-                ArticleListhtml += "</div>";
+                ArticleListhtml.Append("<div style=\"clear: both\"></div>");
+                ArticleListhtml.Append("<div class=\"r-subject\">" + summary + "</div>");
+                ArticleListhtml.Append("</div>");
+                ArticleListhtml.Append("</div>");
+                ArticleListhtml.Append("</div>");
             }
         }
     }
