@@ -226,5 +226,26 @@ namespace UM.DataAccess
             DataSet ds = SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
             return ds;
         }
+
+        public int CountNumber()
+        {
+            string sql = "select count(*) from Articles";
+            object result = SqlHelper.ExcuteScalar(CommandType.Text, sql, null);
+            int number = Convert.ToInt32(result);
+            return number;
+        }
+
+        public DataSet ShowPageDevision(int begin, int end)
+        {
+            string sql = "select A.* from (select row_number() over(order by Articles.CreateDate desc) as rownumber, Articles.ArticleId,Articles.Title,Articles.Summary,Articles.Contents,Articles.CreateDate,Articles.TypeId, ArticleType.TypeName, Users.UserName from Articles inner join Users on Articles.CreateUserId = Users.UserId inner join ArticleType on Articles.TypeId = ArticleType.TypeId) as A where A.rownumber between @beginRowNumber and @endRowNumber";
+            SqlParameter[] sqlParam = {
+                new SqlParameter("@beginRowNumber",SqlDbType.Int),
+                new SqlParameter("@endRowNumber",SqlDbType.Int)
+            };
+            sqlParam[0].Value = begin;
+            sqlParam[1].Value = end;
+            DataSet ds= SqlHelper.ExcuteDataSet(sql, CommandType.Text, sqlParam);
+            return ds;
+        }
     }
 }

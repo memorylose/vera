@@ -276,5 +276,19 @@ namespace UM.BusinessLogic
             DataSet ds = userReg.ShowArticleTypeList(TypeId);
             return ds;
         }
+
+        public int CountNumber()
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            int number = userReg.CountNumber();
+            return number;
+        }
+
+        public DataSet ShowPageDevision(int begin, int end)
+        {
+            UserRegisterData userReg = new UserRegisterData();
+            DataSet ds = userReg.ShowPageDevision(begin, end);
+            return ds;
+        }
     }
 }

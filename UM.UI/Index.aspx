@@ -139,7 +139,7 @@
                 <div class="col-md-9 r-content">
                     <div class="l-personal-name" style="margin-left: 20px;">欢迎来到我的生活坊</div>
                     <%=ArticleListhtml %>
-                    <div class="r-content-d">
+                    <%--<div class="r-content-d">
                         <div class="row row-marginb">
                             <div class="col-md-1 bt-padding r-time-d">
                                 <div class="r-date-t">
@@ -159,7 +159,7 @@
                                 <div class="r-subject">在WebApi2中，新增了一个新的返回类型，也就是IHttpActionResult，这样Web个新的返回类个新的返回类Api一共有4个返回类型。 1. void 2. HttpResponseMessage 直接返回一个http的response message 3. IHttpActionResult 在ap</div>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
 
                     <%--<div class="r-content-d">
                         <div class="row row-marginb">
