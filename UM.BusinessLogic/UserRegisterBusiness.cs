@@ -213,6 +213,12 @@ namespace UM.BusinessLogic
             return regex.IsMatch(typeId.ToString());
         }
 
+        public bool ValidatePageId(object pageId)
+        {
+            Regex regex = new Regex(RegexConstant.PageId);
+            return regex.IsMatch(pageId.ToString());
+        }
+
         public DataSet SearchArticle(string schcontent)
         {
             UserRegisterData userReg = new UserRegisterData();

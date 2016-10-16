@@ -16,5 +16,6 @@ namespace UM.Utility
         public const string Email = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
         public const string ArticleId = "^[0-9]*$";
         public const string TypeId = "^[0-9]*$";
+        public const string PageId = "^[0-9]*$";
     }
 }
