@@ -9,7 +9,11 @@ namespace UM.UI
     public partial class Index : System.Web.UI.Page
     {
         public StringBuilder ArticleListhtml = new StringBuilder();
-        public string PageDevisionhtml = "";
+        public StringBuilder PageDevisionhtml = new StringBuilder();
+
+        UserRegisterBusiness userReg = new UserRegisterBusiness();
+        DataSet ds;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //ShowArticleList();
@@ -22,8 +26,7 @@ namespace UM.UI
         /// </summary>
         private void ShowArticleList()
         {
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
-            DataSet ds;
+            //DataSet ds;
             string username = string.Empty;
             string title = string.Empty;
             string crDate = string.Empty;
@@ -114,9 +117,11 @@ namespace UM.UI
 
         private void DevidePage()
         {
-            UserRegisterBusiness userReg = new UserRegisterBusiness();
             int articelNumber = userReg.CountNumber();
             int pageNumber = 0;
+            int curPage = 0;
+            int prePage = 0;
+            int nextPage = 0;
             int x = articelNumber % 10;
             if (x > 0)
             {
@@ -126,38 +131,69 @@ namespace UM.UI
             {
                 pageNumber = articelNumber / 10;
             }
-            for (int j = 1; j <= pageNumber; j++)
-            {
-                PageDevisionhtml += "<a href=\"Index.aspx?pageid=" + j.ToString() + "\">" + j.ToString() + "</a>";
-            }
-            int curPage = 0;
+            
             if (Request.QueryString["pageid"] != null && userReg.ValidatePageId(Request.QueryString["pageid"]))
             {
                 curPage = Convert.ToInt32(Request.QueryString["pageid"]);
+                if (curPage == 1 && curPage == pageNumber)
+                {
+                    prePage = curPage;
+                    nextPage = curPage;
+                }
+                else if (curPage == 1 && curPage != pageNumber)
+                {
+                    prePage = curPage;
+                    nextPage = curPage + 1;
+                }
+                else if (curPage != 1 && curPage == pageNumber)
+                {
+                    prePage = curPage - 1;
+                    nextPage = curPage;
+                }
+                else
+                {
+                    prePage = curPage - 1;
+                    nextPage = curPage + 1;
+                }
             }
             else
             {
                 curPage = 1;
+                prePage = curPage;
+                nextPage = curPage;
             }
+
+            PageDevisionhtml.Append("<a href=\"Index.aspx?pageid=" + prePage.ToString() + "\">上一页</a>");
+            for (int j = 1; j <= pageNumber; j++)
+            {                
+                PageDevisionhtml.Append("<a href=\"Index.aspx?pageid=" + j.ToString() + "\">" + j.ToString() + "</a>");
+            }
+            PageDevisionhtml.Append("<a href=\"Index.aspx?pageid=" + nextPage.ToString() + "\">下一页</a>");
+
             int beginRowNumber = (curPage - 1) * 10 + 1;
             int endRowNumber = curPage * 10;
-            DataSet dsPageDevision = userReg.ShowPageDevision(beginRowNumber, endRowNumber);
-            for (int i = 0; i < dsPageDevision.Tables[0].Rows.Count; i++)
+            ShowArtList(beginRowNumber, endRowNumber);
+        }
+
+        public void ShowArtList(int beginRowNumber, int endRowNumber)
+        {
+            ds = userReg.ShowPageDevision(beginRowNumber, endRowNumber);
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                int articleId = Convert.ToInt32(dsPageDevision.Tables[0].Rows[i]["ArticleId"]);
-                string title = dsPageDevision.Tables[0].Rows[i]["Title"].ToString();
-                string crDate = dsPageDevision.Tables[0].Rows[i]["CreateDate"].ToString();
+                int articleId = Convert.ToInt32(ds.Tables[0].Rows[i]["ArticleId"]);
+                string title = ds.Tables[0].Rows[i]["Title"].ToString();
+                string crDate = ds.Tables[0].Rows[i]["CreateDate"].ToString();
                 string crYear = DateTime.Parse(crDate).Year.ToString();
                 string crMonth = DateTime.Parse(crDate).Month.ToString();
                 string month = userReg.ShowMonth(crMonth);
                 string crDay = DateTime.Parse(crDate).Day.ToString();
-                string typeName = dsPageDevision.Tables[0].Rows[i]["TypeName"].ToString();
-                string summary = dsPageDevision.Tables[0].Rows[i]["Summary"].ToString();
-                string author = dsPageDevision.Tables[0].Rows[i]["UserName"].ToString();
-                string typeId = dsPageDevision.Tables[0].Rows[i]["TypeId"].ToString();
+                string typeName = ds.Tables[0].Rows[i]["TypeName"].ToString();
+                string summary = ds.Tables[0].Rows[i]["Summary"].ToString();
+                string author = ds.Tables[0].Rows[i]["UserName"].ToString();
+                string typeId = ds.Tables[0].Rows[i]["TypeId"].ToString();
                 if (summary == "")
                 {
-                    string contents = dsPageDevision.Tables[0].Rows[i]["Contents"].ToString();
+                    string contents = ds.Tables[0].Rows[i]["Contents"].ToString();
                     contents = System.Text.RegularExpressions.Regex.Replace(contents, RegexConstant.Htmlmark, "");
                     if (contents.Length < 100)
                     {
@@ -170,7 +206,6 @@ namespace UM.UI
                         summary += "......";
                     }
                 }
-
                 ArticleListhtml.Append("<div class=\"r-content-d\">");
                 ArticleListhtml.Append("<div class=\"row row-marginb\">");
                 ArticleListhtml.Append("<div class=\"col-md-1 bt-padding r-time-d\">");
@@ -208,7 +243,6 @@ namespace UM.UI
                 ArticleListhtml.Append("</div>");
                 ArticleListhtml.Append("</div>");
             }
-
         }
     }
 }
