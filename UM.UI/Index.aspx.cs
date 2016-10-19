@@ -4,9 +4,6 @@ using System.Text;
 using UM.BusinessLogic;
 using UM.Utility;
 
-
-
-
 namespace UM.UI
 {
     public partial class Index : System.Web.UI.Page
@@ -21,7 +18,6 @@ namespace UM.UI
         {
             //ShowArticleList();
             //DevidePage();
-            PageDevision.DevidePage();
         }
 
 

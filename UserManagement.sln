@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.UI", "UM.UI\UM.UI.csproj", "{51F9C236-B62D-4811-8096-68AB116B5A6B}"
 EndProject
@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.BusinessLogic", "UM.Busi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.Test", "UM.Test\UM.Test.csproj", "{05DF1A40-4E56-445E-89B4-2215F8E76BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.Pager", "UM.Pager\UM.Pager.csproj", "{80188C6F-4632-4897-835B-14F81B5A4BA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.Pager", "UM.Pager\UM.Pager.csproj", "{AAA1200D-DA68-4C7D-A05D-4AA469F03507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{05DF1A40-4E56-445E-89B4-2215F8E76BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05DF1A40-4E56-445E-89B4-2215F8E76BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05DF1A40-4E56-445E-89B4-2215F8E76BF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAA1200D-DA68-4C7D-A05D-4AA469F03507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA1200D-DA68-4C7D-A05D-4AA469F03507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA1200D-DA68-4C7D-A05D-4AA469F03507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA1200D-DA68-4C7D-A05D-4AA469F03507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
