@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.BusinessLogic", "UM.Busi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.Test", "UM.Test\UM.Test.csproj", "{05DF1A40-4E56-445E-89B4-2215F8E76BF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UM.Pager", "UM.Pager\UM.Pager.csproj", "{80188C6F-4632-4897-835B-14F81B5A4BA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{05DF1A40-4E56-445E-89B4-2215F8E76BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05DF1A40-4E56-445E-89B4-2215F8E76BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05DF1A40-4E56-445E-89B4-2215F8E76BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80188C6F-4632-4897-835B-14F81B5A4BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
