@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageDevision.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UM.BusinessLogic\UM.BusinessLogic.csproj">
+      <Project>{9E14704E-A28A-4147-BA2C-8E43970C299A}</Project>
+      <Name>UM.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UM.Utility\UM.Utility.csproj">
+      <Project>{D44E9182-666D-407F-8850-9253B58A2FCB}</Project>
+      <Name>UM.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
