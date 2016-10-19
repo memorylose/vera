@@ -9,7 +9,7 @@ using UM.Utility;
 
 namespace UM.Pager
 {
-    class PageDevision : System.Web.UI.Page
+    public class PageDevision : System.Web.UI.Page
     {
         public StringBuilder ArticleListhtml = new StringBuilder();
         public StringBuilder PageDevisionhtml = new StringBuilder();
