@@ -20,10 +20,11 @@ namespace UM.UI
             int pageSize = 10;
             int beginRowNumber;
             int endRowNumber;
+            int articleNumber = userReg.CountNumber();
             string request = Request.QueryString["pageid"];
             string link = "<a href=\"Index.aspx?pageid=";
             PageDevision pageDev = new PageDevision();
-            PageDevisionhtml = pageDev.DevidePage(pageSize, request, link, out beginRowNumber, out endRowNumber);
+            PageDevisionhtml = pageDev.DevidePage(articleNumber, pageSize, request, link, out beginRowNumber, out endRowNumber);
             ShowArtList(beginRowNumber, endRowNumber);
         }
 

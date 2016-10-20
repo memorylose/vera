@@ -11,23 +11,23 @@ namespace UM.Pager
 {
     public class PageDevision : System.Web.UI.Page
     {
-        public StringBuilder DevidePage(int pageSize, string request, string link, out int beginRowNumber, out int endRowNumber)
+        public StringBuilder DevidePage(int articleNumber, int pageSize, string request, string link, out int beginRowNumber, out int endRowNumber)
         {
             UserRegisterBusiness userReg = new UserRegisterBusiness();
             StringBuilder PageDevisionhtml = new StringBuilder();
-            int articelNumber = userReg.CountNumber();
+            
             int pageNumber = 0;
             int curPage = 0;
             int prePage = 0;
             int nextPage = 0;
-            int x = articelNumber % pageSize;
+            int x = articleNumber % pageSize;
             if (x > 0)
             {
-                pageNumber = articelNumber / pageSize + 1;
+                pageNumber = articleNumber / pageSize + 1;
             }
             else if (x == 0)
             {
-                pageNumber = articelNumber / pageSize;
+                pageNumber = articleNumber / pageSize;
             }
 
             if (request != null && userReg.ValidatePageId(request))
