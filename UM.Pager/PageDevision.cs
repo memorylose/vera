@@ -11,31 +11,30 @@ namespace UM.Pager
 {
     public class PageDevision : System.Web.UI.Page
     {
-        public StringBuilder ArticleListhtml = new StringBuilder();
-        public StringBuilder PageDevisionhtml = new StringBuilder();
         UserRegisterBusiness userReg = new UserRegisterBusiness();
         DataSet ds;
 
-        public void DevidePage()
+        public void DevidePage(int pageSize, string request, string link)
         {
+            StringBuilder PageDevisionhtml = new StringBuilder();
             int articelNumber = userReg.CountNumber();
             int pageNumber = 0;
             int curPage = 0;
             int prePage = 0;
             int nextPage = 0;
-            int x = articelNumber % 10;
+            int x = articelNumber % pageSize;
             if (x > 0)
             {
-                pageNumber = articelNumber / 10 + 1;
+                pageNumber = articelNumber / pageSize + 1;
             }
             else if (x == 0)
             {
-                pageNumber = articelNumber / 10;
+                pageNumber = articelNumber / pageSize;
             }
 
-            if (Request.QueryString["pageid"] != null && userReg.ValidatePageId(Request.QueryString["pageid"]))
+            if (request != null && userReg.ValidatePageId(request))
             {
-                curPage = Convert.ToInt32(Request.QueryString["pageid"]);
+                curPage = Convert.ToInt32(request);
                 if (curPage == 1 && curPage == pageNumber)
                 {
                     prePage = curPage;
@@ -61,23 +60,31 @@ namespace UM.Pager
             {
                 curPage = 1;
                 prePage = curPage;
-                nextPage = curPage;
+                if (pageNumber > 1)
+                {
+                    nextPage = curPage + 1;
+                }
+                else
+                {
+                    nextPage = curPage;
+                }
             }
 
-            PageDevisionhtml.Append("<a href=\"Index.aspx?pageid=" + prePage.ToString() + "\">上一页</a>");
+            PageDevisionhtml.Append(link + prePage.ToString() + "\">上一页</a>");
             for (int j = 1; j <= pageNumber; j++)
             {
-                PageDevisionhtml.Append("<a href=\"Index.aspx?pageid=" + j.ToString() + "\">" + j.ToString() + "</a>");
+                PageDevisionhtml.Append(link + j.ToString() + "\">" + j.ToString() + "</a>");
             }
-            PageDevisionhtml.Append("<a href=\"Index.aspx?pageid=" + nextPage.ToString() + "\">下一页</a>");
+            PageDevisionhtml.Append(link + nextPage.ToString() + "\">下一页</a>");
 
-            int beginRowNumber = (curPage - 1) * 10 + 1;
-            int endRowNumber = curPage * 10;
+            int beginRowNumber = (curPage - 1) * pageSize + 1;
+            int endRowNumber = curPage * pageSize;
             ShowArtList(beginRowNumber, endRowNumber);
         }
 
         public void ShowArtList(int beginRowNumber, int endRowNumber)
         {
+            StringBuilder ArticleListhtml = new StringBuilder();
             ds = userReg.ShowPageDevision(beginRowNumber, endRowNumber);
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
